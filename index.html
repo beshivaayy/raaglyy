@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="RAAGLY — Sound Beyond Silence. Explore 27 classical raags through time, geometry and sound.">
+    <title>RAAGLY — Sound Beyond Silence</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Full-screen Background System -->
+    <div id="bg-viewport">
+        <div class="bg-layer active" id="bg-1"></div>
+        <div class="bg-layer" id="bg-2"></div>
+        <div class="bg-overlay"></div>
+        <div class="texture-overlay"></div>
+    </div>
+
+    <!-- Side Navigation Drawer -->
+    <aside id="side-archive" class="side-nav">
+        <div class="nav-header">
+            <div class="nav-logo">
+                <span class="logo-mark">ॐ</span>
+                <div class="logo-text">
+                    <h1>RAAGLY</h1>
+                    <small>SOUND BEYOND SILENCE</small>
+                </div>
+            </div>
+            <button id="close-nav" class="icon-btn">✕</button>
+        </div>
+        <nav class="nav-content">
+            <div class="nav-group">
+                <label>EXPLORE</label>
+                <ul id="archive-list">
+                    <!-- JS populated -->
+                </ul>
+            </div>
+            <div class="nav-group">
+                <label>KNOWLEDGE</label>
+                <a href="#">Vedic Sound Theory</a>
+                <a href="#">Sacred Geometry</a>
+                <a href="#">Nada Yoga</a>
+            </div>
+        </nav>
+    </aside>
+
+    <div class="site-shell">
+        <header class="top-bar">
+            <button id="open-nav" class="menu-trigger">
+                <span class="burger"></span>
+                <label>ARCHIVE</label>
+            </button>
+            <div class="brand-center serif">RAAGLY</div>
+            <div class="header-right">
+                <span id="status-dot"></span>
+                <small id="status-text">CONNECTING</small>
+            </div>
+        </header>
+
+        <main class="main-stage">
+            <!-- Left Side: Visual -->
+            <section class="visual-area">
+                <div class="mandala-wrapper">
+                    <svg id="mandala-svg" viewBox="0 0 400 400">
+                        <defs>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <g id="mandala-layers">
+                            <!-- JS Generated Yantra Layers -->
+                        </g>
+                        <circle cx="200" cy="200" r="35" fill="var(--ink)" stroke="var(--gold)" stroke-width="1.5" />
+                        <text x="200" y="212" text-anchor="middle" fill="var(--gold)" font-family="serif" font-size="28" filter="url(#glow)">ॐ</text>
+                    </svg>
+                </div>
+            </section>
+
+            <!-- Right Side: Content -->
+            <section class="content-area">
+                <div class="raag-meta">
+                    <span class="prahar-label" id="raag-prahar">...</span>
+                    <h2 class="raag-title" id="raag-name">Loading...</h2>
+                    <h3 class="raag-hindi devanagari" id="raag-hindi">...</h3>
+                    
+                    <p class="raag-description" id="raag-desc">...</p>
+                    
+                    <div class="associations-box">
+                        <label>TRADITIONALLY ASSOCIATED WITH</label>
+                        <ul id="raag-associations" class="assoc-list">
+                            <!-- JS populated -->
+                        </ul>
+                    </div>
+
+                    <p class="disclaimer">
+                        These associations reflect traditional musical/therapeutic beliefs and are not a substitute for professional medical or financial advice.
+                    </p>
+                </div>
+
+                <!-- Audio Interface -->
+                <div class="player-interface">
+                    <div class="progress-container">
+                        <div class="time-row">
+                            <span id="time-cur">0:00</span>
+                            <span id="time-dur">0:00</span>
+                        </div>
+                        <div class="progress-bar" id="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="control-row">
+                        <button id="prev-btn" class="ctrl-btn" aria-label="Previous">⟪</button>
+                        <button id="play-btn" class="ctrl-btn main-play" aria-label="Play">▶</button>
+                        <button id="next-btn" class="ctrl-btn" aria-label="Next">⟫</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Selector Rail -->
+        <footer class="bottom-rail">
+            <div class="rail-container" id="selector-rail">
+                <!-- JS Populated -->
+            </div>
+        </footer>
+    </div>
+
+    <!-- Hidden YouTube Container -->
+    <div id="youtube-player" class="hidden-yt"></div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+</html>
