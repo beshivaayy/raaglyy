@@ -2,144 +2,406 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="RAAGLY — Sound Beyond Silence. Explore 27 classical raags through time, geometry and sound.">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="RAAGLY — Sound Beyond Silence. Explore 27 classical raags through time, geometry and sound."
+    >
+
+    <meta name="theme-color" content="#0d0b10">
+
     <title>RAAGLY — Sound Beyond Silence</title>
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
-    
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&family=Noto+Serif+Devanagari:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- Full-screen Background System -->
-    <div id="bg-viewport">
+    <!-- Background System -->
+    <div id="bg-viewport" aria-hidden="true">
         <div class="bg-layer active" id="bg-1"></div>
         <div class="bg-layer" id="bg-2"></div>
         <div class="bg-overlay"></div>
         <div class="texture-overlay"></div>
     </div>
 
-    <!-- Side Navigation Drawer -->
-    <aside id="side-archive" class="side-nav">
+    <!-- Side Archive -->
+    <aside
+        id="side-archive"
+        class="side-nav"
+        aria-hidden="true"
+        aria-label="Raag archive"
+    >
         <div class="nav-header">
+
             <div class="nav-logo">
-                <span class="logo-mark">ॐ</span>
+                <span class="logo-mark" aria-hidden="true">ॐ</span>
+
                 <div class="logo-text">
                     <h1>RAAGLY</h1>
                     <small>SOUND BEYOND SILENCE</small>
                 </div>
             </div>
-            <button id="close-nav" class="icon-btn">✕</button>
+
+            <button
+                id="close-nav"
+                class="icon-btn"
+                type="button"
+                aria-label="Close archive"
+            >
+                ×
+            </button>
         </div>
+
         <nav class="nav-content">
+
             <div class="nav-group">
                 <label>EXPLORE</label>
-                <ul id="archive-list">
-                    <!-- JS populated -->
-                </ul>
+                <ul id="archive-list"></ul>
             </div>
-            <div class="nav-group">
+
+            <div class="nav-group knowledge">
                 <label>KNOWLEDGE</label>
-                <a href="#">Vedic Sound Theory</a>
-                <a href="#">Sacred Geometry</a>
-                <a href="#">Nada Yoga</a>
+
+                <a href="#" data-knowledge="vedic">
+                    Vedic Sound Theory
+                </a>
+
+                <a href="#" data-knowledge="geometry">
+                    Sacred Geometry
+                </a>
+
+                <a href="#" data-knowledge="nada">
+                    Nada Yoga
+                </a>
             </div>
+
         </nav>
     </aside>
 
+    <!-- Drawer Backdrop -->
+    <button
+        id="drawer-backdrop"
+        class="drawer-backdrop"
+        type="button"
+        aria-label="Close archive"
+    ></button>
+
+    <!-- Main Site -->
     <div class="site-shell">
+
+        <!-- Header -->
         <header class="top-bar">
-            <button id="open-nav" class="menu-trigger">
-                <span class="burger"></span>
-                <label>ARCHIVE</label>
+
+            <button
+                id="open-nav"
+                class="menu-trigger"
+                type="button"
+                aria-label="Open raag archive"
+                aria-controls="side-archive"
+            >
+                <span class="burger" aria-hidden="true"></span>
+                <span>ARCHIVE</span>
             </button>
-            <div class="brand-center serif">RAAGLY</div>
-            <div class="header-right">
-                <span id="status-dot"></span>
-                <small id="status-text">CONNECTING</small>
+
+            <div class="brand-center serif">
+                RAAGLY
             </div>
+
+            <div class="header-right">
+                <span id="status-dot" aria-hidden="true"></span>
+
+                <small id="status-text">
+                    INITIALIZING
+                </small>
+            </div>
+
         </header>
 
+        <!-- Main -->
         <main class="main-stage">
-            <!-- Left Side: Visual -->
-            <section class="visual-area">
+
+            <!-- Visual -->
+            <section
+                class="visual-area"
+                aria-label="Raag visualization"
+            >
+
+                <div class="visual-kicker">
+                    <span id="raag-number">01</span>
+                    <span class="visual-line"></span>
+                    <span>THE GEOMETRY OF SOUND</span>
+                </div>
+
                 <div class="mandala-wrapper">
-                    <svg id="mandala-svg" viewBox="0 0 400 400">
+
+                    <svg
+                        id="mandala-svg"
+                        viewBox="0 0 400 400"
+                        role="img"
+                        aria-label="Animated sacred geometry visualization"
+                    >
+
                         <defs>
-                            <filter id="glow">
-                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+
+                            <filter
+                                id="glow"
+                                x="-50%"
+                                y="-50%"
+                                width="200%"
+                                height="200%"
+                            >
+                                <feGaussianBlur
+                                    stdDeviation="3"
+                                    result="coloredBlur"
+                                />
+
                                 <feMerge>
-                                    <feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
                                 </feMerge>
                             </filter>
+
+                            <radialGradient id="coreGradient">
+                                <stop
+                                    offset="0%"
+                                    stop-color="#c5a059"
+                                    stop-opacity="0.18"
+                                />
+
+                                <stop
+                                    offset="100%"
+                                    stop-color="#c5a059"
+                                    stop-opacity="0"
+                                />
+                            </radialGradient>
+
                         </defs>
-                        <g id="mandala-layers">
-                            <!-- JS Generated Yantra Layers -->
-                        </g>
-                        <circle cx="200" cy="200" r="35" fill="var(--ink)" stroke="var(--gold)" stroke-width="1.5" />
-                        <text x="200" y="212" text-anchor="middle" fill="var(--gold)" font-family="serif" font-size="28" filter="url(#glow)">ॐ</text>
+
+                        <circle
+                            cx="200"
+                            cy="200"
+                            r="95"
+                            fill="url(#coreGradient)"
+                        />
+
+                        <g id="mandala-layers"></g>
+
+                        <circle
+                            cx="200"
+                            cy="200"
+                            r="35"
+                            fill="var(--ink)"
+                            stroke="var(--gold)"
+                            stroke-width="1.5"
+                        />
+
+                        <text
+                            x="200"
+                            y="212"
+                            text-anchor="middle"
+                            fill="var(--gold)"
+                            font-family="'Noto Serif Devanagari', serif"
+                            font-size="28"
+                            filter="url(#glow)"
+                        >
+                            ॐ
+                        </text>
+
                     </svg>
+
                 </div>
+
+                <div class="visual-caption">
+                    <span>RAAGLY</span>
+                    <span>27</span>
+                </div>
+
             </section>
 
-            <!-- Right Side: Content -->
-            <section class="content-area">
+            <!-- Content -->
+            <section
+                class="content-area"
+                aria-live="polite"
+            >
+
                 <div class="raag-meta">
-                    <span class="prahar-label" id="raag-prahar">...</span>
-                    <h2 class="raag-title" id="raag-name">Loading...</h2>
-                    <h3 class="raag-hindi devanagari" id="raag-hindi">...</h3>
-                    
-                    <p class="raag-description" id="raag-desc">...</p>
-                    
+
+                    <span
+                        class="prahar-label"
+                        id="raag-prahar"
+                    >
+                        —
+                    </span>
+
+                    <h2
+                        class="raag-title"
+                        id="raag-name"
+                    >
+                        —
+                    </h2>
+
+                    <h3
+                        class="raag-hindi devanagari"
+                        id="raag-hindi"
+                    >
+                        —
+                    </h3>
+
+                    <p
+                        class="raag-description"
+                        id="raag-desc"
+                    >
+                        —
+                    </p>
+
                     <div class="associations-box">
-                        <label>TRADITIONALLY ASSOCIATED WITH</label>
-                        <ul id="raag-associations" class="assoc-list">
-                            <!-- JS populated -->
-                        </ul>
+
+                        <label>
+                            TRADITIONALLY ASSOCIATED WITH
+                        </label>
+
+                        <ul
+                            id="raag-associations"
+                            class="assoc-list"
+                        ></ul>
+
                     </div>
 
                     <p class="disclaimer">
-                        These associations reflect traditional musical/therapeutic beliefs and are not a substitute for professional medical or financial advice.
+                        These associations reflect traditional
+                        musical and cultural beliefs and are not
+                        a substitute for professional medical or
+                        financial advice.
                     </p>
+
                 </div>
 
-                <!-- Audio Interface -->
+                <!-- Audio -->
                 <div class="player-interface">
+
+                    <div class="player-status">
+                        <span class="player-status-dot"></span>
+                        <span id="player-label">
+                            READY
+                        </span>
+                    </div>
+
                     <div class="progress-container">
+
                         <div class="time-row">
                             <span id="time-cur">0:00</span>
                             <span id="time-dur">0:00</span>
                         </div>
-                        <div class="progress-bar" id="progress-bar">
-                            <div class="progress-fill" id="progress-fill"></div>
-                        </div>
+
+                        <button
+                            id="progress-bar"
+                            class="progress-bar"
+                            type="button"
+                            aria-label="Seek through track"
+                        >
+                            <span
+                                id="progress-fill"
+                                class="progress-fill"
+                            ></span>
+                        </button>
+
                     </div>
 
                     <div class="control-row">
-                        <button id="prev-btn" class="ctrl-btn" aria-label="Previous">⟪</button>
-                        <button id="play-btn" class="ctrl-btn main-play" aria-label="Play">▶</button>
-                        <button id="next-btn" class="ctrl-btn" aria-label="Next">⟫</button>
+
+                        <button
+                            id="prev-btn"
+                            class="ctrl-btn"
+                            type="button"
+                            aria-label="Previous raag"
+                        >
+                            ⟪
+                        </button>
+
+                        <button
+                            id="play-btn"
+                            class="ctrl-btn main-play"
+                            type="button"
+                            aria-label="Play"
+                            disabled
+                        >
+                            ▶
+                        </button>
+
+                        <button
+                            id="next-btn"
+                            class="ctrl-btn"
+                            type="button"
+                            aria-label="Next raag"
+                        >
+                            ⟫
+                        </button>
+
                     </div>
+
+                    <p
+                        id="player-message"
+                        class="player-message"
+                        aria-live="polite"
+                    >
+                        Preparing the listening experience…
+                    </p>
+
                 </div>
+
             </section>
+
         </main>
 
-        <!-- Selector Rail -->
+        <!-- Bottom Rail -->
         <footer class="bottom-rail">
-            <div class="rail-container" id="selector-rail">
-                <!-- JS Populated -->
+
+            <div
+                class="rail-header"
+                aria-hidden="true"
+            >
+                <span>RAAGS</span>
+                <span>01 — 27</span>
             </div>
+
+            <div
+                class="rail-container"
+                id="selector-rail"
+                role="list"
+                aria-label="Select a raag"
+            ></div>
+
         </footer>
+
     </div>
 
-    <!-- Hidden YouTube Container -->
-    <div id="youtube-player" class="hidden-yt"></div>
+    <!-- Hidden YouTube Player -->
+    <div
+        id="youtube-player"
+        class="hidden-yt"
+        aria-hidden="true"
+    ></div>
 
+    <!-- YouTube API -->
     <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="script.js"></script>
+
+    <!-- Application -->
+    <script src="script.js" defer></script>
+
 </body>
 </html>
