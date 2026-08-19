@@ -492,6 +492,8 @@ function initUI() {
 
     renderArchive();
 
+    initOrrery();
+
     bindEvents();
 
     loadRaag(0, {
@@ -504,6 +506,7 @@ function initUI() {
     );
 
     startProgressLoop();
+
 }
 
 
@@ -565,6 +568,7 @@ function bindEvents() {
                     link.dataset.knowledge;
 
                 showKnowledgeMessage(topic);
+
             }
         );
 
@@ -597,6 +601,7 @@ function initializeYouTube() {
         createYouTubePlayer();
 
         return;
+
     }
 
     /*
@@ -628,6 +633,7 @@ function initializeYouTube() {
         }
 
     }, 10000);
+
 }
 
 
@@ -671,6 +677,7 @@ function createYouTubePlayer() {
                     enablejsapi: 1,
 
                     origin: YOUTUBE_ORIGIN
+
                 },
 
                 events: {
@@ -683,7 +690,9 @@ function createYouTubePlayer() {
 
                     onError:
                         handlePlayerError
+
                 }
+
             }
         );
 
@@ -702,7 +711,9 @@ function createYouTubePlayer() {
         setPlayerMessage(
             "YouTube could not initialize. You can still explore the raag archive."
         );
+
     }
+
 }
 
 
@@ -726,6 +737,7 @@ function handlePlayerReady() {
             "Player configuration warning:",
             error
         );
+
     }
 
     $("#play-btn").disabled = false;
@@ -760,7 +772,9 @@ function handlePlayerReady() {
             "Initial playlist cue failed:",
             error
         );
+
     }
+
 }
 
 
@@ -882,6 +896,760 @@ function handlePlayerError(event) {
     );
 
     $("#play-btn").disabled = true;
+
+}
+
+
+/* ============================================================
+   ORRERY — ORBITAL RAAG NAVIGATION
+============================================================ */
+
+const orrery = {
+
+    initialized: false,
+
+    rotation: 0,
+
+    velocity: 0,
+
+    target: null,
+
+    active: 0,
+
+    drag: false,
+
+    moved: false,
+
+    lastX: 0,
+
+    lastTime: 0,
+
+    pointerX: 0,
+
+    pointerY: 0,
+
+    pointerInside: false,
+
+    raf: 0,
+
+    lastFrame: 0,
+
+    iris: {
+
+        running: false,
+
+        start: 0,
+
+        target: 0,
+
+        duration: 720
+
+    }
+
+};
+
+const ORRERY_FRONT = Math.PI / 2;
+
+const ORRERY_AUTO = 0.16;
+
+const ORRERY_STEP = () =>
+    (Math.PI * 2) / raagData.length;
+
+
+function orreryWrap(v) {
+
+    const tau = Math.PI * 2;
+
+    while (v > Math.PI) v -= tau;
+
+    while (v < -Math.PI) v += tau;
+
+    return v;
+
+}
+
+
+function orreryEaseOutCubic(t) {
+
+    return 1 - Math.pow(1 - t, 3);
+
+}
+
+
+function initOrrery() {
+
+    const root = $("#orrery");
+
+    const plane = $("#orrery-plane");
+
+    const planetsRoot = $("#orrery-planets");
+
+    if (
+        !root ||
+        !plane ||
+        !planetsRoot ||
+        orrery.initialized
+    ) return;
+
+    orrery.initialized = true;
+
+    planetsRoot.replaceChildren();
+
+    raagData.forEach((raag, index) => {
+
+        const button =
+            document.createElement("button");
+
+        button.type = "button";
+
+        button.className =
+            "orrery-planet";
+
+        button.dataset.index =
+            String(index);
+
+        button.setAttribute(
+            "aria-label",
+            `Select Raag ${raag.name}`
+        );
+
+        button.style.backgroundImage =
+            raag.bg
+                ? `url("${raag.bg}")`
+                : "none";
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                if (orrery.moved) {
+
+                    orrery.moved = false;
+
+                    return;
+
+                }
+
+                seekOrreryPlanet(index);
+
+                loadRaag(
+                    index,
+                    {
+                        play: playerReady
+                    }
+                );
+
+            }
+        );
+
+        button.addEventListener(
+            "pointerenter",
+            () => {
+
+                if (!orrery.drag)
+                    seekOrreryPlanet(index);
+
+            }
+        );
+
+        planetsRoot.appendChild(button);
+
+    });
+
+    root.addEventListener(
+        "pointerenter",
+        e => {
+
+            orrery.pointerInside = true;
+
+            orrery.pointerX = e.clientX;
+
+            orrery.pointerY = e.clientY;
+
+        }
+    );
+
+    root.addEventListener(
+        "pointerleave",
+        () => {
+
+            orrery.pointerInside = false;
+
+        }
+    );
+
+    root.addEventListener(
+        "pointerdown",
+        e => {
+
+            orrery.drag = true;
+
+            orrery.moved = false;
+
+            orrery.lastX =
+                e.clientX;
+
+            orrery.lastTime =
+                performance.now();
+
+            orrery.velocity = 0;
+
+            root.classList.add(
+                "is-dragging"
+            );
+
+            root.setPointerCapture?.(
+                e.pointerId
+            );
+
+        }
+    );
+
+    root.addEventListener(
+        "pointermove",
+        e => {
+
+            orrery.pointerX =
+                e.clientX;
+
+            orrery.pointerY =
+                e.clientY;
+
+            if (!orrery.drag)
+                return;
+
+            const now =
+                performance.now();
+
+            const dx =
+                e.clientX -
+                orrery.lastX;
+
+            const dt =
+                Math.max(
+                    1,
+                    now -
+                    orrery.lastTime
+                );
+
+            if (Math.abs(dx) > 2)
+                orrery.moved = true;
+
+            orrery.rotation +=
+                dx * 0.006;
+
+            orrery.velocity =
+                (dx * 0.006) /
+                (dt / 1000);
+
+            orrery.target = null;
+
+            orrery.lastX =
+                e.clientX;
+
+            orrery.lastTime =
+                now;
+
+        }
+    );
+
+    const release = e => {
+
+        if (!orrery.drag)
+            return;
+
+        orrery.drag = false;
+
+        root.classList.remove(
+            "is-dragging"
+        );
+
+        root.releasePointerCapture?.(
+            e.pointerId
+        );
+
+    };
+
+    root.addEventListener(
+        "pointerup",
+        release
+    );
+
+    root.addEventListener(
+        "pointercancel",
+        release
+    );
+
+    orrery.rotation =
+        ORRERY_FRONT;
+
+    orrery.active = 0;
+
+    const reduced =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+    if (reduced) {
+
+        renderOrrery(true);
+
+        return;
+
+    }
+
+    orrery.lastFrame =
+        performance.now();
+
+    orrery.raf =
+        requestAnimationFrame(
+            orreryFrame
+        );
+
+}
+
+
+function seekOrreryPlanet(index) {
+
+    const step =
+        ORRERY_STEP();
+
+    const target =
+        orrery.rotation +
+        orreryWrap(
+            ORRERY_FRONT -
+            index * step -
+            orrery.rotation
+        );
+
+    orrery.target =
+        target;
+
+    orrery.velocity =
+        0;
+
+}
+
+
+function updateOrrerySelection(
+    index,
+    { iris = true } = {}
+) {
+
+    const planets =
+        $$(".orrery-planet");
+
+    if (!planets.length)
+        return;
+
+    planets.forEach(
+        (planet, i) => {
+
+            planet.classList.toggle(
+                "is-active",
+                i === index
+            );
+
+        }
+    );
+
+    if (
+        index === orrery.active &&
+        !iris
+    ) return;
+
+    orrery.active =
+        index;
+
+    const base =
+        $("#orrery-lens-base");
+
+    const irisLayer =
+        $("#orrery-lens-iris");
+
+    if (!base || !irisLayer)
+        return;
+
+    const photo =
+        raagData[index]?.bg || "";
+
+    if (
+        !iris ||
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+
+        base.style.backgroundImage =
+            photo
+                ? `url("${photo}")`
+                : "none";
+
+        irisLayer.style.backgroundImage =
+            "none";
+
+        irisLayer.style.clipPath =
+            "circle(0% at 50% 50%)";
+
+        return;
+
+    }
+
+    irisLayer.style.backgroundImage =
+        photo
+            ? `url("${photo}")`
+            : "none";
+
+    irisLayer.style.clipPath =
+        "circle(0% at 50% 50%)";
+
+    orrery.iris.running =
+        true;
+
+    orrery.iris.start =
+        performance.now();
+
+    orrery.iris.target =
+        index;
+
+}
+
+
+function renderOrrery(
+    reduced = false
+) {
+
+    const plane =
+        $("#orrery-plane");
+
+    const planets =
+        $$(".orrery-planet");
+
+    const indexReadout =
+        $("#orrery-index");
+
+    const degreeReadout =
+        $("#orrery-degree");
+
+    if (
+        !plane ||
+        !planets.length
+    ) return;
+
+    const rect =
+        plane.getBoundingClientRect();
+
+    const Rx =
+        rect.width * 0.40;
+
+    const Ry =
+        rect.height * 0.33;
+
+    const step =
+        ORRERY_STEP();
+
+    let closest = 0;
+
+    let closestDistance =
+        Infinity;
+
+    planets.forEach(
+        (planet, i) => {
+
+            const angle =
+                orrery.rotation +
+                i * step;
+
+            const s =
+                Math.sin(angle);
+
+            const c =
+                Math.cos(angle);
+
+            const x =
+                c * Rx;
+
+            const y =
+                s * Ry;
+
+            const depth =
+                (s + 1) / 2;
+
+            const scale =
+                0.60 +
+                depth * 0.66;
+
+            const opacity =
+                0.34 +
+                depth * 0.66;
+
+            const distance =
+                Math.abs(
+                    orreryWrap(
+                        angle -
+                        ORRERY_FRONT
+                    )
+                );
+
+            planet.style.transform =
+                `translate3d(calc(-50% + ${x}px), calc(-50% + ${y}px), 0) scale(${scale})`;
+
+            planet.style.opacity =
+                String(opacity);
+
+            planet.style.zIndex =
+                String(
+                    Math.round(
+                        depth * 100
+                    )
+                );
+
+            if (
+                distance <
+                closestDistance
+            ) {
+
+                closestDistance =
+                    distance;
+
+                closest =
+                    i;
+
+            }
+
+        }
+    );
+
+    if (
+        closest !==
+        orrery.active
+    ) {
+
+        orrery.active =
+            closest;
+
+        updateOrrerySelection(
+            closest,
+            {
+                iris: !reduced
+            }
+        );
+
+    }
+
+    if (reduced) {
+
+        plane.style.transform =
+            "rotateX(0deg) rotateY(0deg)";
+
+    } else {
+
+        const root =
+            $("#orrery");
+
+        const r =
+            root?.getBoundingClientRect();
+
+        let rx = 0;
+
+        let ry = 0;
+
+        if (
+            r &&
+            orrery.pointerInside
+        ) {
+
+            const nx =
+                (orrery.pointerX -
+                    r.left) /
+                r.width -
+                0.5;
+
+            const ny =
+                (orrery.pointerY -
+                    r.top) /
+                r.height -
+                0.5;
+
+            rx =
+                -ny * 13;
+
+            ry =
+                nx * 13;
+
+        }
+
+        plane.style.transform =
+            `rotateX(${rx}deg) rotateY(${ry}deg)`;
+
+    }
+
+    if (indexReadout) {
+
+        indexReadout.textContent =
+            `${String(
+                orrery.active + 1
+            ).padStart(2, "0")} / ${raagData.length}`;
+
+    }
+
+    if (degreeReadout) {
+
+        let deg =
+            (
+                (orrery.rotation %
+                    (Math.PI * 2)) /
+                (Math.PI * 2)
+            ) * 360;
+
+        if (deg < 0)
+            deg += 360;
+
+        degreeReadout.textContent =
+            `${String(
+                Math.round(deg)
+            ).padStart(3, "0")}°`;
+
+    }
+
+}
+
+
+function orreryFrame(now) {
+
+    const dt =
+        Math.min(
+            0.05,
+            Math.max(
+                0,
+                (now -
+                    orrery.lastFrame) /
+                1000
+            )
+        );
+
+    orrery.lastFrame =
+        now;
+
+    if (orrery.drag) {
+
+        // Pointer movement owns rotation while dragging.
+
+    } else if (
+        orrery.target !== null
+    ) {
+
+        orrery.rotation +=
+            (
+                orrery.target -
+                orrery.rotation
+            ) * 0.12;
+
+        if (
+            Math.abs(
+                orrery.target -
+                orrery.rotation
+            ) < 0.0005
+        ) {
+
+            orrery.rotation =
+                orrery.target;
+
+            orrery.target =
+                null;
+
+        }
+
+    } else {
+
+        orrery.rotation +=
+            ORRERY_AUTO * dt;
+
+        if (
+            Math.abs(
+                orrery.velocity
+            ) > 0.00001
+        ) {
+
+            orrery.rotation +=
+                orrery.velocity * dt;
+
+            orrery.velocity *=
+                Math.pow(
+                    0.9,
+                    dt * 60
+                );
+
+        }
+
+    }
+
+    renderOrrery(false);
+
+    const iris =
+        orrery.iris;
+
+    if (iris.running) {
+
+        const layer =
+            $("#orrery-lens-iris");
+
+        const base =
+            $("#orrery-lens-base");
+
+        if (layer && base) {
+
+            const progress =
+                Math.min(
+                    1,
+                    (
+                        now -
+                        iris.start
+                    ) /
+                    iris.duration
+                );
+
+            const radius =
+                72 *
+                orreryEaseOutCubic(
+                    progress
+                );
+
+            layer.style.clipPath =
+                `circle(${radius}% at 50% 50%)`;
+
+            if (progress >= 1) {
+
+                const photo =
+                    raagData[
+                        iris.target
+                    ]?.bg || "";
+
+                base.style.backgroundImage =
+                    photo
+                        ? `url("${photo}")`
+                        : "none";
+
+                layer.style.backgroundImage =
+                    "none";
+
+                layer.style.clipPath =
+                    "circle(0% at 50% 50%)";
+
+                iris.running =
+                    false;
+
+            }
+
+        }
+
+    }
+
+    orrery.raf =
+        requestAnimationFrame(
+            orreryFrame
+        );
+
 }
 
 
@@ -905,10 +1673,13 @@ function loadRaag(
         return;
     }
 
-    currentIndex = index;
+    currentIndex =
+        index;
 
     const data =
-        raagData[currentIndex];
+        raagData[
+            currentIndex
+        ];
 
 
     /* ---------------------------------------------
@@ -916,8 +1687,9 @@ function loadRaag(
     --------------------------------------------- */
 
     $("#raag-number").textContent =
-        String(currentIndex + 1)
-            .padStart(2, "0");
+        String(
+            currentIndex + 1
+        ).padStart(2, "0");
 
     $("#raag-name").textContent =
         `Raag ${data.name}`;
@@ -946,9 +1718,12 @@ function loadRaag(
         const li =
             document.createElement("li");
 
-        li.textContent = item;
+        li.textContent =
+            item;
 
-        assocList.appendChild(li);
+        assocList.appendChild(
+            li
+        );
 
     });
 
@@ -968,8 +1743,11 @@ function loadRaag(
         data.bg
     );
 
-    generateMandala(
-        data.complexity
+    updateOrrerySelection(
+        currentIndex,
+        {
+            iris: true
+        }
     );
 
 
@@ -1033,6 +1811,7 @@ function loadRaag(
 
     document.title =
         `Raag ${data.name} — RAAGLY`;
+
 }
 
 
@@ -1069,7 +1848,8 @@ function updateBackground(
     image.onload = () => {
 
         if (
-            requestId !== backgroundRequest
+            requestId !==
+            backgroundRequest
         ) {
             return;
         }
@@ -1077,9 +1857,14 @@ function updateBackground(
         next.style.backgroundImage =
             `url("${imageUrl}")`;
 
-        next.classList.add("active");
+        next.classList.add(
+            "active"
+        );
 
-        active.classList.remove("active");
+        active.classList.remove(
+            "active"
+        );
+
     };
 
     image.onerror = () => {
@@ -1091,7 +1876,9 @@ function updateBackground(
 
     };
 
-    image.src = imageUrl;
+    image.src =
+        imageUrl;
+
 }
 
 
@@ -1134,7 +1921,10 @@ function generateMandala(
 
         circle.setAttribute(
             "r",
-            String(65 + i * 35)
+            String(
+                65 +
+                i * 35
+            )
         );
 
         circle.setAttribute(
@@ -1157,13 +1947,15 @@ function generateMandala(
         circle.setAttribute(
             "opacity",
             String(
-                0.22 - i * 0.035
+                0.22 -
+                i * 0.035
             )
         );
 
         group.appendChild(
             circle
         );
+
     }
 
 
@@ -1215,154 +2007,165 @@ function generateMandala(
 
             opacity: 0.13
         }
+
     ];
 
 
-    configs.forEach(config => {
+    configs.forEach(
+        config => {
 
-        const layer =
-            svgElement("g");
-
-        layer.setAttribute(
-            "class",
-            `mandala-layer ${config.speed}`
-        );
-
-
-        for (
-            let i = 0;
-            i < config.count;
-            i++
-        ) {
-
-            const angle =
-                (i / config.count) * 360;
-
-            const groupItem =
+            const layer =
                 svgElement("g");
 
-            groupItem.setAttribute(
-                "transform",
-                `rotate(${angle} 200 200)`
+            layer.setAttribute(
+                "class",
+                `mandala-layer ${config.speed}`
             );
 
 
-            /*
-             * Petal / diamond
-             */
+            for (
+                let i = 0;
+                i < config.count;
+                i++
+            ) {
 
-            const diamond =
-                svgElement("path");
+                const angle =
+                    (
+                        i /
+                        config.count
+                    ) * 360;
 
-            const x =
-                200;
+                const groupItem =
+                    svgElement("g");
 
-            const y =
-                200 - config.radius;
-
-            const size = 10;
-
-
-            diamond.setAttribute(
-                "d",
-                `
-                M ${x} ${y - size}
-                L ${x + size} ${y}
-                L ${x} ${y + size}
-                L ${x - size} ${y}
-                Z
-                `
-            );
-
-            diamond.setAttribute(
-                "fill",
-                "none"
-            );
-
-            diamond.setAttribute(
-                "stroke",
-                "var(--accent)"
-            );
-
-            diamond.setAttribute(
-                "stroke-width",
-                "0.7"
-            );
-
-            diamond.setAttribute(
-                "opacity",
-                String(config.opacity)
-            );
+                groupItem.setAttribute(
+                    "transform",
+                    `rotate(${angle} 200 200)`
+                );
 
 
-            groupItem.appendChild(
-                diamond
-            );
+                /*
+                 * Petal / diamond
+                 */
 
+                const diamond =
+                    svgElement("path");
 
-            /*
-             * Inner connecting line
-             */
+                const x =
+                    200;
 
-            const line =
-                svgElement("line");
-
-            line.setAttribute(
-                "x1",
-                "200"
-            );
-
-            line.setAttribute(
-                "y1",
-                String(
+                const y =
                     200 -
-                    config.radius +
-                    size
-                )
-            );
+                    config.radius;
 
-            line.setAttribute(
-                "x2",
-                "200"
-            );
+                const size =
+                    10;
 
-            line.setAttribute(
-                "y2",
-                "200"
-            );
 
-            line.setAttribute(
-                "stroke",
-                "var(--accent)"
-            );
+                diamond.setAttribute(
+                    "d",
+                    `
+                    M ${x} ${y - size}
+                    L ${x + size} ${y}
+                    L ${x} ${y + size}
+                    L ${x - size} ${y}
+                    Z
+                    `
+                );
 
-            line.setAttribute(
-                "stroke-width",
-                "0.35"
-            );
+                diamond.setAttribute(
+                    "fill",
+                    "none"
+                );
 
-            line.setAttribute(
-                "opacity",
-                String(
-                    config.opacity * 0.35
-                )
-            );
+                diamond.setAttribute(
+                    "stroke",
+                    "var(--accent)"
+                );
 
-            groupItem.appendChild(
-                line
-            );
+                diamond.setAttribute(
+                    "stroke-width",
+                    "0.7"
+                );
 
-            layer.appendChild(
-                groupItem
+                diamond.setAttribute(
+                    "opacity",
+                    String(
+                        config.opacity
+                    )
+                );
+
+
+                groupItem.appendChild(
+                    diamond
+                );
+
+
+                /*
+                 * Inner connecting line
+                 */
+
+                const line =
+                    svgElement("line");
+
+                line.setAttribute(
+                    "x1",
+                    "200"
+                );
+
+                line.setAttribute(
+                    "y1",
+                    String(
+                        200 -
+                        config.radius +
+                        size
+                    )
+                );
+
+                line.setAttribute(
+                    "x2",
+                    "200"
+                );
+
+                line.setAttribute(
+                    "y2",
+                    "200"
+                );
+
+                line.setAttribute(
+                    "stroke",
+                    "var(--accent)"
+                );
+
+                line.setAttribute(
+                    "stroke-width",
+                    "0.35"
+                );
+
+                line.setAttribute(
+                    "opacity",
+                    String(
+                        config.opacity *
+                        0.35
+                    )
+                );
+
+                groupItem.appendChild(
+                    line
+                );
+
+                layer.appendChild(
+                    groupItem
+                );
+
+            }
+
+            group.appendChild(
+                layer
             );
 
         }
-
-        group.appendChild(
-            layer
-        );
-
-    });
+    );
 
 }
 
@@ -1379,6 +2182,7 @@ function svgElement(
         "http://www.w3.org/2000/svg",
         name
     );
+
 }
 
 
@@ -1397,7 +2201,9 @@ function renderRail() {
         (raag, index) => {
 
             const button =
-                document.createElement("button");
+                document.createElement(
+                    "button"
+                );
 
             button.type =
                 "button";
@@ -1415,11 +2221,15 @@ function renderRail() {
 
             button.innerHTML = `
                 <span class="num">
-                    ${String(index + 1).padStart(2, "0")}
+                    ${String(
+                        index + 1
+                    ).padStart(2, "0")}
                 </span>
 
                 <span class="name">
-                    ${escapeHTML(raag.name)}
+                    ${escapeHTML(
+                        raag.name
+                    )}
                 </span>
             `;
 
@@ -1430,7 +2240,8 @@ function renderRail() {
                     loadRaag(
                         index,
                         {
-                            play: playerReady
+                            play:
+                                playerReady
                         }
                     );
 
@@ -1445,6 +2256,7 @@ function renderRail() {
     );
 
     updateRail();
+
 }
 
 
@@ -1454,7 +2266,8 @@ function updateRail() {
         (item, index) => {
 
             const active =
-                index === currentIndex;
+                index ===
+                currentIndex;
 
             item.classList.toggle(
                 "active",
@@ -1471,6 +2284,7 @@ function updateRail() {
             if (active) {
 
                 item.scrollIntoView({
+
                     behavior:
                         window.matchMedia(
                             "(prefers-reduced-motion: reduce)"
@@ -1478,15 +2292,19 @@ function updateRail() {
                             ? "auto"
                             : "smooth",
 
-                    block: "nearest",
+                    block:
+                        "nearest",
 
-                    inline: "center"
+                    inline:
+                        "center"
+
                 });
 
             }
 
         }
     );
+
 }
 
 
@@ -1505,10 +2323,17 @@ function renderArchive() {
         (raag, index) => {
 
             const li =
-                document.createElement("li");
+                document.createElement(
+                    "li"
+                );
 
             li.textContent =
-                `${String(index + 1).padStart(2, "0")} — Raag ${raag.name}`;
+                `${String(
+                    index + 1
+                ).padStart(
+                    2,
+                    "0"
+                )} — Raag ${raag.name}`;
 
             li.dataset.index =
                 String(index);
@@ -1520,7 +2345,8 @@ function renderArchive() {
                     loadRaag(
                         index,
                         {
-                            play: playerReady
+                            play:
+                                playerReady
                         }
                     );
 
@@ -1537,6 +2363,7 @@ function renderArchive() {
     );
 
     updateArchive();
+
 }
 
 
@@ -1546,12 +2373,14 @@ function updateArchive() {
         (item, index) => {
 
             item.style.color =
-                index === currentIndex
+                index ===
+                currentIndex
                     ? "var(--accent)"
                     : "";
 
         }
     );
+
 }
 
 
@@ -1571,6 +2400,7 @@ function togglePlay() {
         );
 
         return;
+
     }
 
     try {
@@ -1593,21 +2423,26 @@ function togglePlay() {
         );
 
     }
+
 }
 
 
 function nextRaag() {
 
     const next =
-        (currentIndex + 1)
-        % raagData.length;
+        (
+            currentIndex + 1
+        ) %
+        raagData.length;
 
     loadRaag(
         next,
         {
-            play: playerReady
+            play:
+                playerReady
         }
     );
+
 }
 
 
@@ -1618,15 +2453,17 @@ function prevRaag() {
             currentIndex -
             1 +
             raagData.length
-        )
-        % raagData.length;
+        ) %
+        raagData.length;
 
     loadRaag(
         previous,
         {
-            play: playerReady
+            play:
+                playerReady
         }
     );
+
 }
 
 
@@ -1639,9 +2476,12 @@ function syncPlaylistIndex() {
     if (
         !playerReady ||
         !player ||
-        typeof player.getPlaylistIndex !== "function"
+        typeof player.getPlaylistIndex !==
+            "function"
     ) {
+
         return;
+
     }
 
     try {
@@ -1655,7 +2495,8 @@ function syncPlaylistIndex() {
             index !== currentIndex
         ) {
 
-            currentIndex = index;
+            currentIndex =
+                index;
 
             loadRaag(
                 index,
@@ -1672,7 +2513,9 @@ function syncPlaylistIndex() {
             "Playlist sync failed:",
             error
         );
+
     }
+
 }
 
 
@@ -1683,7 +2526,11 @@ function syncPlaylistIndex() {
 function startProgressLoop() {
 
     if (progressTimer) {
-        clearInterval(progressTimer);
+
+        clearInterval(
+            progressTimer
+        );
+
     }
 
     progressTimer =
@@ -1691,6 +2538,7 @@ function startProgressLoop() {
             updateProgress,
             250
         );
+
 }
 
 
@@ -1701,7 +2549,9 @@ function updateProgress() {
         !player ||
         !isPlaying
     ) {
+
         return;
+
     }
 
     try {
@@ -1716,7 +2566,9 @@ function updateProgress() {
             !duration ||
             duration <= 0
         ) {
+
             return;
+
         }
 
         const percentage =
@@ -1724,7 +2576,10 @@ function updateProgress() {
                 100,
                 Math.max(
                     0,
-                    (current / duration) * 100
+                    (
+                        current /
+                        duration
+                    ) * 100
                 )
             );
 
@@ -1742,11 +2597,15 @@ function updateProgress() {
 
         $("#time-cur")
             .textContent =
-            formatTime(current);
+            formatTime(
+                current
+            );
 
         $("#time-dur")
             .textContent =
-            formatTime(duration);
+            formatTime(
+                duration
+            );
 
     } catch (error) {
 
@@ -1764,7 +2623,8 @@ function resetProgress() {
 
     $("#progress-fill")
         .style
-        .width = "0%";
+        .width =
+        "0%";
 
     $("#progress-bar")
         .style
@@ -1774,10 +2634,13 @@ function resetProgress() {
         );
 
     $("#time-cur")
-        .textContent = "0:00";
+        .textContent =
+        "0:00";
 
     $("#time-dur")
-        .textContent = "0:00";
+        .textContent =
+        "0:00";
+
 }
 
 
@@ -1787,7 +2650,9 @@ function seek(event) {
         !playerReady ||
         !player
     ) {
+
         return;
+
     }
 
     const rect =
@@ -1803,7 +2668,8 @@ function seek(event) {
             1,
             Math.max(
                 0,
-                x / rect.width
+                x /
+                rect.width
             )
         );
 
@@ -1818,7 +2684,8 @@ function seek(event) {
         ) {
 
             player.seekTo(
-                ratio * duration,
+                ratio *
+                duration,
                 true
             );
 
@@ -1830,7 +2697,9 @@ function seek(event) {
             "Seek failed:",
             error
         );
+
     }
+
 }
 
 
@@ -1843,10 +2712,14 @@ function formatTime(
 ) {
 
     if (
-        !Number.isFinite(seconds) ||
+        !Number.isFinite(
+            seconds
+        ) ||
         seconds < 0
     ) {
+
         return "0:00";
+
     }
 
     const minutes =
@@ -1859,7 +2732,13 @@ function formatTime(
             seconds % 60
         );
 
-    return `${minutes}:${String(secs).padStart(2, "0")}`;
+    return `${minutes}:${String(
+        secs
+    ).padStart(
+        2,
+        "0"
+    )}`;
+
 }
 
 
@@ -1883,12 +2762,15 @@ function openDrawer() {
 
     $("#drawer-backdrop")
         .classList
-        .add("visible");
+        .add(
+            "visible"
+        );
 
     $("#close-nav").focus();
 
     document.body.style.overflow =
         "hidden";
+
 }
 
 
@@ -1908,12 +2790,15 @@ function closeDrawer() {
 
     $("#drawer-backdrop")
         .classList
-        .remove("visible");
+        .remove(
+            "visible"
+        );
 
     document.body.style.overflow =
         "";
 
     $("#open-nav").focus();
+
 }
 
 
@@ -1938,7 +2823,9 @@ function handleKeyboard(
         tag === "TEXTAREA" ||
         tag === "SELECT"
     ) {
+
         return;
+
     }
 
 
@@ -1990,12 +2877,15 @@ function setPlayingVisual(
         playing;
 
     $("#mandala-svg")
-        .closest(".main-stage")
+        .closest(
+            ".main-stage"
+        )
         .classList
         .toggle(
             "playing",
             playing
         );
+
 }
 
 
@@ -2031,6 +2921,7 @@ function setStatus(
 
         error:
             "#b84a4a"
+
     };
 
     const color =
@@ -2042,6 +2933,7 @@ function setStatus(
 
     dot.style.boxShadow =
         `0 0 10px ${color}`;
+
 }
 
 
@@ -2052,6 +2944,7 @@ function setPlayerMessage(
     $("#player-message")
         .textContent =
         message;
+
 }
 
 
@@ -2073,6 +2966,7 @@ function showKnowledgeMessage(
 
         nada:
             "Nada Yoga — the inner journey of sound coming soon."
+
     };
 
     setPlayerMessage(
@@ -2092,9 +2986,25 @@ function escapeHTML(
 ) {
 
     return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
+
 }
