@@ -17,7 +17,6 @@
 
     <title>RAAGLY — Sound Beyond Silence</title>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -31,7 +30,6 @@
 
 <body>
 
-    <!-- Background System -->
     <div id="bg-viewport" aria-hidden="true">
         <div class="bg-layer active" id="bg-1"></div>
         <div class="bg-layer" id="bg-2"></div>
@@ -39,7 +37,6 @@
         <div class="texture-overlay"></div>
     </div>
 
-    <!-- Side Archive -->
     <aside
         id="side-archive"
         class="side-nav"
@@ -93,7 +90,6 @@
         </nav>
     </aside>
 
-    <!-- Drawer Backdrop -->
     <button
         id="drawer-backdrop"
         class="drawer-backdrop"
@@ -101,10 +97,8 @@
         aria-label="Close archive"
     ></button>
 
-    <!-- Main Site -->
     <div class="site-shell">
 
-        <!-- Header -->
         <header class="top-bar">
 
             <button
@@ -132,10 +126,8 @@
 
         </header>
 
-        <!-- Main -->
         <main class="main-stage">
 
-            <!-- Visual -->
             <section
                 class="visual-area"
                 aria-label="Raag visualization"
@@ -144,86 +136,83 @@
                 <div class="visual-kicker">
                     <span id="raag-number">01</span>
                     <span class="visual-line"></span>
-                    <span>THE GEOMETRY OF SOUND</span>
+                    <span>THE ORBITAL ARCHIVE</span>
                 </div>
 
-                <div class="mandala-wrapper">
+                <div
+                    class="orrery-shell"
+                    id="orrery"
+                    aria-label="Raag orbital archive"
+                >
+                    <div class="orrery-frame">
 
-                    <svg
-                        id="mandala-svg"
-                        viewBox="0 0 400 400"
-                        role="img"
-                        aria-label="Animated sacred geometry visualization"
-                    >
-
-                        <defs>
-
-                            <filter
-                                id="glow"
-                                x="-50%"
-                                y="-50%"
-                                width="200%"
-                                height="200%"
-                            >
-                                <feGaussianBlur
-                                    stdDeviation="3"
-                                    result="coloredBlur"
-                                />
-
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur"/>
-                                    <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                            </filter>
-
-                            <radialGradient id="coreGradient">
-                                <stop
-                                    offset="0%"
-                                    stop-color="#c5a059"
-                                    stop-opacity="0.18"
-                                />
-
-                                <stop
-                                    offset="100%"
-                                    stop-color="#c5a059"
-                                    stop-opacity="0"
-                                />
-                            </radialGradient>
-
-                        </defs>
-
-                        <circle
-                            cx="200"
-                            cy="200"
-                            r="95"
-                            fill="url(#coreGradient)"
-                        />
-
-                        <g id="mandala-layers"></g>
-
-                        <circle
-                            cx="200"
-                            cy="200"
-                            r="35"
-                            fill="var(--ink)"
-                            stroke="var(--gold)"
-                            stroke-width="1.5"
-                        />
-
-                        <text
-                            x="200"
-                            y="212"
-                            text-anchor="middle"
-                            fill="var(--gold)"
-                            font-family="'Noto Serif Devanagari', serif"
-                            font-size="28"
-                            filter="url(#glow)"
+                        <div
+                            class="orrery-plane"
+                            id="orrery-plane"
                         >
-                            ॐ
-                        </text>
+                            <div
+                                class="orrery-orbit"
+                                aria-hidden="true"
+                            ></div>
 
-                    </svg>
+                            <div
+                                class="orrery-lens"
+                                aria-hidden="true"
+                            >
+                                <div
+                                    class="orrery-lens-base"
+                                    id="orrery-lens-base"
+                                ></div>
 
+                                <div
+                                    class="orrery-lens-iris"
+                                    id="orrery-lens-iris"
+                                ></div>
+
+                                <span class="orrery-lens-core">
+                                    RAAGLY
+                                </span>
+                            </div>
+
+                            <div id="orrery-planets"></div>
+                        </div>
+
+                        <div
+                            class="orrery-chrome"
+                            aria-hidden="true"
+                        >
+                            <div class="orrery-brand">
+                                <span class="orrery-brand-mark"></span>
+                                <span>Kexsio®</span>
+                            </div>
+
+                            <div class="orrery-hint">
+                                DRAG TO SPIN
+                            </div>
+
+                            <div class="orrery-footer">
+                                <div class="orrery-title serif">
+                                    Orrery
+                                </div>
+
+                                <div class="orrery-readout">
+                                    <span id="orrery-index">
+                                        01 / 27
+                                    </span>
+
+                                    <span> · </span>
+
+                                    <span
+                                        class="orrery-degree"
+                                        id="orrery-degree"
+                                    >
+                                        090°
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
                 <div class="visual-caption">
@@ -233,7 +222,6 @@
 
             </section>
 
-            <!-- Content -->
             <section
                 class="content-area"
                 aria-live="polite"
@@ -291,11 +279,11 @@
 
                 </div>
 
-                <!-- Audio -->
                 <div class="player-interface">
 
                     <div class="player-status">
                         <span class="player-status-dot"></span>
+
                         <span id="player-label">
                             READY
                         </span>
@@ -368,7 +356,6 @@
 
         </main>
 
-        <!-- Bottom Rail -->
         <footer class="bottom-rail">
 
             <div
@@ -390,17 +377,14 @@
 
     </div>
 
-    <!-- Hidden YouTube Player -->
     <div
         id="youtube-player"
         class="hidden-yt"
         aria-hidden="true"
     ></div>
 
-    <!-- YouTube API -->
     <script src="https://www.youtube.com/iframe_api"></script>
 
-    <!-- Application -->
     <script src="script.js" defer></script>
 
 </body>
