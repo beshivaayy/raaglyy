@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <meta
+    name="description"
+    content="RAAGLYY — An immersive archive of Indian classical Raags."
+  >
+
   <title>RAAGLYY — Sound Beyond Silence</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,111 +24,254 @@
 
 <body>
 
-<div id="bg"></div>
+<!-- =========================================================
+     ATMOSPHERIC BACKGROUND
+     ========================================================= -->
+
+<div id="bg">
+  <div class="bg-image"></div>
+  <div class="bg-wash"></div>
+  <div class="bg-vignette"></div>
+  <div class="bg-grain"></div>
+</div>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
 
 <header>
+
   <button id="menu" aria-label="Open archive">
     <i></i>
     <span>ARCHIVE</span>
   </button>
 
-  <div class="brand">RAAGLYY</div>
+  <div class="brand">
+    RAAGLYY
+  </div>
 
   <div class="live">
     <b></b>
     SOUND BEYOND SILENCE
   </div>
+
 </header>
 
+
+<!-- =========================================================
+     ARCHIVE DRAWER
+     ========================================================= -->
+
 <aside id="drawer">
+
   <div class="drawer-head">
+
     <strong>RAAGLYY</strong>
-    <button id="close" aria-label="Close archive">×</button>
+
+    <button
+      id="close"
+      aria-label="Close archive"
+    >
+      ×
+    </button>
+
   </div>
+
 
   <div class="drawer-body">
+
     <small>THE 27 RAAGS</small>
+
     <nav id="archive"></nav>
 
-    <small class="sources">KNOWLEDGE</small>
-    <a href="#" onclick="return false">Indian Classical Music</a>
-    <a href="#" onclick="return false">Raag &amp; Time</a>
-    <a href="#" onclick="return false">Sound &amp; Consciousness</a>
+
+    <small class="sources">
+      KNOWLEDGE
+    </small>
+
+    <a href="#" onclick="return false">
+      Indian Classical Music
+    </a>
+
+    <a href="#" onclick="return false">
+      Raag &amp; Time
+    </a>
+
+    <a href="#" onclick="return false">
+      Sound &amp; Consciousness
+    </a>
+
   </div>
+
 </aside>
+
 
 <div id="veil"></div>
 
+
+<!-- =========================================================
+     MAIN EXPERIENCE
+     ========================================================= -->
+
 <main>
+
+  <!-- =======================================================
+       VISUAL HERO
+       ======================================================= -->
 
   <section class="hero">
 
-    <div class="kicker">
-      <span id="num">01</span>
-      <em></em>
-      <span id="prahar">EVENING</span>
+    <div class="hero-meta">
+
+      <div class="kicker">
+        <span id="num">01</span>
+        <em></em>
+        <span id="prahar">AFTERNOON</span>
+      </div>
+
+      <div class="hero-category">
+        RAAG / <span id="category">BHIMPALASI</span>
+      </div>
+
     </div>
 
-    <div class="orbit">
 
-      <div class="orbit-ring"></div>
-      <div class="orbit-ring inner"></div>
+    <!-- =====================================================
+         COVERFLOW
+         ===================================================== -->
 
-      <div id="planets"></div>
+    <div
+      class="coverflow"
+      id="coverflow"
+      tabindex="0"
+      aria-label="Raag visual archive"
+    >
 
-      <div class="core">
-        <span>RAAG</span>
-        <strong id="coreName">BHIMPALASI</strong>
+      <button
+        class="flow-arrow flow-prev"
+        id="flowPrev"
+        aria-label="Previous Raag"
+      >
+        ‹
+      </button>
+
+
+      <div
+        class="coverflow-stage"
+        id="coverflowStage"
+      ></div>
+
+
+      <button
+        class="flow-arrow flow-next"
+        id="flowNext"
+        aria-label="Next Raag"
+      >
+        ›
+      </button>
+
+
+      <div class="coverflow-shadow"></div>
+
+
+      <div class="visual-index">
+        <span id="visualCurrent">01</span>
         <i></i>
-      </div>
-
-      <div class="orbit-note">
-        ORBITAL ARCHIVE · 27
-      </div>
-
-      <div class="degree" id="degree">
-        01 / 27
+        <span>27</span>
       </div>
 
     </div>
 
-    <div class="caption">
-      <span>LISTEN · OBSERVE · FEEL</span>
-      <span>01 — 27</span>
+
+    <!-- =====================================================
+         VISUAL CAPTION
+         ===================================================== -->
+
+    <div class="visual-caption">
+
+      <div>
+        <span class="caption-label">
+          LISTEN · OBSERVE · FEEL
+        </span>
+
+        <strong id="artDirection">
+          AFTERNOON LIGHT
+        </strong>
+      </div>
+
+      <div class="caption-right">
+        <span>RAAG ARCHIVE</span>
+        <span id="captionCount">01 — 27</span>
+      </div>
+
     </div>
 
   </section>
 
 
+  <!-- =======================================================
+       INFORMATION
+       ======================================================= -->
+
   <section class="info">
 
     <div class="eyebrow">
+
       THE RAAG OF
-      <span id="time">EVENING</span>
+
+      <span id="time">
+        AFTERNOON
+      </span>
+
     </div>
 
-    <h1 id="title">Bhimpalasi</h1>
 
-    <div class="hindi" id="hindi">
+    <h1 id="title">
+      Bhimpalasi
+    </h1>
+
+
+    <div
+      class="hindi"
+      id="hindi"
+    >
       राग भीमपलासी
     </div>
 
+
     <p id="desc"></p>
 
-    <div class="tags" id="tags"></div>
+
+    <div
+      class="tags"
+      id="tags"
+    ></div>
 
 
-    <!-- YOUTUBE PLAYER -->
+    <!-- =====================================================
+         PLAYER
+         ===================================================== -->
 
     <div class="player">
 
       <div class="player-top">
+
         <span>
+
           <b id="dot"></b>
-          <span id="state">READY TO LISTEN</span>
+
+          <span id="state">
+            READY TO LISTEN
+          </span>
+
         </span>
 
-        <span id="duration">—</span>
+
+        <span id="duration">
+          —
+        </span>
+
       </div>
 
 
@@ -132,6 +281,7 @@
 
 
       <div class="track">
+
         <span id="fill"></span>
 
         <input
@@ -142,26 +292,43 @@
           value="0"
           aria-label="Seek"
         >
+
       </div>
 
 
       <div class="times">
-        <span id="current">00:00</span>
-        <span id="total">00:00</span>
+
+        <span id="current">
+          00:00
+        </span>
+
+        <span id="total">
+          00:00
+        </span>
+
       </div>
 
 
       <div class="controls">
 
-        <button id="prev" aria-label="Previous Raag">
+        <button
+          id="prev"
+          aria-label="Previous Raag"
+        >
           ‹
         </button>
 
-        <button id="play" aria-label="Play">
+        <button
+          id="play"
+          aria-label="Play"
+        >
           ▶
         </button>
 
-        <button id="next" aria-label="Next Raag">
+        <button
+          id="next"
+          aria-label="Next Raag"
+        >
           ›
         </button>
 
@@ -174,19 +341,37 @@
 </main>
 
 
+<!-- =========================================================
+     ARCHIVE RAIL
+     ========================================================= -->
+
 <footer>
 
   <div class="rail-label">
-    <span>RAAG ARCHIVE</span>
-    <span id="count">01 / 27</span>
+
+    <span>
+      VISUAL ARCHIVE
+    </span>
+
+    <span id="count">
+      01 / 27
+    </span>
+
   </div>
 
-  <div class="rail" id="rail"></div>
+
+  <div
+    class="rail"
+    id="rail"
+  ></div>
 
 </footer>
 
 
-<!-- YouTube IFrame API -->
+<!-- =========================================================
+     YOUTUBE API
+     ========================================================= -->
+
 <script src="https://www.youtube.com/iframe_api"></script>
 
 <script src="script.js"></script>
