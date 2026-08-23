@@ -2,17 +2,244 @@
    RAAGLYY
    SOUND BEYOND SILENCE
 
-   SANATAN / INDIC ART DIRECTION
-
-   Playback:
-   YouTube Playlist
-   Playlist ID: PLJRipbfj__b0
-
-   Spotify intentionally removed.
+   SANATAN VISUAL ARCHIVE
+   YouTube Playlist:
+   PLJRipbfj__b0
    ========================================================= */
 
 
 const YOUTUBE_PLAYLIST_ID = "PLJRipbfj__b0";
+
+
+/* =========================================================
+   VISUAL ARTWORK SYSTEM
+   ---------------------------------------------------------
+   Each raag receives its own visual identity.
+
+   The artwork layer is deliberately separated from the
+   structural UI so real paintings / commissioned artwork
+   can be swapped later without touching the application.
+   ========================================================= */
+
+const artwork = [
+
+  {
+    theme: "RAM DARBAR",
+    palette: ["#6e241c", "#c69a54"],
+    symbol: "श्रीराम",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Rama%20Darbar.jpg"
+  },
+
+  {
+    theme: "DARBAR · GAMBHIR",
+    palette: ["#261817", "#9b7548"],
+    symbol: "राज",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Rama%20and%20Sita.jpg"
+  },
+
+  {
+    theme: "SARANG · PRAKASHA",
+    palette: ["#254438", "#c4a15c"],
+    symbol: "सूर्य",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Ravi%20Varma%20-%20Saraswati.jpg"
+  },
+
+  {
+    theme: "ASAVARI · TAPAS",
+    palette: ["#35251d", "#a86635"],
+    symbol: "तप",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Shakuntala.jpg"
+  },
+
+  {
+    theme: "KRISHNA · MADHURYA",
+    palette: ["#152f49", "#c49b54"],
+    symbol: "कृष्ण",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Ravi%20Varma%20-%20Krishna.jpg"
+  },
+
+  {
+    theme: "HAMSADHWANI · MANGALA",
+    palette: ["#173c36", "#c8a75f"],
+    symbol: "ॐ",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Ganesha%20Raja%20Ravi%20Varma.jpg"
+  },
+
+  {
+    theme: "BHAIRAVI · BHAKTI",
+    palette: ["#4b1d23", "#d2a55d"],
+    symbol: "देवी",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Lakshmi.jpg"
+  },
+
+  {
+    theme: "ASAVARI · VAN",
+    palette: ["#253326", "#a47b42"],
+    symbol: "वन",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Shakuntala.jpg"
+  },
+
+  {
+    theme: "TODI · VIRAH",
+    palette: ["#3b281d", "#b17d45"],
+    symbol: "विरह",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Damayanti.jpg"
+  },
+
+  {
+    theme: "KALYAN · JYOTI",
+    palette: ["#202f4b", "#c7a461"],
+    symbol: "ज्योति",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Saraswati.jpg"
+  },
+
+  {
+    theme: "POORVI · SANDHYA",
+    palette: ["#34233b", "#b98255"],
+    symbol: "संध्या",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Shakuntala.jpg"
+  },
+
+  {
+    theme: "NATARAJA · PRABHATA",
+    palette: ["#35251b", "#bd914d"],
+    symbol: "नृत्य",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Nataraja.jpg"
+  },
+
+  {
+    theme: "VRINDAVAN · SARANG",
+    palette: ["#173c3c", "#c4a05b"],
+    symbol: "वृन्दावन",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Krishna%20playing%20flute.jpg"
+  },
+
+  {
+    theme: "SHUDDH KALYAN · SHANTI",
+    palette: ["#263348", "#c5a76b"],
+    symbol: "शान्ति",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Ravi%20Varma%20-%20Saraswati.jpg"
+  },
+
+  {
+    theme: "JAUNPURI · YATRA",
+    palette: ["#34251d", "#ad7949"],
+    symbol: "यात्रा",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Shakuntala.jpg"
+  },
+
+  {
+    theme: "KIRWANI · RAATRI",
+    palette: ["#171b30", "#9c7b52"],
+    symbol: "रात्रि",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Krishna%20playing%20flute.jpg"
+  },
+
+  {
+    theme: "NEELAMBARI · NIDRA",
+    palette: ["#111d31", "#9c835a"],
+    symbol: "निद्रा",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Krishna%20playing%20flute.jpg"
+  },
+
+  {
+    theme: "MALKAUNS · SHIVA",
+    palette: ["#171819", "#9e7541"],
+    symbol: "शिव",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Shiva%20Parvati.jpg"
+  },
+
+  {
+    theme: "BHAIRAV · RUDRA",
+    palette: ["#2a211d", "#b1844c"],
+    symbol: "रुद्र",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Shiva%20Parvati.jpg"
+  },
+
+  {
+    theme: "LALIT · BRAHMA MUHURTA",
+    palette: ["#222d38", "#c5a76b"],
+    symbol: "उषः",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Saraswati.jpg"
+  },
+
+  {
+    theme: "BHOOP · AKASHA",
+    palette: ["#243348", "#c9aa67"],
+    symbol: "आकाश",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Ravi%20Varma%20-%20Saraswati.jpg"
+  },
+
+  {
+    theme: "MADHUVANTI · MADHU",
+    palette: ["#3d202b", "#bd8a55"],
+    symbol: "मधु",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Shakuntala.jpg"
+  },
+
+  {
+    theme: "PILU · SHRINGARA",
+    palette: ["#49242b", "#c19a60"],
+    symbol: "रस",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Damayanti.jpg"
+  },
+
+  {
+    theme: "SHIVRANJANI · KARUNA",
+    palette: ["#25233a", "#a27f56"],
+    symbol: "करुणा",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Shiva%20Parvati.jpg"
+  },
+
+  {
+    theme: "JAIJAIWANTI · PREMA",
+    palette: ["#3c2028", "#c5a064"],
+    symbol: "प्रेम",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Damayanti.jpg"
+  },
+
+  {
+    theme: "KHAMAJ · MADHURYA",
+    palette: ["#412027", "#c29658"],
+    symbol: "माधुर्य",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Krishna%20playing%20flute.jpg"
+  },
+
+  {
+    theme: "TANPURA · NADA",
+    palette: ["#241e19", "#c09a5c"],
+    symbol: "नाद",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Tanpura.jpg"
+  }
+
+];
 
 
 /* =========================================================
@@ -27,9 +254,7 @@ const raags = [
     time: "Afternoon",
     description:
       "A deeply expressive afternoon raag carrying longing, tenderness and introspection through its characteristic melodic movement.",
-    tags: ["Afternoon", "Shringara", "Viraha"],
-    deity: "Krishna",
-    art: "krishna"
+    tags: ["Afternoon", "Shringara", "Viraha"]
   },
 
   {
@@ -37,10 +262,8 @@ const raags = [
     hindi: "राग दरबारी कानड़ा",
     time: "Late Night",
     description:
-      "A grave and majestic raag carrying depth, dignity and the atmosphere of an ancient royal court.",
-    tags: ["Late Night", "Gambhir", "Royal"],
-    deity: "Mahadev",
-    art: "shiva"
+      "A grave and majestic raag traditionally associated with depth, dignity and profound emotional resonance.",
+    tags: ["Late Night", "Gambhir", "Royal"]
   },
 
   {
@@ -49,9 +272,7 @@ const raags = [
     time: "Afternoon",
     description:
       "A luminous Sarang-family raag associated with clarity, balance and a bright, open melodic character.",
-    tags: ["Afternoon", "Sarang", "Luminous"],
-    deity: "Surya",
-    art: "surya"
+    tags: ["Afternoon", "Sarang", "Luminous"]
   },
 
   {
@@ -59,10 +280,8 @@ const raags = [
     hindi: "राग कोमल ऋषभ आसावरी",
     time: "Morning",
     description:
-      "A contemplative morning raag carrying an earthy, inward and austere melodic character.",
-    tags: ["Morning", "Asavari", "Gambhir"],
-    deity: "Shiva",
-    art: "trishul"
+      "A serious morning raag with an introspective Asavari character and a deeply earthy melodic identity.",
+    tags: ["Morning", "Asavari", "Gambhir"]
   },
 
   {
@@ -70,10 +289,8 @@ const raags = [
     hindi: "राग यमन",
     time: "Evening",
     description:
-      "A luminous evening raag associated with serenity, devotion, expansion and refined emotional expression.",
-    tags: ["Evening", "Tivra Ma", "Shanta"],
-    deity: "Krishna",
-    art: "krishna"
+      "One of Hindustani music's great evening raags, opening the night with serenity, luminosity and expansive melodic space.",
+    tags: ["Evening", "Tivra Ma", "Shanta"]
   },
 
   {
@@ -81,10 +298,8 @@ const raags = [
     hindi: "राग हंसध्वनि",
     time: "Evening",
     description:
-      "A bright pentatonic raag carrying auspiciousness, clarity and an uplifting melodic energy.",
-    tags: ["Evening", "Pentatonic", "Mangala"],
-    deity: "Ganesha",
-    art: "ganesha"
+      "A bright pentatonic raag carrying an auspicious, energetic and devotional character.",
+    tags: ["Evening", "Pentatonic", "Mangala"]
   },
 
   {
@@ -92,10 +307,8 @@ const raags = [
     hindi: "राग भैरवी",
     time: "Morning",
     description:
-      "A profound morning raag carrying devotion, compassion and the emotional gravity of surrender.",
-    tags: ["Morning", "Bhakti", "Karuna"],
-    deity: "Devi",
-    art: "devi"
+      "A deeply devotional raag whose expressive vocabulary moves naturally between bhakti, karuna and introspection.",
+    tags: ["Morning", "Bhakti", "Karuna"]
   },
 
   {
@@ -103,10 +316,8 @@ const raags = [
     hindi: "राग आसावरी",
     time: "Late Morning",
     description:
-      "A grave and earthy morning raag with a distinctly introspective melodic personality.",
-    tags: ["Morning", "Asavari", "Gambhir"],
-    deity: "Shiva",
-    art: "shiva"
+      "A grave and earthy morning raag belonging to the Asavari tradition.",
+    tags: ["Morning", "Asavari", "Gambhir"]
   },
 
   {
@@ -114,10 +325,8 @@ const raags = [
     hindi: "राग देसी तोड़ी",
     time: "Late Morning",
     description:
-      "An introspective Todi-family raag carrying tension, depth and finely shaded emotional colour.",
-    tags: ["Morning", "Todi", "Gambhir"],
-    deity: "Devi",
-    art: "mandala"
+      "A contemplative Todi-family expression marked by tension, yearning and nuanced melodic movement.",
+    tags: ["Morning", "Todi", "Gambhir"]
   },
 
   {
@@ -125,10 +334,8 @@ const raags = [
     hindi: "राग कल्याण",
     time: "Evening",
     description:
-      "An expansive evening raag associated with refinement, communication and luminous melodic movement.",
-    tags: ["Evening", "Kalyan", "Communication"],
-    deity: "Surya",
-    art: "temple"
+      "An evening colour of the Kalyan tradition, carrying refinement, luminosity and expansive melodic movement.",
+    tags: ["Evening", "Kalyan", "Jyoti"]
   },
 
   {
@@ -136,10 +343,8 @@ const raags = [
     hindi: "राग पूर्वी",
     time: "Sunset",
     description:
-      "A contemplative sunset raag carrying mystery, gravity and the stillness between day and night.",
-    tags: ["Sunset", "Gambhir", "Dhyana"],
-    deity: "Shiva",
-    art: "shiva"
+      "A twilight raag with an inward, contemplative and meditative personality.",
+    tags: ["Sunset", "Gambhir", "Dhyana"]
   },
 
   {
@@ -147,10 +352,8 @@ const raags = [
     hindi: "राग नट भैरव",
     time: "Morning",
     description:
-      "A morning raag balancing devotional gravity with a graceful melodic character.",
-    tags: ["Morning", "Relationship", "Finance"],
-    deity: "Surya",
-    art: "surya"
+      "A morning raag combining the dramatic energy of Nat with the gravity of Bhairav.",
+    tags: ["Morning", "Nat", "Bhairav"]
   },
 
   {
@@ -158,10 +361,8 @@ const raags = [
     hindi: "राग वृन्दावनी सारंग",
     time: "Afternoon",
     description:
-      "A radiant afternoon raag carrying the pastoral and devotional atmosphere of Vrindavan.",
-    tags: ["Afternoon", "Relationship", "Finance"],
-    deity: "Krishna",
-    art: "vrindavan"
+      "A luminous afternoon raag whose name evokes the sacred landscape of Vrindavan.",
+    tags: ["Afternoon", "Vrindavan", "Sarang"]
   },
 
   {
@@ -169,10 +370,8 @@ const raags = [
     hindi: "राग शुद्ध कल्याण",
     time: "Evening",
     description:
-      "A serene evening raag associated with inner peace, devotion and emotional balance.",
-    tags: ["Evening", "Kalyan", "Shanta"],
-    deity: "Krishna",
-    art: "temple"
+      "A serene evening colour belonging to the Kalyan family, carrying openness and tranquility.",
+    tags: ["Evening", "Kalyan", "Shanta"]
   },
 
   {
@@ -180,10 +379,8 @@ const raags = [
     hindi: "राग जौनपुरी",
     time: "Late Morning",
     description:
-      "A reflective morning raag with an elegant and melancholic melodic personality.",
-    tags: ["Morning", "Profession", "Chronic"],
-    deity: "Devi",
-    art: "devi"
+      "A poignant late-morning raag with a serious, introspective and emotionally direct character.",
+    tags: ["Morning", "Viraha", "Gambhir"]
   },
 
   {
@@ -191,10 +388,8 @@ const raags = [
     hindi: "राग किरवानी",
     time: "Night",
     description:
-      "A nocturnal raag with a dramatic, introspective and emotionally intense character.",
-    tags: ["Night", "Profession", "Chronic"],
-    deity: "Shiva",
-    art: "shiva"
+      "A night raag of striking emotional colour, balancing darkness, beauty and contemplation.",
+    tags: ["Night", "Contemplative", "Rasa"]
   },
 
   {
@@ -202,10 +397,8 @@ const raags = [
     hindi: "राग नीलाम्बरी",
     time: "Night",
     description:
-      "A deeply tranquil night raag carrying softness, introspection and repose.",
-    tags: ["Night", "Profession", "Chronic"],
-    deity: "Vishnu",
-    art: "vishnu"
+      "A tranquil night-time colour associated with softness, inwardness and repose.",
+    tags: ["Night", "Nidra", "Shanta"]
   },
 
   {
@@ -213,10 +406,8 @@ const raags = [
     hindi: "राग मालकौंस",
     time: "Late Night",
     description:
-      "An ancient pentatonic raag of gravity, meditation and powerful inward resonance.",
-    tags: ["Night", "Pentatonic", "Gambhir"],
-    deity: "Shiva",
-    art: "mahakal"
+      "A powerful pentatonic midnight raag carrying an ancient, austere and meditative presence.",
+    tags: ["Late Night", "Shiva", "Gambhir"]
   },
 
   {
@@ -224,10 +415,8 @@ const raags = [
     hindi: "राग भैरव",
     time: "Dawn",
     description:
-      "A dawn raag of profound gravity, devotion and spiritual awakening.",
-    tags: ["Dawn", "Gambhir", "Bhakti"],
-    deity: "Bhairav",
-    art: "bhairav"
+      "A foundational morning raag associated with gravity, devotion and the awakening of consciousness.",
+    tags: ["Dawn", "Rudra", "Bhakti"]
   },
 
   {
@@ -235,10 +424,8 @@ const raags = [
     hindi: "राग ललित",
     time: "Pre-Dawn",
     description:
-      "A mysterious pre-dawn raag inhabiting the silent transition between darkness and light.",
-    tags: ["Pre-Dawn", "Dhyana", "Gambhir"],
-    deity: "Shiva",
-    art: "mandala"
+      "A subtle pre-dawn raag occupying the mysterious space between night and sunrise.",
+    tags: ["Pre-Dawn", "Dhyana", "Usha"]
   },
 
   {
@@ -246,10 +433,8 @@ const raags = [
     hindi: "राग भूप",
     time: "Evening",
     description:
-      "A pure pentatonic evening raag with a calm, spacious and uplifting character.",
-    tags: ["Evening", "Pentatonic", "Shanta"],
-    deity: "Surya",
-    art: "surya"
+      "A graceful pentatonic evening raag with clarity, openness and spacious melodic architecture.",
+    tags: ["Evening", "Pentatonic", "Akasha"]
   },
 
   {
@@ -257,10 +442,8 @@ const raags = [
     hindi: "राग मधुवंती",
     time: "Afternoon",
     description:
-      "A lyrical afternoon raag carrying sweetness, yearning and contemplative emotional colour.",
-    tags: ["Afternoon", "Viraha", "Contemplative"],
-    deity: "Krishna",
-    art: "krishna"
+      "A lyrical afternoon raag of sweetness, yearning and contemplative beauty.",
+    tags: ["Afternoon", "Viraha", "Contemplative"]
   },
 
   {
@@ -268,10 +451,8 @@ const raags = [
     hindi: "राग पीलू",
     time: "Afternoon",
     description:
-      "A lyrical and flexible raag with a delicate, intimate and expressive personality.",
-    tags: ["Afternoon", "Lyrical", "Light"],
-    deity: "Radha",
-    art: "radha"
+      "A flexible and lyrical raag carrying a lighter, intimate and expressive character.",
+    tags: ["Afternoon", "Lyrical", "Shringara"]
   },
 
   {
@@ -279,10 +460,8 @@ const raags = [
     hindi: "राग शिवरंजनी",
     time: "Night",
     description:
-      "A haunting night raag carrying longing, introspection and profound emotional colour.",
-    tags: ["Night", "Karuna", "Introspective"],
-    deity: "Shiva",
-    art: "shiva"
+      "A haunting night-time pentatonic colour associated with karuna and introspection.",
+    tags: ["Night", "Karuna", "Introspective"]
   },
 
   {
@@ -290,10 +469,8 @@ const raags = [
     hindi: "राग जयजयवंती",
     time: "Night",
     description:
-      "A refined nocturnal raag balancing romantic expression with subtle emotional tension.",
-    tags: ["Night", "Shringara", "Lyrical"],
-    deity: "Radha",
-    art: "radha"
+      "A refined night raag balancing tenderness, longing and lyrical ornamentation.",
+    tags: ["Night", "Prema", "Lyrical"]
   },
 
   {
@@ -301,10 +478,8 @@ const raags = [
     hindi: "राग खमाज",
     time: "Night",
     description:
-      "A graceful night raag associated with romantic expression and lyrical beauty.",
-    tags: ["Night", "Shringara", "Lyrical"],
-    deity: "Krishna",
-    art: "krishna"
+      "A graceful and sensuous night raag with strong associations with shringara and lyrical expression.",
+    tags: ["Night", "Shringara", "Lyrical"]
   },
 
   {
@@ -312,10 +487,8 @@ const raags = [
     hindi: "राग तानपुरा",
     time: "All Prahar",
     description:
-      "The eternal drone beneath melody — the sustained sonic foundation from which musical consciousness emerges.",
-    tags: ["Tanpura", "Drone", "Foundation"],
-    deity: "Nada Brahma",
-    art: "om"
+      "The continuous drone beneath melodic consciousness — the sonic foundation upon which raag breathes.",
+    tags: ["All Prahar", "Nada", "Drone"]
   }
 
 ];
@@ -342,6 +515,28 @@ function pad(number) {
 }
 
 
+function devanagariNumber(number) {
+
+  const map = {
+    0: "०",
+    1: "१",
+    2: "२",
+    3: "३",
+    4: "४",
+    5: "५",
+    6: "६",
+    7: "७",
+    8: "८",
+    9: "९"
+  };
+
+  return String(number)
+    .split("")
+    .map(n => map[n] || n)
+    .join("");
+}
+
+
 function formatTime(seconds) {
 
   if (!Number.isFinite(seconds) || seconds < 0) {
@@ -356,504 +551,64 @@ function formatTime(seconds) {
 
 
 /* =========================================================
-   SANATAN ILLUSTRATION ENGINE
-   ---------------------------------------------------------
-   These are intentionally stylised sacred illustrations,
-   not random nature photography.
+   ARTWORK
    ========================================================= */
 
-function art(type, i = 0) {
+function getArtwork(i) {
 
-  const palettes = [
-    ["#b7833d", "#5d291d", "#17100c"],
-    ["#d1a15a", "#59352a", "#110c0b"],
-    ["#d8b66a", "#6d4223", "#100d0b"],
-    ["#a86e3b", "#321c27", "#09080a"],
-    ["#c99b54", "#45232a", "#0b090b"]
-  ];
-
-  const p = palettes[i % palettes.length];
-
-  let central = "";
-
-  if (type === "krishna" || type === "vrindavan") {
-
-    central = `
-      <circle cx="300" cy="190" r="105"
-        fill="url(#halo)" opacity=".55"/>
-
-      <path
-        d="M270 155
-           Q300 125 330 155
-           Q342 178 329 207
-           Q314 229 300 240
-           Q286 229 271 207
-           Q258 178 270 155Z"
-        fill="#151016"
-        stroke="${p[0]}"
-        stroke-width="2"
-      />
-
-      <circle cx="286" cy="178" r="4" fill="${p[0]}"/>
-      <circle cx="314" cy="178" r="4" fill="${p[0]}"/>
-
-      <path
-        d="M274 164 Q300 138 326 164"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="5"
-      />
-
-      <path
-        d="M250 255 Q300 225 350 255
-           L378 350 H222Z"
-        fill="#120e12"
-        stroke="${p[0]}"
-        stroke-width="2"
-      />
-
-      <path
-        d="M327 125 Q375 100 397 120
-           Q363 127 342 153"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="8"
-      />
-
-      <path
-        d="M245 270 Q205 230 178 258"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="3"
-        opacity=".8"
-      />
-    `;
-
-  } else if (type === "shiva" || type === "mahakal" || type === "bhairav") {
-
-    central = `
-      <circle cx="300" cy="195" r="115"
-        fill="url(#halo)" opacity=".48"/>
-
-      <path
-        d="M250 170 Q300 125 350 170
-           Q365 205 345 245
-           Q325 275 300 285
-           Q275 275 255 245
-           Q235 205 250 170Z"
-        fill="#0d0b10"
-        stroke="${p[0]}"
-        stroke-width="2"
-      />
-
-      <path
-        d="M263 165 Q300 145 337 165"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="3"
-      />
-
-      <circle cx="282" cy="200" r="4" fill="${p[0]}"/>
-      <circle cx="318" cy="200" r="4" fill="${p[0]}"/>
-
-      <path
-        d="M285 235 Q300 245 315 235"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="2"
-      />
-
-      <path
-        d="M300 135 L300 75
-           M272 95 L300 75 L328 95"
-        stroke="${p[0]}"
-        stroke-width="7"
-        fill="none"
-      />
-
-      <path
-        d="M255 255 Q300 230 345 255
-           L380 350 H220Z"
-        fill="#100c11"
-        stroke="${p[0]}"
-        stroke-width="2"
-      />
-
-      <path
-        d="M300 255 L300 345"
-        stroke="${p[0]}"
-        stroke-width="2"
-      />
-    `;
-
-  } else if (type === "surya") {
-
-    central = `
-      <circle cx="300" cy="200" r="82"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="2"/>
-
-      <circle cx="300" cy="200" r="55"
-        fill="url(#halo)"
-        opacity=".65"/>
-
-      <circle cx="300" cy="200" r="30"
-        fill="${p[0]}"
-        opacity=".75"/>
-
-      ${Array.from({length:12}, (_,n) => {
-        const a = n * 30 * Math.PI / 180;
-        const x1 = 300 + Math.cos(a) * 90;
-        const y1 = 200 + Math.sin(a) * 90;
-        const x2 = 300 + Math.cos(a) * 125;
-        const y2 = 200 + Math.sin(a) * 125;
-        return `
-          <line
-            x1="${x1}" y1="${y1}"
-            x2="${x2}" y2="${y2}"
-            stroke="${p[0]}"
-            stroke-width="4"
-          />
-        `;
-      }).join("")}
-    `;
-
-  } else if (type === "ganesha") {
-
-    central = `
-      <circle cx="300" cy="200" r="105"
-        fill="url(#halo)"
-        opacity=".5"/>
-
-      <path
-        d="M250 170
-           Q260 130 300 135
-           Q340 130 350 170
-           L340 245
-           Q325 275 300 280
-           Q275 275 260 245Z"
-        fill="#100d11"
-        stroke="${p[0]}"
-        stroke-width="2"
-      />
-
-      <circle cx="282" cy="190" r="5" fill="${p[0]}"/>
-      <circle cx="318" cy="190" r="5" fill="${p[0]}"/>
-
-      <path
-        d="M300 205
-           Q320 220 315 250
-           Q310 270 295 262"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="6"
-      />
-
-      <path
-        d="M260 150 Q220 125 205 155
-           Q230 165 260 180"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="7"
-      />
-
-      <path
-        d="M340 150 Q380 125 395 155
-           Q370 165 340 180"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="7"
-      />
-    `;
-
-  } else if (type === "devi" || type === "radha") {
-
-    central = `
-      <circle cx="300" cy="195" r="105"
-        fill="url(#halo)"
-        opacity=".5"/>
-
-      <path
-        d="M300 130
-           Q350 145 355 205
-           Q350 260 300 285
-           Q250 260 245 205
-           Q250 145 300 130Z"
-        fill="#100c12"
-        stroke="${p[0]}"
-        stroke-width="2"
-      />
-
-      <circle cx="282" cy="188" r="4" fill="${p[0]}"/>
-      <circle cx="318" cy="188" r="4" fill="${p[0]}"/>
-
-      <path
-        d="M278 215 Q300 228 322 215"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="2"
-      />
-
-      <path
-        d="M300 120 L300 75
-           M275 95 L300 75 L325 95"
-        stroke="${p[0]}"
-        stroke-width="5"
-        fill="none"
-      />
-
-      <path
-        d="M250 270 L210 340
-           M350 270 L390 340"
-        stroke="${p[0]}"
-        stroke-width="3"
-      />
-    `;
-
-  } else if (type === "vishnu") {
-
-    central = `
-      <circle cx="300" cy="200" r="110"
-        fill="url(#halo)"
-        opacity=".5"/>
-
-      <circle cx="300" cy="185" r="65"
-        fill="#0d0b11"
-        stroke="${p[0]}"
-        stroke-width="2"/>
-
-      <circle cx="280" cy="180" r="4" fill="${p[0]}"/>
-      <circle cx="320" cy="180" r="4" fill="${p[0]}"/>
-
-      <path
-        d="M275 210 Q300 225 325 210"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="2"
-      />
-
-      <path
-        d="M245 240 Q300 220 355 240
-           L375 350 H225Z"
-        fill="#0d0a10"
-        stroke="${p[0]}"
-        stroke-width="2"
-      />
-    `;
-
-  } else if (type === "temple") {
-
-    central = `
-      <path
-        d="M180 350 L180 220
-           L300 90
-           L420 220
-           L420 350Z"
-        fill="#0c090c"
-        stroke="${p[0]}"
-        stroke-width="3"
-      />
-
-      <path
-        d="M300 55 L300 90"
-        stroke="${p[0]}"
-        stroke-width="4"
-      />
-
-      <path
-        d="M245 350 V245
-           Q300 190 355 245 V350"
-        fill="#050406"
-        stroke="${p[0]}"
-        stroke-width="3"
-      />
-
-      <path
-        d="M215 220 H385
-           M235 190 H365
-           M255 160 H345"
-        stroke="${p[0]}"
-        stroke-width="2"
-      />
-    `;
-
-  } else {
-
-    central = `
-      <circle cx="300" cy="200" r="95"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="2"/>
-
-      <circle cx="300" cy="200" r="55"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="1"/>
-
-      <path
-        d="M300 115
-           L320 180
-           L385 200
-           L320 220
-           L300 285
-           L280 220
-           L215 200
-           L280 180Z"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="2"
-      />
-
-      <text
-        x="300"
-        y="220"
-        text-anchor="middle"
-        font-size="48"
-        fill="${p[0]}"
-        font-family="serif">
-        ॐ
-      </text>
-    `;
-  }
-
-
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 600 400">
-
-      <defs>
-
-        <radialGradient id="background">
-          <stop offset="0" stop-color="${p[1]}"/>
-          <stop offset=".55" stop-color="${p[2]}"/>
-          <stop offset="1" stop-color="#050406"/>
-        </radialGradient>
-
-        <radialGradient id="halo">
-          <stop stop-color="${p[0]}" stop-opacity=".8"/>
-          <stop offset="1" stop-color="${p[0]}" stop-opacity="0"/>
-        </radialGradient>
-
-        <filter id="blur">
-          <feGaussianBlur stdDeviation="18"/>
-        </filter>
-
-      </defs>
-
-
-      <rect
-        width="600"
-        height="400"
-        fill="url(#background)"
-      />
-
-
-      <circle
-        cx="300"
-        cy="200"
-        r="150"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="1"
-        opacity=".2"
-      />
-
-      <circle
-        cx="300"
-        cy="200"
-        r="175"
-        fill="none"
-        stroke="${p[0]}"
-        stroke-width="1"
-        stroke-dasharray="2 12"
-        opacity=".3"
-      />
-
-
-      <path
-        d="M0 350 Q150 305 300 350 T600 350 V400 H0Z"
-        fill="#030304"
-        opacity=".75"
-      />
-
-
-      ${central}
-
-
-      <text
-        x="300"
-        y="375"
-        text-anchor="middle"
-        fill="${p[0]}"
-        opacity=".55"
-        font-size="10"
-        letter-spacing="5"
-        font-family="serif">
-        RAAGLYY
-      </text>
-
-    </svg>
-
-  `)}`;
+  return artwork[i % artwork.length];
 }
 
 
-/* =========================================================
-   BACKGROUND
-   ========================================================= */
+function applyArtwork(i) {
 
-function updateBackground() {
+  const art = getArtwork(i);
 
-  const r = raags[index];
+  const bg = $("#bg");
+  const bgArt = document.querySelector(".bg-art");
 
-  const backgrounds = {
+  if (!art) return;
 
-    krishna:
-      "radial-gradient(circle at 72% 45%, #7d442a45, transparent 30%), #080607",
+  document.documentElement.style.setProperty(
+    "--art-a",
+    art.palette[0]
+  );
 
-    shiva:
-      "radial-gradient(circle at 72% 45%, #453b5340, transparent 30%), #070608",
+  document.documentElement.style.setProperty(
+    "--art-b",
+    art.palette[1]
+  );
 
-    surya:
-      "radial-gradient(circle at 72% 45%, #a66a2845, transparent 30%), #080706",
+  bg.style.setProperty(
+    "--art-image",
+    `url("${art.image}")`
+  );
 
-    ganesha:
-      "radial-gradient(circle at 72% 45%, #713a3040, transparent 30%), #090607",
+  bgArt.style.backgroundImage =
+    `url("${art.image}")`;
 
-    devi:
-      "radial-gradient(circle at 72% 45%, #713c5145, transparent 30%), #090609",
+  $("#artTheme").textContent =
+    art.theme;
 
-    radha:
-      "radial-gradient(circle at 72% 45%, #8c4a5540, transparent 30%), #090608",
+  const coreArt =
+    document.querySelector(".core-art");
 
-    vrindavan:
-      "radial-gradient(circle at 72% 45%, #51612e40, transparent 30%), #070806",
+  if (coreArt) {
 
-    temple:
-      "radial-gradient(circle at 72% 45%, #76502e45, transparent 30%), #080706",
+    coreArt.style.backgroundImage =
+      `url("${art.image}")`;
 
-    vishnu:
-      "radial-gradient(circle at 72% 45%, #304c6740, transparent 30%), #060709",
+  }
 
-    mahakal:
-      "radial-gradient(circle at 72% 45%, #40334d48, transparent 30%), #060507",
+  const playerArt =
+    document.querySelector(".player-art-image");
 
-    bhairav:
-      "radial-gradient(circle at 72% 45%, #59433245, transparent 30%), #080706",
+  if (playerArt) {
 
-    mandala:
-      "radial-gradient(circle at 72% 45%, #70452f40, transparent 30%), #080706",
+    playerArt.style.backgroundImage =
+      `url("${art.image}")`;
 
-    om:
-      "radial-gradient(circle at 72% 45%, #a4773d48, transparent 32%), #080706"
-
-  };
-
-  $("#bg").style.background =
-    backgrounds[r.art] || backgrounds.om;
+  }
 }
 
 
@@ -864,54 +619,63 @@ function updateBackground() {
 function render() {
 
   const r = raags[index];
+  const art = getArtwork(index);
 
   const number = pad(index + 1);
-  const total = pad(raags.length);
+  const devanagariIndex =
+    devanagariNumber(index + 1);
 
-  $("#num").textContent = number;
-  $("#prahar").textContent = r.time.toUpperCase();
+  const total =
+    devanagariNumber(raags.length);
 
-  $("#title").textContent = r.name;
-  $("#hindi").textContent = r.hindi;
-  $("#desc").textContent = r.description;
 
-  $("#time").textContent = r.time.toUpperCase();
+  $("#num").textContent =
+    devanagariIndex;
+
+  $("#prahar").textContent =
+    r.time.toUpperCase();
+
+
+  $("#title").textContent =
+    r.name;
+
+  $("#hindi").textContent =
+    r.hindi;
+
+  $("#desc").textContent =
+    r.description;
+
+
+  $("#time").textContent =
+    r.time.toUpperCase();
 
   $("#coreName").textContent =
     r.name.toUpperCase();
 
+
+  $("#playerRaag").textContent =
+    r.hindi.replace("राग ", "");
+
+
   $("#count").textContent =
-    `${number} / ${total}`;
+    `${devanagariIndex} / ${total}`;
+
 
   $("#degree").textContent =
-    `${number} / 27`;
-
-  updateBackground();
+    `${devanagariIndex} / ${total}`;
 
 
-  /* =====================================================
-     CORE ART
-     ===================================================== */
-
-  $("#coreArt").style.backgroundImage =
-    `url("${art(r.art, index)}")`;
-
-
-  /* =====================================================
-     PLAYER ART
-     ===================================================== */
-
-  $("#playerArt").style.backgroundImage =
-    `url("${art(r.art, index)}")`;
+  applyArtwork(index);
 
 
   /* =====================================================
      TAGS
      ===================================================== */
 
-  $("#tags").innerHTML = r.tags
-    .map(tag => `<span>${tag}</span>`)
-    .join("");
+  $("#tags").innerHTML =
+    r.tags
+      .map(tag => `<span>${tag}</span>`)
+      .join("");
 
 
   /* =====================================================
@@ -920,22 +684,36 @@ function render() {
 
   $("#planets").innerHTML = "";
 
-  const n = Math.min(raags.length, 9);
+  const visibleCount =
+    Math.min(raags.length, 9);
 
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < visibleCount; i++) {
+
+    const actualIndex =
+      (index + i - 4 + raags.length)
+      % raags.length;
 
     const angle =
-      (Math.PI * 2 * i / n) - Math.PI / 2;
+      (Math.PI * 2 * i / visibleCount)
+      - Math.PI / 2;
 
-    const x = Math.cos(angle) * 245;
-    const y = Math.sin(angle) * 125;
+    const x =
+      Math.cos(angle) * 245;
+
+    const y =
+      Math.sin(angle) * 125;
+
 
     const planet =
       document.createElement("button");
 
+
     planet.className =
       "planet " +
-      (i === index ? "active" : "");
+      (actualIndex === index
+        ? "active"
+        : "");
+
 
     planet.style.setProperty(
       "--x",
@@ -947,25 +725,41 @@ function render() {
       `${y}px`
     );
 
+
+    const planetArt =
+      getArtwork(actualIndex);
+
+
     planet.innerHTML = `
 
-      <img
-        src="${art(raags[i].art, i)}"
-        alt="${raags[i].name}"
-      >
+      <span class="planet-image">
+
+        <img
+          src="${planetArt.image}"
+          alt="${raags[actualIndex].name}"
+          loading="lazy"
+        >
+
+      </span>
+
+      <span class="planet-ring"></span>
 
       <label>
-        ${raags[i].name.toUpperCase()}
+        ${raags[actualIndex].name.toUpperCase()}
       </label>
 
     `;
 
+
     planet.addEventListener(
       "click",
-      () => selectRaag(i)
+      () => selectRaag(actualIndex)
     );
 
-    $("#planets").appendChild(planet);
+
+    $("#planets")
+      .appendChild(planet);
+
   }
 
 
@@ -975,25 +769,40 @@ function render() {
 
   $("#rail").innerHTML =
     raags
-      .map((r, i) => `
+      .map((r, i) => {
 
-        <button
-          class="rail-item ${i === index ? "active" : ""}"
-          data-i="${i}"
-        >
+        const art =
+          getArtwork(i);
 
-          <img
-            src="${art(r.art, i)}"
-            alt="${r.name}"
+        return `
+
+          <button
+            class="
+              rail-item
+              ${i === index ? "active" : ""}
+            "
+            data-i="${i}"
           >
 
-          <span>
-            ${r.name}
-          </span>
+            <img
+              src="${art.image}"
+              alt="${r.name}"
+              loading="lazy"
+            >
 
-        </button>
+            <span class="rail-number">
+              ${devanagariNumber(i + 1)}
+            </span>
 
-      `)
+            <span class="rail-name">
+              ${r.name}
+            </span>
+
+          </button>
+
+        `;
+
+      })
       .join("");
 
 
@@ -1004,9 +813,11 @@ function render() {
       button.addEventListener(
         "click",
         () => {
+
           selectRaag(
             Number(button.dataset.i)
           );
+
         }
       );
 
@@ -1019,22 +830,26 @@ function render() {
 
   $("#archive").innerHTML =
     raags
-      .map((r, i) => `
+      .map((r, i) => {
 
-        <button
-          class="${i === index ? "active" : ""}"
-          data-i="${i}"
-        >
+        return `
 
-          <span>
-            ${pad(i + 1)}
-          </span>
+          <button
+            class="${i === index ? "active" : ""}"
+            data-i="${i}"
+          >
 
-          ${r.name}
+            <span>
+              ${devanagariNumber(i + 1)}
+            </span>
 
-        </button>
+            ${r.name}
 
-      `)
+          </button>
+
+        `;
+
+      })
       .join("");
 
 
@@ -1056,6 +871,7 @@ function render() {
       );
 
     });
+
 }
 
 
@@ -1066,10 +882,12 @@ function render() {
 function selectRaag(newIndex) {
 
   index =
-    (newIndex + raags.length) %
-    raags.length;
+    (newIndex + raags.length)
+    % raags.length;
+
 
   render();
+
 
   if (playerReady && player) {
 
@@ -1084,6 +902,7 @@ function selectRaag(newIndex) {
     });
 
   }
+
 }
 
 
@@ -1093,8 +912,13 @@ function selectRaag(newIndex) {
 
 function closeDrawer() {
 
-  $("#drawer").classList.remove("open");
-  $("#veil").classList.remove("open");
+  $("#drawer")
+    .classList
+    .remove("open");
+
+  $("#veil")
+    .classList
+    .remove("open");
 
 }
 
@@ -1103,22 +927,30 @@ $("#menu").addEventListener(
   "click",
   () => {
 
-    $("#drawer").classList.add("open");
-    $("#veil").classList.add("open");
+    $("#drawer")
+      .classList
+      .add("open");
+
+    $("#veil")
+      .classList
+      .add("open");
 
   }
 );
 
 
-$("#close").addEventListener(
-  "click",
-  closeDrawer
-);
+$("#close")
+  .addEventListener(
+    "click",
+    closeDrawer
+  );
 
-$("#veil").addEventListener(
-  "click",
-  closeDrawer
-);
+
+$("#veil")
+  .addEventListener(
+    "click",
+    closeDrawer
+  );
 
 
 /* =========================================================
@@ -1127,12 +959,21 @@ $("#veil").addEventListener(
 
 $("#next").addEventListener(
   "click",
-  () => selectRaag(index + 1)
+  () => {
+
+    selectRaag(index + 1);
+
+  }
 );
+
 
 $("#prev").addEventListener(
   "click",
-  () => selectRaag(index - 1)
+  () => {
+
+    selectRaag(index - 1);
+
+  }
 );
 
 
@@ -1150,6 +991,7 @@ $("#play").addEventListener(
 
     const state =
       player.getPlayerState();
+
 
     if (
       state === YT.PlayerState.PLAYING
@@ -1179,20 +1021,25 @@ $("#seek").addEventListener(
       return;
     }
 
+
     const duration =
       player.getDuration();
+
 
     if (!duration) {
       return;
     }
 
+
     const percentage =
       Number(event.target.value);
+
 
     player.seekTo(
       duration * percentage / 100,
       true
     );
+
 
     $("#fill").style.width =
       `${percentage}%`;
@@ -1206,139 +1053,162 @@ $("#seek").addEventListener(
    ========================================================= */
 
 window.onYouTubeIframeAPIReady =
-  function () {
+function () {
 
-    player =
-      new YT.Player(
-        "youtube-player",
-        {
+  player =
+    new YT.Player(
+      "youtube-player",
+      {
 
-          width: "1",
-          height: "1",
+        width: "1",
 
-          playerVars: {
+        height: "1",
 
-            autoplay: 0,
-            controls: 0,
-            disablekb: 1,
-            modestbranding: 1,
-            playsinline: 1,
-            rel: 0,
+        playerVars: {
 
-            listType: "playlist",
+          autoplay: 0,
 
-            list:
-              YOUTUBE_PLAYLIST_ID
+          controls: 0,
+
+          disablekb: 1,
+
+          modestbranding: 1,
+
+          playsinline: 1,
+
+          rel: 0,
+
+          listType: "playlist",
+
+          list: YOUTUBE_PLAYLIST_ID
+
+        },
+
+
+        events: {
+
+          onReady: event => {
+
+            playerReady = true;
+
+            $("#state")
+              .textContent =
+              "READY TO LISTEN";
+
+
+            $("#duration")
+              .textContent =
+              formatTime(
+                event.target.getDuration()
+              );
 
           },
 
-          events: {
 
-            onReady: event => {
+          onStateChange: event => {
 
-              playerReady = true;
+            if (
+              event.data ===
+              YT.PlayerState.PLAYING
+            ) {
 
-              $("#state").textContent =
-                "READY TO LISTEN";
+              $("#play")
+                .textContent = "Ⅱ";
 
-              $("#duration").textContent =
-                formatTime(
-                  event.target.getDuration()
-                );
-
-            },
-
-
-            onStateChange: event => {
-
-              if (
-                event.data ===
-                YT.PlayerState.PLAYING
-              ) {
-
-                $("#play").textContent =
-                  "Ⅱ";
-
-                $("#state").textContent =
-                  "NOW LISTENING";
-
-                $(".player")
-                  .classList
-                  .add("playing");
-
-                startProgress();
-
-              }
-
-              else if (
-                event.data ===
-                YT.PlayerState.PAUSED
-              ) {
-
-                $("#play").textContent =
-                  "▶";
-
-                $("#state").textContent =
-                  "PAUSED";
-
-                $(".player")
-                  .classList
-                  .remove("playing");
-
-                stopProgress();
-
-              }
-
-              else if (
-                event.data ===
-                YT.PlayerState.ENDED
-              ) {
-
-                $("#play").textContent =
-                  "▶";
-
-                $("#state").textContent =
-                  "READY TO LISTEN";
-
-                $(".player")
-                  .classList
-                  .remove("playing");
-
-                stopProgress();
-
-              }
-
-              else if (
-                event.data ===
-                YT.PlayerState.BUFFERING
-              ) {
-
-                $("#state").textContent =
-                  "BUFFERING";
-
-              }
-
-            },
+              $("#state")
+                .textContent =
+                "NOW LISTENING";
 
 
-            onError: event => {
+              $(".player")
+                .classList
+                .add("playing");
 
-              console.warn(
-                "YouTube Player Error:",
-                event.data
-              );
 
-              $("#state").textContent =
-                "UNAVAILABLE";
+              startProgress();
 
             }
+
+
+            else if (
+              event.data ===
+              YT.PlayerState.PAUSED
+            ) {
+
+              $("#play")
+                .textContent = "▶";
+
+              $("#state")
+                .textContent =
+                "PAUSED";
+
+
+              $(".player")
+                .classList
+                .remove("playing");
+
+
+              stopProgress();
+
+            }
+
+
+            else if (
+              event.data ===
+              YT.PlayerState.ENDED
+            ) {
+
+              $("#play")
+                .textContent = "▶";
+
+              $("#state")
+                .textContent =
+                "READY TO LISTEN";
+
+
+              $(".player")
+                .classList
+                .remove("playing");
+
+
+              stopProgress();
+
+            }
+
+
+            else if (
+              event.data ===
+              YT.PlayerState.BUFFERING
+            ) {
+
+              $("#state")
+                .textContent =
+                "BUFFERING";
+
+            }
+
+          },
+
+
+          onError: event => {
+
+            console.warn(
+              "YouTube Player Error:",
+              event.data
+            );
+
+            $("#state")
+              .textContent =
+              "UNAVAILABLE";
 
           }
 
         }
-      );
 
-  };
+      }
+    );
+
+};
 
 
 /* =========================================================
@@ -1349,6 +1219,7 @@ function startProgress() {
 
   stopProgress();
 
+
   progressTimer =
     setInterval(
       () => {
@@ -1357,35 +1228,48 @@ function startProgress() {
           return;
         }
 
+
         const duration =
           player.getDuration();
 
+
         const current =
           player.getCurrentTime();
+
 
         if (!duration) {
           return;
         }
 
+
         const percentage =
           (current / duration) * 100;
+
 
         $("#seek").value =
           percentage;
 
+
         $("#fill").style.width =
           `${percentage}%`;
 
-        $("#current").textContent =
+
+        $("#current")
+          .textContent =
           formatTime(current);
 
-        $("#total").textContent =
+
+        $("#total")
+          .textContent =
           formatTime(duration);
 
-        $("#duration").textContent =
+
+        $("#duration")
+          .textContent =
           formatTime(duration);
 
       },
+
       250
     );
 
@@ -1403,6 +1287,44 @@ function stopProgress() {
   }
 
 }
+
+
+/* =========================================================
+   KEYBOARD NAVIGATION
+   ========================================================= */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.key === "ArrowRight"
+    ) {
+
+      selectRaag(index + 1);
+
+    }
+
+
+    if (
+      event.key === "ArrowLeft"
+    ) {
+
+      selectRaag(index - 1);
+
+    }
+
+
+    if (
+      event.key === "Escape"
+    ) {
+
+      closeDrawer();
+
+    }
+
+  }
+);
 
 
 /* =========================================================
