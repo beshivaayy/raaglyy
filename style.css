@@ -41,6 +41,7 @@ button{
   position:fixed;
   inset:-5%;
   z-index:0;
+
   background:
     radial-gradient(
       circle at 68% 48%,
@@ -53,6 +54,7 @@ button{
       transparent 25%
     ),
     #08070a;
+
   transition:background 900ms ease
 }
 
@@ -61,11 +63,13 @@ button{
   position:absolute;
   inset:0;
   opacity:.05;
+
   background-image:
     radial-gradient(
       #fff .5px,
       transparent .5px
     );
+
   background-size:4px 4px
 }
 
@@ -77,12 +81,16 @@ button{
 header{
   height:82px;
   padding:0 clamp(20px,5vw,70px);
+
   border-bottom:1px solid var(--line);
+
   display:grid;
   grid-template-columns:1fr auto 1fr;
   align-items:center;
+
   position:relative;
   z-index:5;
+
   background:#08070a55;
   backdrop-filter:blur(16px)
 }
@@ -97,6 +105,7 @@ header{
   font-size:8px;
   letter-spacing:.22em;
   color:#888;
+
   display:flex;
   align-items:center
 }
@@ -109,6 +118,7 @@ header{
   background:var(--gold);
   margin-right:8px;
   box-shadow:0 0 16px #c8a66b;
+
   animation:pulse 2s infinite
 }
 
@@ -123,6 +133,7 @@ header{
   display:flex;
   gap:12px;
   align-items:center;
+
   color:#aaa;
   font-size:9px;
   letter-spacing:.24em
@@ -161,20 +172,22 @@ header{
 main{
   position:relative;
   z-index:2;
+
   min-height:calc(100vh - 200px);
+
   display:grid;
   grid-template-columns:1.15fr .85fr;
-  padding:35px clamp(20px,5vw,75px) 25px
+
+  padding:
+    35px
+    clamp(20px,5vw,75px)
+    25px
 }
-
-
-/* =========================================================
-   HERO
-   ========================================================= */
 
 .hero{
   position:relative;
   min-height:570px;
+
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -185,9 +198,11 @@ main{
   position:absolute;
   top:0;
   left:0;
+
   font-size:8px;
   letter-spacing:.22em;
   color:#777;
+
   display:flex;
   gap:12px
 }
@@ -211,6 +226,7 @@ main{
 .orbit{
   width:min(650px,90%);
   aspect-ratio:1/.74;
+
   position:relative;
   perspective:900px
 }
@@ -218,11 +234,14 @@ main{
 .orbit-ring{
   position:absolute;
   inset:7% 5%;
+
   border:1px solid #eee9df1f;
   border-radius:50%;
+
   transform:
     rotateX(58deg)
     rotateZ(-8deg);
+
   box-shadow:
     0 0 80px #c8a66b08
 }
@@ -239,27 +258,33 @@ main{
 
 .core{
   position:absolute;
+
   left:50%;
   top:50%;
+
   width:150px;
   height:150px;
+
   border:1px solid #eee9df2b;
   border-radius:50%;
+
   transform:translate(-50%,-50%);
+
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+
   background:
     radial-gradient(
       circle,
       #c8a66b20,
       #08070af5 68%
     );
+
   box-shadow:
     0 0 70px #c8a66b0c,
-    inset 0 0 35px #000;
-  text-align:center
+    inset 0 0 35px #000
 }
 
 .core span{
@@ -269,11 +294,11 @@ main{
 }
 
 .core strong{
-  font:500 18px 'Cormorant Garamond';
-  letter-spacing:.06em;
+  font:500 25px 'Cormorant Garamond';
+  letter-spacing:.08em;
   margin-top:5px;
-  max-width:125px;
-  line-height:1.05
+  text-align:center;
+  max-width:125px
 }
 
 .core i{
@@ -292,39 +317,54 @@ main{
 
 .planet{
   position:absolute;
+
   left:50%;
   top:50%;
-  width:54px;
-  height:54px;
+
+  width:58px;
+  height:58px;
+
   border-radius:50%;
+
   overflow:visible;
+
   transform:
     translate(-50%,-50%)
     translate(var(--x),var(--y));
+
   cursor:pointer;
+
   transition:
     filter .3s,
     transform .45s var(--ease);
+
   z-index:3
 }
 
 .planet img{
   width:100%;
   height:100%;
+
   border-radius:50%;
+
   object-fit:cover;
+
   filter:
     grayscale(.25)
     saturate(.7)
     brightness(.75);
+
   border:1px solid #eee9df35;
+
   transition:.35s
 }
 
 .planet:hover img,
 .planet.active img{
   filter:none;
+
   border-color:#c8a66baa;
+
   box-shadow:
     0 0 0 5px #c8a66b10,
     0 15px 30px #000
@@ -336,16 +376,22 @@ main{
 
 .planet label{
   position:absolute;
-  top:64px;
+
+  top:68px;
   left:50%;
+
   transform:translateX(-50%);
-  font-size:6px;
-  letter-spacing:.12em;
+
+  font-size:7px;
+  letter-spacing:.16em;
+
   white-space:nowrap;
+
   opacity:0;
+
   color:#bbb;
-  transition:.25s;
-  pointer-events:none
+
+  transition:.25s
 }
 
 .planet.active label,
@@ -360,8 +406,10 @@ main{
 
 .orbit-note{
   position:absolute;
+
   top:8%;
   left:7%;
+
   font-size:7px;
   letter-spacing:.2em;
   color:#665f5b
@@ -369,8 +417,10 @@ main{
 
 .degree{
   position:absolute;
+
   right:7%;
   bottom:7%;
+
   font-size:8px;
   letter-spacing:.2em;
   color:var(--gold)
@@ -378,12 +428,16 @@ main{
 
 .caption{
   position:absolute;
+
   bottom:0;
   left:0;
   right:0;
+
   display:flex;
   justify-content:space-between;
+
   color:#625d59;
+
   font-size:7px;
   letter-spacing:.25em
 }
@@ -395,7 +449,11 @@ main{
 
 .info{
   align-self:center;
-  padding:40px clamp(10px,4vw,55px);
+
+  padding:
+    40px
+    clamp(10px,4vw,55px);
+
   max-width:650px
 }
 
@@ -408,9 +466,12 @@ main{
 
 .info h1{
   font:
-    400 clamp(58px,7vw,100px)/.8
+    400
+    clamp(65px,8vw,105px)/.8
     'Cormorant Garamond';
+
   margin:0;
+
   letter-spacing:-.04em
 }
 
@@ -418,15 +479,19 @@ main{
   font:
     400 25px
     'Noto Serif Devanagari';
+
   color:#c4bdb5;
   margin-top:19px
 }
 
 .info p{
   max-width:510px;
+
   color:#aaa39d;
+
   font-size:13px;
   line-height:1.9;
+
   margin:20px 0
 }
 
@@ -439,15 +504,20 @@ main{
   display:flex;
   gap:7px;
   flex-wrap:wrap;
+
   padding-top:18px;
+
   border-top:1px solid var(--line)
 }
 
 .tags span{
   border:1px solid var(--line);
+
   padding:7px 10px;
+
   font-size:8px;
   letter-spacing:.08em;
+
   color:#9e9790
 }
 
@@ -459,7 +529,9 @@ main{
 .player{
   margin-top:30px;
   padding-top:20px;
+
   border-top:1px solid var(--line);
+
   max-width:540px
 }
 
@@ -467,17 +539,23 @@ main{
 .times{
   display:flex;
   justify-content:space-between;
+
   color:#66615d;
+
   font-size:7px;
   letter-spacing:.16em
 }
 
 .player-top b{
   display:inline-block;
+
   width:5px;
   height:5px;
+
   border-radius:50%;
+
   background:#555;
+
   margin-right:8px
 }
 
@@ -488,7 +566,31 @@ main{
 
 
 /* =========================================================
-   PROGRESS
+   YOUTUBE
+   Hidden visually.
+   Actual playback is controlled through the API.
+   ========================================================= */
+
+.youtube-wrapper{
+  position:absolute;
+
+  width:1px;
+  height:1px;
+
+  overflow:hidden;
+
+  opacity:0;
+  pointer-events:none
+}
+
+#youtube-player{
+  width:1px;
+  height:1px
+}
+
+
+/* =========================================================
+   TRACK
    ========================================================= */
 
 .track{
@@ -498,40 +600,57 @@ main{
 
 .track:before{
   content:"";
+
   position:absolute;
+
   left:0;
   right:0;
   top:14px;
+
   height:1px;
+
   background:#eee9df24
 }
 
 .track span{
   position:absolute;
+
   left:0;
   top:14px;
+
   width:0;
   height:1px;
+
   background:var(--gold);
+
   z-index:2
 }
 
 .track span:after{
   content:"";
+
   position:absolute;
+
   right:0;
   top:-2px;
+
   width:5px;
   height:5px;
+
   background:var(--gold);
+
   border-radius:50%
 }
 
 .track input{
   position:absolute;
+
   inset:0;
+
   width:100%;
+
   opacity:0;
+
   cursor:pointer
 }
 
@@ -544,24 +663,32 @@ main{
   display:flex;
   justify-content:center;
   align-items:center;
+
   gap:15px;
+
   margin-top:10px
 }
 
 .controls button{
   width:40px;
   height:40px;
+
   border:1px solid var(--line);
+
   border-radius:50%;
+
   color:#888;
+
   transition:.25s
 }
 
 .controls #play{
   width:54px;
   height:54px;
+
   background:var(--paper);
   color:#08070a;
+
   border-color:var(--paper)
 }
 
@@ -577,117 +704,43 @@ main{
 
 
 /* =========================================================
-   SOURCE SWITCH
-   ========================================================= */
-
-.source-switch{
-  display:flex;
-  justify-content:center;
-  gap:7px;
-  margin-top:18px
-}
-
-.source{
-  border:1px solid var(--line);
-  padding:7px 12px;
-  font-size:7px;
-  letter-spacing:.2em;
-  color:#66615d;
-  transition:.25s
-}
-
-.source:hover{
-  color:#ddd;
-  border-color:#777
-}
-
-.source.active{
-  color:var(--gold);
-  border-color:#c8a66b66;
-  background:#c8a66b0b
-}
-
-
-/* =========================================================
-   YOUTUBE PLAYER
-   ========================================================= */
-
-#youtubePlayerWrap{
-  position:absolute;
-  width:1px;
-  height:1px;
-  overflow:hidden;
-  opacity:0;
-  pointer-events:none
-}
-
-#youtubePlayerWrap.hidden{
-  display:none
-}
-
-
-/* =========================================================
-   SPOTIFY
-   ========================================================= */
-
-#spotifyWrap{
-  display:none;
-  margin-top:24px;
-  max-width:540px;
-  border-top:1px solid var(--line);
-  padding-top:18px
-}
-
-#spotifyWrap.visible{
-  display:block
-}
-
-.spotify-head{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:10px;
-  font-size:7px;
-  letter-spacing:.18em;
-  color:#6c6661
-}
-
-#spotifyFrame{
-  width:100%;
-  height:352px;
-  border-radius:12px;
-  display:block
-}
-
-
-/* =========================================================
    FOOTER
    ========================================================= */
 
 footer{
   position:relative;
   z-index:3;
+
   border-top:1px solid var(--line);
+
   padding:
     11px
     clamp(20px,5vw,70px)
     18px;
+
   background:#08070acc;
+
   backdrop-filter:blur(16px)
 }
 
 .rail-label{
   display:flex;
   justify-content:space-between;
+
   font-size:7px;
   letter-spacing:.22em;
+
   color:#68625e;
+
   margin-bottom:10px
 }
 
 .rail{
   display:flex;
   gap:5px;
+
   overflow-x:auto;
+
   scrollbar-width:none
 }
 
@@ -697,29 +750,44 @@ footer{
 
 .rail-item{
   position:relative;
-  flex:0 0 94px;
+
+  flex:0 0 74px;
+
   height:48px;
+
   border:1px solid var(--line);
+
   overflow:hidden;
+
   text-align:left;
+
   padding:6px;
+
   transition:.3s
 }
 
 .rail-item img{
   position:absolute;
+
   inset:0;
+
   width:100%;
   height:100%;
+
   object-fit:cover;
+
   opacity:.35;
+
   transition:.3s
 }
 
 .rail-item:after{
   content:"";
+
   position:absolute;
+
   inset:0;
+
   background:
     linear-gradient(
       transparent,
@@ -729,20 +797,21 @@ footer{
 
 .rail-item span{
   position:absolute;
+
   z-index:2;
+
   bottom:6px;
   left:7px;
+
   font:
-    400 12px
+    400 13px
     'Cormorant Garamond';
-  white-space:nowrap;
-  max-width:82px;
-  overflow:hidden;
-  text-overflow:ellipsis
+
+  white-space:nowrap
 }
 
 .rail-item.active{
-  flex-basis:130px;
+  width:120px;
   border-color:var(--gold)
 }
 
@@ -761,15 +830,23 @@ footer{
 
 #drawer{
   position:fixed;
+
   z-index:20;
+
   left:0;
   top:0;
   bottom:0;
+
   width:min(410px,88vw);
+
   background:#0d0b10f8;
+
   border-right:1px solid var(--line);
+
   transform:translateX(-102%);
+
   transition:.55s var(--ease);
+
   backdrop-filter:blur(22px)
 }
 
@@ -779,8 +856,11 @@ footer{
 
 .drawer-head{
   height:90px;
+
   padding:0 28px;
+
   border-bottom:1px solid var(--line);
+
   display:flex;
   align-items:center;
   justify-content:space-between
@@ -790,6 +870,7 @@ footer{
   font:
     600 25px
     'Cormorant Garamond';
+
   letter-spacing:.16em
 }
 
@@ -800,7 +881,9 @@ footer{
 
 .drawer-body{
   padding:28px;
+
   overflow:auto;
+
   height:calc(100% - 90px)
 }
 
@@ -808,7 +891,9 @@ footer{
   font-size:7px;
   letter-spacing:.24em;
   color:#666;
+
   display:block;
+
   margin-bottom:15px
 }
 
@@ -818,22 +903,24 @@ footer{
 }
 
 .drawer-body nav button,
-.drawer-body a,
-.source-link{
+.drawer-body a{
   display:block;
-  width:100%;
+
   text-align:left;
+
   padding:11px 9px;
+
   color:#aaa;
+
   font:
     400 17px
     'Cormorant Garamond';
+
   border-bottom:1px solid #eee9df08
 }
 
 .drawer-body nav button:hover,
-.drawer-body nav button.active,
-.source-link:hover{
+.drawer-body nav button.active{
   color:#eee;
   background:#fff1;
   padding-left:15px
@@ -844,8 +931,7 @@ footer{
 }
 
 .drawer-body a{
-  cursor:pointer;
-  text-decoration:none
+  cursor:pointer
 }
 
 
@@ -855,11 +941,17 @@ footer{
 
 #veil{
   position:fixed;
+
   z-index:10;
+
   inset:0;
+
   background:#0009;
+
   opacity:0;
+
   pointer-events:none;
+
   transition:.4s
 }
 
@@ -934,8 +1026,7 @@ footer{
   }
 
   .core strong{
-    font-size:14px;
-    max-width:92px
+    font-size:20px
   }
 
   .planet{
@@ -966,14 +1057,6 @@ footer{
 
   .degree{
     right:2%
-  }
-
-  .source-switch{
-    margin-top:15px
-  }
-
-  #spotifyFrame{
-    height:352px
   }
 
 }
