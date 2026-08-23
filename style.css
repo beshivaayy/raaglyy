@@ -4,11 +4,11 @@
   --muted:#8c8580;
   --gold:#c8a66b;
   --line:rgba(238,233,223,.13);
-  --ease:cubic-bezier(.22,1,.36,1);
+  --ease:cubic-bezier(.22,1,.36,1)
 }
 
 *{
-  box-sizing:border-box;
+  box-sizing:border-box
 }
 
 html,
@@ -17,11 +17,11 @@ body{
   min-height:100%;
   background:var(--bg);
   color:var(--paper);
-  font-family:Inter,sans-serif;
+  font-family:Inter,sans-serif
 }
 
 body{
-  overflow-x:hidden;
+  overflow-x:hidden
 }
 
 button{
@@ -29,7 +29,7 @@ button{
   color:inherit;
   border:0;
   background:none;
-  cursor:pointer;
+  cursor:pointer
 }
 
 
@@ -53,7 +53,7 @@ button{
       transparent 25%
     ),
     #08070a;
-  transition:background 900ms ease;
+  transition:background 900ms ease
 }
 
 #bg:after{
@@ -66,7 +66,7 @@ button{
       #fff .5px,
       transparent .5px
     );
-  background-size:4px 4px;
+  background-size:4px 4px
 }
 
 
@@ -84,12 +84,12 @@ header{
   position:relative;
   z-index:5;
   background:#08070a55;
-  backdrop-filter:blur(16px);
+  backdrop-filter:blur(16px)
 }
 
 .brand{
   font:600 28px 'Cormorant Garamond';
-  letter-spacing:.2em;
+  letter-spacing:.2em
 }
 
 .live{
@@ -98,7 +98,7 @@ header{
   letter-spacing:.22em;
   color:#888;
   display:flex;
-  align-items:center;
+  align-items:center
 }
 
 .live b{
@@ -109,20 +109,15 @@ header{
   background:var(--gold);
   margin-right:8px;
   box-shadow:0 0 16px #c8a66b;
-  animation:pulse 2s infinite;
+  animation:pulse 2s infinite
 }
 
 @keyframes pulse{
   50%{
     opacity:.35;
-    transform:scale(.7);
+    transform:scale(.7)
   }
 }
-
-
-/* =========================================================
-   MENU
-   ========================================================= */
 
 #menu{
   display:flex;
@@ -130,7 +125,7 @@ header{
   align-items:center;
   color:#aaa;
   font-size:9px;
-  letter-spacing:.24em;
+  letter-spacing:.24em
 }
 
 #menu i,
@@ -140,22 +135,22 @@ header{
   height:1px;
   background:currentColor;
   display:block;
-  position:relative;
+  position:relative
 }
 
 #menu i:before,
 #menu i:after{
   content:"";
   position:absolute;
-  left:0;
+  left:0
 }
 
 #menu i:before{
-  top:-6px;
+  top:-6px
 }
 
 #menu i:after{
-  top:6px;
+  top:6px
 }
 
 
@@ -169,7 +164,7 @@ main{
   min-height:calc(100vh - 200px);
   display:grid;
   grid-template-columns:1.15fr .85fr;
-  padding:35px clamp(20px,5vw,75px) 25px;
+  padding:35px clamp(20px,5vw,75px) 25px
 }
 
 
@@ -183,7 +178,7 @@ main{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  align-items:center;
+  align-items:center
 }
 
 .kicker{
@@ -194,18 +189,18 @@ main{
   letter-spacing:.22em;
   color:#777;
   display:flex;
-  gap:12px;
+  gap:12px
 }
 
 .kicker span:first-child{
-  color:var(--gold);
+  color:var(--gold)
 }
 
 .kicker em{
   width:34px;
   height:1px;
   background:var(--line);
-  margin-top:4px;
+  margin-top:4px
 }
 
 
@@ -217,7 +212,7 @@ main{
   width:min(650px,90%);
   aspect-ratio:1/.74;
   position:relative;
-  perspective:900px;
+  perspective:900px
 }
 
 .orbit-ring{
@@ -229,13 +224,18 @@ main{
     rotateX(58deg)
     rotateZ(-8deg);
   box-shadow:
-    0 0 80px #c8a66b08;
+    0 0 80px #c8a66b08
 }
 
 .orbit-ring.inner{
   inset:18% 16%;
-  border-color:#c8a66b18;
+  border-color:#c8a66b18
 }
+
+
+/* =========================================================
+   CORE
+   ========================================================= */
 
 .core{
   position:absolute;
@@ -259,20 +259,21 @@ main{
   box-shadow:
     0 0 70px #c8a66b0c,
     inset 0 0 35px #000;
+  text-align:center
 }
 
 .core span{
   font-size:7px;
   letter-spacing:.4em;
-  color:#8d847b;
+  color:#8d847b
 }
 
 .core strong{
-  font:500 25px 'Cormorant Garamond';
-  letter-spacing:.08em;
+  font:500 18px 'Cormorant Garamond';
+  letter-spacing:.06em;
   margin-top:5px;
-  text-align:center;
   max-width:125px;
+  line-height:1.05
 }
 
 .core i{
@@ -281,7 +282,7 @@ main{
   background:var(--gold);
   border-radius:50%;
   margin-top:9px;
-  box-shadow:0 0 12px var(--gold);
+  box-shadow:0 0 12px var(--gold)
 }
 
 
@@ -293,8 +294,8 @@ main{
   position:absolute;
   left:50%;
   top:50%;
-  width:58px;
-  height:58px;
+  width:54px;
+  height:54px;
   border-radius:50%;
   overflow:visible;
   transform:
@@ -304,7 +305,7 @@ main{
   transition:
     filter .3s,
     transform .45s var(--ease);
-  z-index:3;
+  z-index:3
 }
 
 .planet img{
@@ -317,7 +318,7 @@ main{
     saturate(.7)
     brightness(.75);
   border:1px solid #eee9df35;
-  transition:.35s;
+  transition:.35s
 }
 
 .planet:hover img,
@@ -326,34 +327,35 @@ main{
   border-color:#c8a66baa;
   box-shadow:
     0 0 0 5px #c8a66b10,
-    0 15px 30px #000;
+    0 15px 30px #000
 }
 
 .planet.active{
-  z-index:10;
+  z-index:10
 }
 
 .planet label{
   position:absolute;
-  top:68px;
+  top:64px;
   left:50%;
   transform:translateX(-50%);
-  font-size:7px;
-  letter-spacing:.16em;
+  font-size:6px;
+  letter-spacing:.12em;
   white-space:nowrap;
   opacity:0;
   color:#bbb;
   transition:.25s;
+  pointer-events:none
 }
 
 .planet.active label,
 .planet:hover label{
-  opacity:1;
+  opacity:1
 }
 
 
 /* =========================================================
-   ORBIT DETAILS
+   ORBIT LABELS
    ========================================================= */
 
 .orbit-note{
@@ -362,7 +364,7 @@ main{
   left:7%;
   font-size:7px;
   letter-spacing:.2em;
-  color:#665f5b;
+  color:#665f5b
 }
 
 .degree{
@@ -371,7 +373,7 @@ main{
   bottom:7%;
   font-size:8px;
   letter-spacing:.2em;
-  color:var(--gold);
+  color:var(--gold)
 }
 
 .caption{
@@ -383,7 +385,7 @@ main{
   justify-content:space-between;
   color:#625d59;
   font-size:7px;
-  letter-spacing:.25em;
+  letter-spacing:.25em
 }
 
 
@@ -394,32 +396,30 @@ main{
 .info{
   align-self:center;
   padding:40px clamp(10px,4vw,55px);
-  max-width:650px;
+  max-width:650px
 }
 
 .eyebrow{
   font-size:8px;
   letter-spacing:.24em;
   color:var(--gold);
-  margin-bottom:16px;
+  margin-bottom:16px
 }
 
 .info h1{
   font:
-    400
-    clamp(65px,8vw,105px)/.8
+    400 clamp(58px,7vw,100px)/.8
     'Cormorant Garamond';
   margin:0;
-  letter-spacing:-.04em;
+  letter-spacing:-.04em
 }
 
 .hindi{
   font:
-    400
-    25px
+    400 25px
     'Noto Serif Devanagari';
   color:#c4bdb5;
-  margin-top:19px;
+  margin-top:19px
 }
 
 .info p{
@@ -427,7 +427,7 @@ main{
   color:#aaa39d;
   font-size:13px;
   line-height:1.9;
-  margin:20px 0;
+  margin:20px 0
 }
 
 
@@ -440,7 +440,7 @@ main{
   gap:7px;
   flex-wrap:wrap;
   padding-top:18px;
-  border-top:1px solid var(--line);
+  border-top:1px solid var(--line)
 }
 
 .tags span{
@@ -448,7 +448,7 @@ main{
   padding:7px 10px;
   font-size:8px;
   letter-spacing:.08em;
-  color:#9e9790;
+  color:#9e9790
 }
 
 
@@ -460,51 +460,7 @@ main{
   margin-top:30px;
   padding-top:20px;
   border-top:1px solid var(--line);
-  max-width:540px;
-}
-
-
-/* =========================================================
-   SOURCE SWITCHER
-   ========================================================= */
-
-.player-source{
-  display:flex;
-  gap:8px;
-  margin-bottom:18px;
-}
-
-.source-btn{
-  border:1px solid var(--line);
-  padding:7px 11px;
-  font-size:7px;
-  letter-spacing:.18em;
-  color:#68625e;
-  transition:.3s;
-}
-
-.source-btn:hover{
-  border-color:#aaa;
-  color:#eee;
-}
-
-.source-btn.active{
-  color:#08070a;
-  background:var(--gold);
-  border-color:var(--gold);
-}
-
-
-/* =========================================================
-   YOUTUBE CUSTOM PLAYER
-   ========================================================= */
-
-#youtubeControls{
-  display:block;
-}
-
-#youtubeControls.hidden{
-  display:none;
+  max-width:540px
 }
 
 .player-top,
@@ -513,7 +469,7 @@ main{
   justify-content:space-between;
   color:#66615d;
   font-size:7px;
-  letter-spacing:.16em;
+  letter-spacing:.16em
 }
 
 .player-top b{
@@ -522,22 +478,22 @@ main{
   height:5px;
   border-radius:50%;
   background:#555;
-  margin-right:8px;
+  margin-right:8px
 }
 
 .player.playing .player-top b{
   background:var(--gold);
-  box-shadow:0 0 12px var(--gold);
+  box-shadow:0 0 12px var(--gold)
 }
 
 
 /* =========================================================
-   SEEK BAR
+   PROGRESS
    ========================================================= */
 
 .track{
   height:28px;
-  position:relative;
+  position:relative
 }
 
 .track:before{
@@ -547,7 +503,7 @@ main{
   right:0;
   top:14px;
   height:1px;
-  background:#eee9df24;
+  background:#eee9df24
 }
 
 .track span{
@@ -557,7 +513,7 @@ main{
   width:0;
   height:1px;
   background:var(--gold);
-  z-index:2;
+  z-index:2
 }
 
 .track span:after{
@@ -568,7 +524,7 @@ main{
   width:5px;
   height:5px;
   background:var(--gold);
-  border-radius:50%;
+  border-radius:50%
 }
 
 .track input{
@@ -576,7 +532,7 @@ main{
   inset:0;
   width:100%;
   opacity:0;
-  cursor:pointer;
+  cursor:pointer
 }
 
 
@@ -589,7 +545,7 @@ main{
   justify-content:center;
   align-items:center;
   gap:15px;
-  margin-top:10px;
+  margin-top:10px
 }
 
 .controls button{
@@ -598,7 +554,7 @@ main{
   border:1px solid var(--line);
   border-radius:50%;
   color:#888;
-  transition:.25s;
+  transition:.25s
 }
 
 .controls #play{
@@ -606,17 +562,67 @@ main{
   height:54px;
   background:var(--paper);
   color:#08070a;
-  border-color:var(--paper);
+  border-color:var(--paper)
 }
 
 .controls button:hover{
   border-color:#aaa;
-  color:#eee;
+  color:#eee
 }
 
 .controls #play:hover{
   background:var(--gold);
-  border-color:var(--gold);
+  border-color:var(--gold)
+}
+
+
+/* =========================================================
+   SOURCE SWITCH
+   ========================================================= */
+
+.source-switch{
+  display:flex;
+  justify-content:center;
+  gap:7px;
+  margin-top:18px
+}
+
+.source{
+  border:1px solid var(--line);
+  padding:7px 12px;
+  font-size:7px;
+  letter-spacing:.2em;
+  color:#66615d;
+  transition:.25s
+}
+
+.source:hover{
+  color:#ddd;
+  border-color:#777
+}
+
+.source.active{
+  color:var(--gold);
+  border-color:#c8a66b66;
+  background:#c8a66b0b
+}
+
+
+/* =========================================================
+   YOUTUBE PLAYER
+   ========================================================= */
+
+#youtubePlayerWrap{
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  opacity:0;
+  pointer-events:none
+}
+
+#youtubePlayerWrap.hidden{
+  display:none
 }
 
 
@@ -624,37 +630,32 @@ main{
    SPOTIFY
    ========================================================= */
 
-.spotify-controls{
+#spotifyWrap{
   display:none;
-  width:100%;
+  margin-top:24px;
+  max-width:540px;
+  border-top:1px solid var(--line);
+  padding-top:18px
 }
 
-.spotify-controls.visible{
-  display:block;
+#spotifyWrap.visible{
+  display:block
 }
 
-.spotify-controls iframe{
-  display:block;
+.spotify-head{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+  font-size:7px;
+  letter-spacing:.18em;
+  color:#6c6661
+}
+
+#spotifyFrame{
   width:100%;
-  min-height:352px;
-  border:0;
+  height:352px;
   border-radius:12px;
-}
-
-
-/* =========================================================
-   HIDDEN YOUTUBE HOST
-   ========================================================= */
-
-#youtubeHost{
-  position:fixed;
-  width:1px;
-  height:1px;
-  left:-10px;
-  bottom:-10px;
-  opacity:0;
-  pointer-events:none;
-  overflow:hidden;
+  display:block
 }
 
 
@@ -666,9 +667,12 @@ footer{
   position:relative;
   z-index:3;
   border-top:1px solid var(--line);
-  padding:11px clamp(20px,5vw,70px) 18px;
+  padding:
+    11px
+    clamp(20px,5vw,70px)
+    18px;
   background:#08070acc;
-  backdrop-filter:blur(16px);
+  backdrop-filter:blur(16px)
 }
 
 .rail-label{
@@ -677,29 +681,29 @@ footer{
   font-size:7px;
   letter-spacing:.22em;
   color:#68625e;
-  margin-bottom:10px;
+  margin-bottom:10px
 }
 
 .rail{
   display:flex;
   gap:5px;
   overflow-x:auto;
-  scrollbar-width:none;
+  scrollbar-width:none
 }
 
 .rail::-webkit-scrollbar{
-  display:none;
+  display:none
 }
 
 .rail-item{
   position:relative;
-  flex:0 0 74px;
+  flex:0 0 94px;
   height:48px;
   border:1px solid var(--line);
   overflow:hidden;
   text-align:left;
   padding:6px;
-  transition:.3s;
+  transition:.3s
 }
 
 .rail-item img{
@@ -709,17 +713,18 @@ footer{
   height:100%;
   object-fit:cover;
   opacity:.35;
-  transition:.3s;
+  transition:.3s
 }
 
 .rail-item:after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    transparent,
-    #000b
-  );
+  background:
+    linear-gradient(
+      transparent,
+      #000b
+    )
 }
 
 .rail-item span{
@@ -728,23 +733,25 @@ footer{
   bottom:6px;
   left:7px;
   font:
-    400
-    13px
+    400 12px
     'Cormorant Garamond';
   white-space:nowrap;
+  max-width:82px;
+  overflow:hidden;
+  text-overflow:ellipsis
 }
 
 .rail-item.active{
-  width:120px;
-  border-color:var(--gold);
+  flex-basis:130px;
+  border-color:var(--gold)
 }
 
 .rail-item.active img{
-  opacity:.65;
+  opacity:.65
 }
 
 .rail-item:hover{
-  transform:translateY(-2px);
+  transform:translateY(-2px)
 }
 
 
@@ -763,11 +770,11 @@ footer{
   border-right:1px solid var(--line);
   transform:translateX(-102%);
   transition:.55s var(--ease);
-  backdrop-filter:blur(22px);
+  backdrop-filter:blur(22px)
 }
 
 #drawer.open{
-  transform:none;
+  transform:none
 }
 
 .drawer-head{
@@ -776,26 +783,25 @@ footer{
   border-bottom:1px solid var(--line);
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:space-between
 }
 
 .drawer-head strong{
   font:
-    600
-    25px
+    600 25px
     'Cormorant Garamond';
-  letter-spacing:.16em;
+  letter-spacing:.16em
 }
 
 .drawer-head button{
   font-size:30px;
-  color:#777;
+  color:#777
 }
 
 .drawer-body{
   padding:28px;
   overflow:auto;
-  height:calc(100% - 90px);
+  height:calc(100% - 90px)
 }
 
 .drawer-body small{
@@ -803,41 +809,43 @@ footer{
   letter-spacing:.24em;
   color:#666;
   display:block;
-  margin-bottom:15px;
+  margin-bottom:15px
 }
 
 .drawer-body nav{
   display:grid;
-  gap:2px;
+  gap:2px
 }
 
 .drawer-body nav button,
-.drawer-body a{
+.drawer-body a,
+.source-link{
   display:block;
+  width:100%;
   text-align:left;
   padding:11px 9px;
   color:#aaa;
   font:
-    400
-    17px
+    400 17px
     'Cormorant Garamond';
-  border-bottom:1px solid #eee9df08;
-  text-decoration:none;
+  border-bottom:1px solid #eee9df08
 }
 
 .drawer-body nav button:hover,
-.drawer-body nav button.active{
+.drawer-body nav button.active,
+.source-link:hover{
   color:#eee;
   background:#fff1;
-  padding-left:15px;
+  padding-left:15px
 }
 
 .sources{
-  margin-top:35px;
+  margin-top:35px
 }
 
 .drawer-body a{
   cursor:pointer;
+  text-decoration:none
 }
 
 
@@ -852,12 +860,12 @@ footer{
   background:#0009;
   opacity:0;
   pointer-events:none;
-  transition:.4s;
+  transition:.4s
 }
 
 #veil.open{
   opacity:1;
-  pointer-events:auto;
+  pointer-events:auto
 }
 
 
@@ -868,19 +876,22 @@ footer{
 @media(max-width:950px){
 
   main{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr
   }
 
   .hero{
-    min-height:500px;
+    min-height:500px
   }
 
   .info{
-    padding:20px 5vw 45px;
+    padding:
+      20px
+      5vw
+      45px
   }
 
   .info h1{
-    font-size:80px;
+    font-size:80px
   }
 
 }
@@ -894,70 +905,75 @@ footer{
 
   header{
     height:68px;
-    padding:0 18px;
+    padding:0 18px
   }
 
   .brand{
-    font-size:22px;
+    font-size:22px
   }
 
   .live{
-    font-size:0;
+    font-size:0
   }
 
   .live b{
-    margin:0;
+    margin:0
   }
 
   .hero{
-    min-height:410px;
+    min-height:410px
   }
 
   .orbit{
-    width:100%;
+    width:100%
   }
 
   .core{
     width:112px;
-    height:112px;
+    height:112px
   }
 
   .core strong{
-    font-size:20px;
+    font-size:14px;
+    max-width:92px
   }
 
   .planet{
     width:42px;
-    height:42px;
+    height:42px
   }
 
   .planet label{
-    display:none;
+    display:none
   }
 
   .info h1{
-    font-size:65px;
+    font-size:65px
   }
 
   .info{
     padding-left:2px;
-    padding-right:2px;
+    padding-right:2px
   }
 
   .caption{
-    font-size:6px;
+    font-size:6px
   }
 
   .orbit-note{
-    left:2%;
+    left:2%
   }
 
   .degree{
-    right:2%;
+    right:2%
   }
 
-  .spotify-controls iframe{
-    min-height:352px;
+  .source-switch{
+    margin-top:15px
+  }
+
+  #spotifyFrame{
+    height:352px
   }
 
 }
