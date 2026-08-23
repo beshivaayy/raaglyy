@@ -1,1 +1,276 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RAAGLY — Sound Beyond Silence</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body><div id="bg"></div><header><button id="menu"><i></i><span>ARCHIVE</span></button><div class="brand">RAAGLY</div><div class="live"><b></b> SOUND BEYOND SILENCE</div></header><aside id="drawer"><div class="drawer-head"><strong>RAAGLY</strong><button id="close">×</button></div><div class="drawer-body"><small>THE 27 RAAGS</small><nav id="archive"></nav><small class="sources">KNOWLEDGE</small><a>Indian Classical Music</a><a>Raag &amp; Time</a><a>Sound &amp; Consciousness</a></div></aside><div id="veil"></div><main><section class="hero"><div class="kicker"><span id="num">01</span><em></em><span id="prahar">EVENING</span></div><div class="orbit"><div class="orbit-ring"></div><div class="orbit-ring inner"></div><div id="planets"></div><div class="core"><span>RAAG</span><strong id="coreName">YAMAN</strong><i></i></div><div class="orbit-note">ORBITAL ARCHIVE · 27</div><div class="degree" id="degree">01 / 27</div></div><div class="caption"><span>LISTEN · OBSERVE · FEEL</span><span>01 — 27</span></div></section><section class="info"><div class="eyebrow">THE RAAG OF <span id="time">THE FIRST PRAHAR</span></div><h1 id="title">Yaman</h1><div class="hindi" id="hindi">राग यमन</div><p id="desc">A luminous evening raag built around the tivra madhyam. Its character is expansive, serene and quietly devotional.</p><div class="tags" id="tags"></div><div class="player"><div class="player-top"><span><b id="dot"></b><span id="state">READY TO LISTEN</span></span><span id="duration">—</span></div><div class="track"><span id="fill"></span><input id="seek" type="range" min="0" max="100" value="0"></div><div class="times"><span id="current">00:00</span><span id="total">00:00</span></div><div class="controls"><button id="prev">‹</button><button id="play">▶</button><button id="next">›</button></div></div></section></main><footer><div class="rail-label"><span>RAAG ARCHIVE</span><span id="count">01 / 27</span></div><div class="rail" id="rail"></div></footer><audio id="audio"></audio><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+  <title>RAAGLYY — Sound Beyond Silence</title>
+
+  <meta
+    name="description"
+    content="Raaglyy — an orbital archive of Indian classical raags."
+  >
+  <meta name="theme-color" content="#08070a">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="bg" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header>
+    <button
+      id="menu"
+      type="button"
+      aria-label="Open Raag archive"
+      aria-controls="drawer"
+      aria-expanded="false"
+    >
+      <i aria-hidden="true"></i>
+      <span>ARCHIVE</span>
+    </button>
+
+    <div class="brand">RAAGLYY</div>
+
+    <div class="live">
+      <b aria-hidden="true"></b>
+      <span>SOUND BEYOND SILENCE</span>
+    </div>
+  </header>
+
+
+  <!-- DRAWER -->
+  <aside id="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <strong>RAAGLYY</strong>
+
+      <button
+        id="close"
+        type="button"
+        aria-label="Close archive"
+      >
+        ×
+      </button>
+    </div>
+
+    <div class="drawer-body">
+
+      <small>THE 27 RAAGS</small>
+
+      <nav
+        id="archive"
+        aria-label="Raag archive"
+      ></nav>
+
+      <small class="sources">KNOWLEDGE</small>
+
+      <a href="#info">Indian Classical Music</a>
+      <a href="#info">Raag &amp; Time</a>
+      <a href="#info">Sound &amp; Consciousness</a>
+
+    </div>
+  </aside>
+
+  <div id="veil" aria-hidden="true"></div>
+
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- ORBIT -->
+    <section class="hero" aria-label="Raag orbital archive">
+
+      <div class="kicker">
+        <span id="num">01</span>
+        <em aria-hidden="true"></em>
+        <span id="prahar">EVENING</span>
+      </div>
+
+      <div
+        class="orbit"
+        id="orbit"
+        aria-label="27 raag orbital selector"
+      >
+        <div class="orbit-ring" aria-hidden="true"></div>
+        <div class="orbit-ring inner" aria-hidden="true"></div>
+
+        <div id="planets"></div>
+
+        <div class="core">
+          <span>RAAG</span>
+          <strong id="coreName">YAMAN</strong>
+          <i aria-hidden="true"></i>
+        </div>
+
+        <div class="orbit-note">
+          ORBITAL ARCHIVE · 27
+        </div>
+
+        <div
+          class="degree"
+          id="degree"
+          aria-live="polite"
+        >
+          01 / 27
+        </div>
+      </div>
+
+      <div class="caption">
+        <span>LISTEN · OBSERVE · FEEL</span>
+        <span id="captionCount">01 — 27</span>
+      </div>
+
+    </section>
+
+
+    <!-- INFORMATION -->
+    <section
+      class="info"
+      id="info"
+      aria-live="polite"
+    >
+
+      <div class="eyebrow">
+        THE RAAG OF
+        <span id="time">THE FIRST PRAHAR</span>
+      </div>
+
+      <h1 id="title">Yaman</h1>
+
+      <div
+        class="hindi"
+        id="hindi"
+      >
+        राग यमन
+      </div>
+
+      <p id="desc">
+        A luminous evening raag built around the tivra madhyam.
+        Its character is expansive, serene and quietly devotional.
+      </p>
+
+      <div
+        class="tags"
+        id="tags"
+        aria-label="Raag characteristics"
+      ></div>
+
+
+      <!-- PLAYER -->
+      <div
+        class="player"
+        id="player"
+      >
+
+        <div class="player-top">
+
+          <span class="player-state">
+            <b id="dot" aria-hidden="true"></b>
+            <span id="state">READY TO LISTEN</span>
+          </span>
+
+          <span id="duration">00:00</span>
+
+        </div>
+
+
+        <div class="track">
+
+          <span
+            id="fill"
+            aria-hidden="true"
+          ></span>
+
+          <input
+            id="seek"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            step="0.1"
+            aria-label="Seek through current raag"
+          >
+
+        </div>
+
+
+        <div class="times">
+          <span id="current">00:00</span>
+          <span id="total">00:00</span>
+        </div>
+
+
+        <div class="controls">
+
+          <button
+            id="prev"
+            type="button"
+            aria-label="Previous raag"
+          >
+            ‹
+          </button>
+
+          <button
+            id="play"
+            type="button"
+            aria-label="Play current raag"
+            aria-pressed="false"
+          >
+            ▶
+          </button>
+
+          <button
+            id="next"
+            type="button"
+            aria-label="Next raag"
+          >
+            ›
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ARCHIVE RAIL -->
+  <footer>
+
+    <div class="rail-label">
+      <span>RAAG ARCHIVE</span>
+      <span id="count">01 / 27</span>
+    </div>
+
+    <div
+      class="rail"
+      id="rail"
+      aria-label="Raag archive carousel"
+    ></div>
+
+  </footer>
+
+
+  <!-- REAL AUDIO ELEMENT -->
+  <audio
+    id="audio"
+    preload="metadata"
+  ></audio>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
