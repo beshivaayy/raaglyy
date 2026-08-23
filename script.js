@@ -1,297 +1,304 @@
 /* =========================================================
-   RAAGLYY — SOUND BEYOND SILENCE
-   27 RAAG ARCHIVE
-   YouTube + Spotify
+   RAAGLYY
+   SOUND BEYOND SILENCE
+
+   PLAYBACK:
+   YouTube Playlist
+   Playlist ID: PLJRipbfj__b0
+
+   Spotify intentionally removed.
    ========================================================= */
 
 
-/* ---------------------------------------------------------
-   PLAYLISTS
-   --------------------------------------------------------- */
-
 const YOUTUBE_PLAYLIST_ID = "PLJRipbfj__b0";
 
-const SPOTIFY_PLAYLIST_ID = "1uCwKa8NKlV4fywgZ2gnMp";
 
-
-/* ---------------------------------------------------------
+/* =========================================================
    27 RAAGS
-   Exact YouTube playlist order
-   --------------------------------------------------------- */
+   EXACT YOUTUBE PLAYLIST ORDER
+   ========================================================= */
 
 const raags = [
 
   {
-    name: "Raag Bhimpalasi",
-    hindi: "राग भिम्पलासी",
+    name: "Bhimpalasi",
+    hindi: "राग भीमपलासी",
     time: "Afternoon",
     description:
-      "A deeply expressive afternoon raag associated with longing, tenderness, emotional depth, and introspection.",
-    tags: ["Afternoon", "Longing", "Introspection"]
+      "A deeply expressive afternoon raag carrying longing, tenderness and introspection through its characteristic melodic movement.",
+    tags: ["Afternoon", "Shringara", "Viraha"]
   },
 
   {
-    name: "Raag Darbari Kanada",
+    name: "Darbari Kanada",
     hindi: "राग दरबारी कानड़ा",
     time: "Late Night",
     description:
-      "For heart disease, problems related to children, honour, getting a position in life, and relationships with father and government",
-    tags: ["Late Night", "Gambhir", "Depth"]
+      "For heart disease, problems related to children, honour, getting a position in life, and relationships with father and government.",
+    tags: ["Late Night", "Gambhir", "Royal"]
   },
 
   {
-    name: "Raag Shuddh Sarang",
+    name: "Shuddh Sarang",
     hindi: "राग शुद्ध सारंग",
     time: "Afternoon",
     description:
-      "A radiant afternoon raag carrying brightness, serenity, warmth, and a graceful sense of emotional balance.",
-    tags: ["Afternoon", "Serene", "Luminous"]
+      "A luminous Sarang-family raag associated with clarity, balance and a bright, open melodic character.",
+    tags: ["Afternoon", "Sarang", "Luminous"]
   },
 
   {
-    name: "Raag Komal Rishabh Asavari",
+    name: "Komal Rishabh Asavari",
     hindi: "राग कोमल ऋषभ आसावरी",
     time: "Morning",
     description:
-      "A serious and contemplative raag with a plaintive character, associated with introspection, emotional depth, and detachment.",
-    tags: ["Morning", "Contemplative", "Depth"]
+      "For property-related issues, blood-related problems, violence, and accidents.",
+    tags: ["Morning", "Asavari", "Gambhir"]
   },
 
   {
-    name: "Raag Yaman",
+    name: "Yaman",
     hindi: "राग यमन",
     time: "Evening",
     description:
-      "For mental peace, relations with mother, happiness, calmness, family atmosphere, emotional trauma, and pain",
-    tags: ["Evening", "Peace", "Calm"]
+      "For mental peace, relations with mother, happiness, calmness, family atmosphere, emotional trauma, and pain.",
+    tags: ["Evening", "Tivra Ma", "Shanta"]
   },
 
   {
-    name: "Raag Hamsadhwani",
+    name: "Hamsadhwani",
     hindi: "राग हंसध्वनि",
     time: "Evening",
     description:
-      "For mental peace, relations with mother, happiness, calmness, family atmosphere, emotional trauma, and pain",
-    tags: ["Evening", "Peace", "Happiness"]
+      "For mental peace, relations with mother, happiness, calmness, family atmosphere, emotional trauma, and pain.",
+    tags: ["Evening", "Pentatonic", "Mangala"]
   },
 
   {
-    name: "Raag Bhairavi",
+    name: "Bhairavi",
     hindi: "राग भैरवी",
     time: "Morning",
     description:
-      "For insomnia, property-related issues, blood-related problems, violence, and accidents",
-    tags: ["Morning", "Devotional", "Emotional"]
+      "For insomnia, property-related issues, blood-related problems, violence, and accidents.",
+    tags: ["Morning", "Bhakti", "Karuna"]
   },
 
   {
-    name: "Raag Asavari",
+    name: "Asavari",
     hindi: "राग आसावरी",
     time: "Late Morning",
     description:
-      "For property-related issues, blood-related problems, violence, and accidents",
-    tags: ["Morning", "Serious", "Earthy"]
+      "For property-related issues, blood-related problems, violence, and accidents.",
+    tags: ["Morning", "Asavari", "Gambhir"]
   },
 
   {
-    name: "Raag Desi Todi",
+    name: "Desi Todi",
     hindi: "राग देसी तोड़ी",
-    time: "Morning",
+    time: "Late Morning",
     description:
-      "A powerful morning raag marked by introspection, emotional intensity, and a deeply contemplative character.",
-    tags: ["Morning", "Intense", "Contemplative"]
+      "For property-related issues, blood-related problems, violence, and accidents.",
+    tags: ["Morning", "Todi", "Gambhir"]
   },
 
   {
-    name: "Raag Kalyan",
+    name: "Kalyan",
     hindi: "राग कल्याण",
     time: "Evening",
     description:
-      "For education-related troubles, fights with siblings, thyroid and hormonal imbalance, communication, business, and friends",
-    tags: ["Evening", "Learning", "Communication"]
+      "For education-related troubles, fights with siblings, thyroid and hormonal imbalance, communication, business, and friends.",
+    tags: ["Evening", "Kalyan", "Communication"]
   },
 
   {
-    name: "Raag Poorvi",
+    name: "Poorvi",
     hindi: "राग पूर्वी",
-    time: "Evening",
+    time: "Sunset",
     description:
-      "For education-related troubles, fights with siblings, thyroid and hormonal imbalances (like PCOD and cramps), communication, business, and friends",
-    tags: ["Evening", "Dhyana", "Communication"]
+      "For education-related troubles, fights with siblings, thyroid and hormonal imbalances, communication, business, and friends.",
+    tags: ["Sunset", "Gambhir", "Dhyana"]
   },
 
   {
-    name: "Raag Nat Bhairav",
+    name: "Nat Bhairav",
     hindi: "राग नट भैरव",
     time: "Morning",
     description:
-      "For relationship issues and money-related troubles",
-    tags: ["Morning", "Relationships", "Finance"]
+      "For relationship issues and money-related troubles.",
+    tags: ["Morning", "Relationship", "Finance"]
   },
 
   {
-    name: "Raag Vrindavani Sarang",
+    name: "Brindavani Sarang",
     hindi: "राग वृन्दावनी सारंग",
     time: "Afternoon",
     description:
-      "For relationship issues and money-related (financial) troubles",
-    tags: ["Afternoon", "Relationships", "Finance"]
+      "For relationship issues and money-related financial troubles.",
+    tags: ["Afternoon", "Relationship", "Finance"]
   },
 
   {
-    name: "Raag Shuddh Kalyan",
+    name: "Shuddh Kalyan",
     hindi: "राग शुद्ध कल्याण",
     time: "Evening",
     description:
-      "A serene and luminous raag associated with purity, balance, devotion, and a calm expansive emotional atmosphere.",
-    tags: ["Evening", "Pure", "Serene"]
+      "For mental peace, relations with mother, family atmosphere, emotional trauma, pain, and missing motivation, purpose, or intangible happiness.",
+    tags: ["Evening", "Kalyan", "Shanta"]
   },
 
   {
-    name: "Raag Jaunpuri",
+    name: "Jaunpuri",
     hindi: "राग जौनपुरी",
     time: "Late Morning",
     description:
-      "For profession-related issues, long-term diseases, and chronic troubles",
-    tags: ["Morning", "Profession", "Long Term"]
+      "For profession-related issues, long-term diseases, and chronic troubles.",
+    tags: ["Morning", "Profession", "Chronic"]
   },
 
   {
-    name: "Raag Kirvani",
+    name: "Kirwani",
     hindi: "राग किरवानी",
-    time: "Evening",
+    time: "Night",
     description:
-      "For profession-related issues, long-term diseases, and chronic troubles",
-    tags: ["Evening", "Profession", "Long Term"]
+      "For profession-related issues, long-term diseases, and chronic troubles.",
+    tags: ["Night", "Profession", "Chronic"]
   },
 
   {
-    name: "Raag Neelambari",
+    name: "Neelambari",
     hindi: "राग नीलाम्बरी",
-    time: "Late Night",
+    time: "Night",
     description:
-      "For profession-related issues, long-term diseases, and chronic troubles",
-    tags: ["Night", "Profession", "Long Term"]
+      "For profession-related issues, long-term diseases, and chronic troubles.",
+    tags: ["Night", "Profession", "Chronic"]
   },
 
   {
-    name: "Raag Malkauns",
+    name: "Malkauns",
     hindi: "राग मालकौंस",
     time: "Late Night",
     description:
-      "For asthma",
-    tags: ["Night", "Gambhir", "Meditative"]
+      "For asthma.",
+    tags: ["Night", "Pentatonic", "Gambhir"]
   },
 
   {
-    name: "Raag Bhairav",
+    name: "Bhairav",
     hindi: "राग भैरव",
     time: "Dawn",
     description:
-      "For headache",
+      "For headache.",
     tags: ["Dawn", "Gambhir", "Bhakti"]
   },
 
   {
-    name: "Raag Lalit",
+    name: "Lalit",
     hindi: "राग ललित",
     time: "Pre-Dawn",
     description:
-      "For asthma",
-    tags: ["Pre-Dawn", "Contemplative", "Subtle"]
+      "For asthma.",
+    tags: ["Pre-Dawn", "Dhyana", "Gambhir"]
   },
 
   {
-    name: "Raag Bhoop",
+    name: "Bhoop",
     hindi: "राग भूप",
     time: "Evening",
     description:
-      "For blood pressure",
-    tags: ["Evening", "Simple", "Serene"]
+      "For blood pressure.",
+    tags: ["Evening", "Pentatonic", "Shanta"]
   },
 
   {
-    name: "Raag Madhuvanti",
-    hindi: "राग मधुवन्ती",
+    name: "Madhuvanti",
+    hindi: "राग मधुवंती",
     time: "Afternoon",
     description:
-      "For depression and mental stress",
-    tags: ["Afternoon", "Longing", "Emotional"]
+      "For depression and mental stress.",
+    tags: ["Afternoon", "Viraha", "Contemplative"]
   },
 
   {
-    name: "Raag Pilu",
+    name: "Pilu",
     hindi: "राग पीलू",
     time: "Afternoon",
     description:
-      "For anemia",
-    tags: ["Afternoon", "Lyrical", "Expressive"]
+      "For anemia.",
+    tags: ["Afternoon", "Lyrical", "Light"]
   },
 
   {
-    name: "Raag Shivaranjani",
+    name: "Shivranjani",
     hindi: "राग शिवरंजनी",
     time: "Night",
     description:
-      "For memory loss",
-    tags: ["Night", "Emotional", "Introspective"]
+      "For memory loss.",
+    tags: ["Night", "Karuna", "Introspective"]
   },
 
   {
-    name: "Raag Jaijaiwanti",
-    hindi: "राग जयजयवन्ती",
-    time: "Evening",
+    name: "Jaijaiwanti",
+    hindi: "राग जयजयवंती",
+    time: "Night",
     description:
-      "For weakness",
-    tags: ["Evening", "Tender", "Expressive"]
+      "For weakness.",
+    tags: ["Night", "Shringara", "Lyrical"]
   },
 
   {
-    name: "Raag Khamaj",
+    name: "Khamaj",
     hindi: "राग खमाज",
     time: "Night",
     description:
-      "For acidity",
-    tags: ["Night", "Romantic", "Lyrical"]
+      "For acidity.",
+    tags: ["Night", "Shringara", "Lyrical"]
   },
 
   {
     name: "Raag Tanpura",
     hindi: "राग तानपुरा",
-    time: "All Time",
+    time: "All Prahar",
     description:
-      "For problems related to children, honour, getting a position in life, and relationships with father and government",
-    tags: ["Tanpura", "Resonance", "Foundation"]
+      "For problems related to children, honour, getting a position in life, and relationships with father and government.",
+    tags: ["Tanpura", "Drone", "Foundation"]
   }
 
 ];
 
 
-/* ---------------------------------------------------------
-   HELPERS
-   --------------------------------------------------------- */
+/* =========================================================
+   DOM
+   ========================================================= */
 
 const $ = selector => document.querySelector(selector);
 
-const pad = number =>
-  String(number).padStart(2, "0");
-
 let index = 0;
-
-let playing = false;
-
-let youtubePlayer = null;
-
-let youtubeReady = false;
-
-let spotifyVisible = false;
-
-let playerTimer = null;
+let player = null;
+let playerReady = false;
+let progressTimer = null;
 
 
-/* ---------------------------------------------------------
-   ARTWORK
-   --------------------------------------------------------- */
+/* =========================================================
+   HELPERS
+   ========================================================= */
+
+function pad(number) {
+  return String(number).padStart(2, "0");
+}
+
+
+function formatTime(seconds) {
+
+  if (!Number.isFinite(seconds) || seconds < 0) {
+    return "00:00";
+  }
+
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+
+  return `${pad(minutes)}:${pad(secs)}`;
+}
+
 
 function art(i) {
 
@@ -301,25 +308,13 @@ function art(i) {
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
 
       <defs>
-
         <radialGradient id="g">
-
           <stop stop-color="hsl(${hue} 38% 45%)"/>
-
-          <stop
-            offset="1"
-            stop-color="#09070b"
-          />
-
+          <stop offset="1" stop-color="#09070b"/>
         </radialGradient>
-
       </defs>
 
-      <rect
-        width="600"
-        height="400"
-        fill="#09070b"
-      />
+      <rect width="600" height="400" fill="#09070b"/>
 
       <circle
         cx="300"
@@ -345,866 +340,454 @@ function art(i) {
 
     </svg>
   `)}`;
-
 }
 
 
-/* ---------------------------------------------------------
-   RENDER MAIN INFORMATION
-   --------------------------------------------------------- */
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
 
-function renderInfo() {
+function updateBackground() {
+
+  const hue = (index * 41) % 360;
+
+  $("#bg").style.background = `
+    radial-gradient(
+      circle at 68% 48%,
+      hsl(${hue} 30% 28% / .28),
+      transparent 30%
+    ),
+    #08070a
+  `;
+}
+
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+
+function render() {
 
   const r = raags[index];
 
-  $("#num").textContent = pad(index + 1);
+  const number = pad(index + 1);
+  const total = pad(raags.length);
 
-  $("#prahar").textContent =
-    r.time.toUpperCase();
+  $("#num").textContent = number;
+  $("#prahar").textContent = r.time.toUpperCase();
 
-  $("#title").textContent =
-    r.name;
+  $("#title").textContent = r.name;
+  $("#hindi").textContent = r.hindi;
+  $("#desc").textContent = r.description;
 
-  $("#hindi").textContent =
-    r.hindi;
+  $("#time").textContent = r.time.toUpperCase();
+  $("#coreName").textContent = r.name.toUpperCase();
 
-  $("#desc").textContent =
-    r.description;
+  $("#count").textContent = `${number} / ${total}`;
+  $("#degree").textContent = `${number} / 27`;
 
-  $("#time").textContent =
-    r.time.toUpperCase();
-
-  $("#coreName").textContent =
-    r.name;
-
-  $("#count").textContent =
-    `${pad(index + 1)} / 27`;
-
-  $("#degree").textContent =
-    `${pad(index + 1)} / 27`;
-
-  $("#bg").style.background =
-    `
-      radial-gradient(
-        circle at 68% 48%,
-        hsl(${(index * 41) % 360} 30% 28% / .28),
-        transparent 30%
-      ),
-      #08070a
-    `;
+  updateBackground();
 
 
-  $("#tags").innerHTML =
-    r.tags
-      .map(tag => `<span>${tag}</span>`)
-      .join("");
+  /* TAGS */
+
+  $("#tags").innerHTML = r.tags
+    .map(tag => `<span>${tag}</span>`)
+    .join("");
 
 
-  $("#fill").style.width = "0%";
+  /* ORBIT */
 
-  $("#seek").value = 0;
+  $("#planets").innerHTML = "";
 
-  $("#current").textContent = "00:00";
+  const n = Math.min(raags.length, 9);
 
-  $("#total").textContent = "00:00";
-
-}
-
-
-/* ---------------------------------------------------------
-   ORBIT
-   --------------------------------------------------------- */
-
-function renderPlanets() {
-
-  const planets = $("#planets");
-
-  planets.innerHTML = "";
-
-  const total = raags.length;
-
-  /*
-    27 planets distributed around the ellipse.
-  */
-
-  raags.forEach((raag, i) => {
+  for (let i = 0; i < n; i++) {
 
     const angle =
-      (Math.PI * 2 * i / total) - Math.PI / 2;
+      (Math.PI * 2 * i / n) - Math.PI / 2;
 
-    const x =
-      Math.cos(angle) * 245;
+    const x = Math.cos(angle) * 245;
+    const y = Math.sin(angle) * 125;
 
-    const y =
-      Math.sin(angle) * 125;
-
-    const planet =
-      document.createElement("button");
+    const planet = document.createElement("button");
 
     planet.className =
-      "planet" +
-      (i === index ? " active" : "");
+      "planet " + (i === index ? "active" : "");
 
-    planet.style.setProperty(
-      "--x",
-      `${x}px`
-    );
-
-    planet.style.setProperty(
-      "--y",
-      `${y}px`
-    );
+    planet.style.setProperty("--x", `${x}px`);
+    planet.style.setProperty("--y", `${y}px`);
 
     planet.innerHTML = `
-      <img
-        src="${art(i)}"
-        alt="${raag.name}"
-      >
-      <label>
-        ${raag.name.toUpperCase()}
-      </label>
+      <img src="${art(i)}" alt="${raags[i].name}">
+      <label>${raags[i].name.toUpperCase()}</label>
     `;
 
-    planet.addEventListener(
-      "click",
-      () => selectRaag(i)
-    );
+    planet.addEventListener("click", () => {
+      selectRaag(i);
+    });
 
-    planets.appendChild(planet);
-
-  });
-
-}
+    $("#planets").appendChild(planet);
+  }
 
 
-/* ---------------------------------------------------------
-   BOTTOM RAIL
-   --------------------------------------------------------- */
+  /* RAIL */
 
-function renderRail() {
-
-  $("#rail").innerHTML =
-    raags.map((raag, i) => `
+  $("#rail").innerHTML = raags
+    .map((r, i) => `
       <button
         class="rail-item ${i === index ? "active" : ""}"
         data-i="${i}"
       >
-
-        <img
-          src="${art(i)}"
-          alt="${raag.name}"
-        >
-
-        <span>
-          ${raag.name}
-        </span>
-
+        <img src="${art(i)}" alt="${r.name}">
+        <span>${r.name}</span>
       </button>
-    `).join("");
+    `)
+    .join("");
 
 
   document
     .querySelectorAll(".rail-item")
     .forEach(button => {
 
-      button.addEventListener(
-        "click",
-        () => {
-
-          selectRaag(
-            Number(button.dataset.i)
-          );
-
-        }
-      );
+      button.addEventListener("click", () => {
+        selectRaag(Number(button.dataset.i));
+      });
 
     });
 
-}
 
+  /* ARCHIVE */
 
-/* ---------------------------------------------------------
-   ARCHIVE DRAWER
-   --------------------------------------------------------- */
-
-function renderArchive() {
-
-  $("#archive").innerHTML =
-    raags.map((raag, i) => `
+  $("#archive").innerHTML = raags
+    .map((r, i) => `
       <button
         class="${i === index ? "active" : ""}"
         data-i="${i}"
       >
-        ${pad(i + 1)} — ${raag.name}
+        ${pad(i + 1)} — ${r.name}
       </button>
-    `).join("");
+    `)
+    .join("");
 
 
   document
     .querySelectorAll("#archive button")
     .forEach(button => {
 
-      button.addEventListener(
-        "click",
-        () => {
+      button.addEventListener("click", () => {
 
-          selectRaag(
-            Number(button.dataset.i)
-          );
+        selectRaag(Number(button.dataset.i));
+        closeDrawer();
 
-          closeDrawer();
-
-        }
-      );
+      });
 
     });
-
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    SELECT RAAG
-   --------------------------------------------------------- */
+   ========================================================= */
 
 function selectRaag(newIndex) {
 
-  if (
-    newIndex < 0 ||
-    newIndex >= raags.length
-  ) {
-    return;
-  }
+  index =
+    (newIndex + raags.length) % raags.length;
 
-  index = newIndex;
+  render();
 
-  renderInfo();
+  if (playerReady && player) {
 
-  renderPlanets();
-
-  renderRail();
-
-  renderArchive();
-
-  /*
-    If YouTube player is ready,
-    jump to the exact playlist position.
-  */
-
-  if (youtubeReady && youtubePlayer) {
-
-    try {
-
-      youtubePlayer.playVideoAt(index);
-
-      playing = true;
-
-      updatePlayUI(true);
-
-    } catch (error) {
-
-      console.warn(
-        "YouTube playlist selection failed:",
-        error
-      );
-
-    }
-
-  }
-
-}
-
-
-/* ---------------------------------------------------------
-   YOUTUBE API
-   --------------------------------------------------------- */
-
-function onYouTubeIframeAPIReady() {
-
-  youtubePlayer =
-    new YT.Player(
-      "youtubePlayer",
-      {
-
-        width: "1",
-        height: "1",
-
-        playerVars: {
-
-          autoplay: 0,
-
-          controls: 0,
-
-          disablekb: 1,
-
-          fs: 0,
-
-          playsinline: 1,
-
-          rel: 0,
-
-          modestbranding: 1,
-
-          listType: "playlist",
-
-          list: YOUTUBE_PLAYLIST_ID
-
-        },
-
-        events: {
-
-          onReady:
-            onYouTubeReady,
-
-          onStateChange:
-            onYouTubeStateChange,
-
-          onError:
-            onYouTubeError
-
-        }
-
-      }
-    );
-
-}
-
-
-function onYouTubeReady(event) {
-
-  youtubeReady = true;
-
-  /*
-    Make sure the playlist is loaded.
-  */
-
-  try {
-
-    event.target.cuePlaylist({
-      listType: "playlist",
+    player.loadPlaylist({
       list: YOUTUBE_PLAYLIST_ID,
-      index: index,
-      startSeconds: 0
+      listType: "playlist",
+      index: index
     });
 
-  } catch (error) {
-
-    console.warn(
-      "Playlist cue failed:",
-      error
-    );
-
   }
-
 }
 
 
-/* ---------------------------------------------------------
-   YOUTUBE STATE
-   --------------------------------------------------------- */
+/* =========================================================
+   DRAWER
+   ========================================================= */
 
-function onYouTubeStateChange(event) {
+function closeDrawer() {
 
-  if (!window.YT) {
-    return;
-  }
-
-
-  if (
-    event.data === YT.PlayerState.PLAYING
-  ) {
-
-    playing = true;
-
-    updatePlayUI(true);
-
-    startProgressTimer();
-
-  }
-
-
-  if (
-    event.data === YT.PlayerState.PAUSED
-  ) {
-
-    playing = false;
-
-    updatePlayUI(false);
-
-    stopProgressTimer();
-
-  }
-
-
-  if (
-    event.data === YT.PlayerState.ENDED
-  ) {
-
-    playing = false;
-
-    updatePlayUI(false);
-
-    stopProgressTimer();
-
-  }
-
+  $("#drawer").classList.remove("open");
+  $("#veil").classList.remove("open");
 }
 
 
-/* ---------------------------------------------------------
-   YOUTUBE ERROR
-   --------------------------------------------------------- */
+$("#menu").addEventListener("click", () => {
 
-function onYouTubeError(event) {
+  $("#drawer").classList.add("open");
+  $("#veil").classList.add("open");
 
-  console.warn(
-    "YouTube player error:",
-    event.data
-  );
-
-  $("#state").textContent =
-    "TRACK UNAVAILABLE";
-
-  updatePlayUI(false);
-
-}
+});
 
 
-/* ---------------------------------------------------------
+$("#close").addEventListener("click", closeDrawer);
+$("#veil").addEventListener("click", closeDrawer);
+
+
+/* =========================================================
+   NEXT / PREVIOUS
+   ========================================================= */
+
+$("#next").addEventListener("click", () => {
+
+  selectRaag(index + 1);
+
+});
+
+
+$("#prev").addEventListener("click", () => {
+
+  selectRaag(index - 1);
+
+});
+
+
+/* =========================================================
    PLAY / PAUSE
-   --------------------------------------------------------- */
+   ========================================================= */
 
-function toggleYouTubePlayback() {
+$("#play").addEventListener("click", () => {
 
-  if (!youtubeReady || !youtubePlayer) {
-
-    $("#state").textContent =
-      "YOUTUBE LOADING...";
-
+  if (!playerReady || !player) {
     return;
-
   }
 
+  const state = player.getPlayerState();
 
-  if (playing) {
+  if (
+    state === YT.PlayerState.PLAYING
+  ) {
 
-    youtubePlayer.pauseVideo();
+    player.pauseVideo();
 
   } else {
 
-    /*
-      Always use the currently selected
-      playlist index.
-    */
-
-    youtubePlayer.playVideoAt(index);
+    player.playVideo();
 
   }
 
-}
+});
 
 
-/* ---------------------------------------------------------
-   PLAY UI
-   --------------------------------------------------------- */
+/* =========================================================
+   SEEK
+   ========================================================= */
 
-function updatePlayUI(isPlaying) {
+$("#seek").addEventListener("input", event => {
 
-  playing = isPlaying;
-
-  $("#play").textContent =
-    isPlaying ? "Ⅱ" : "▶";
-
-  $("#state").textContent =
-    isPlaying
-      ? "NOW LISTENING"
-      : "READY TO LISTEN";
-
-  $(".player")
-    .classList.toggle(
-      "playing",
-      isPlaying
-    );
-
-}
-
-
-/* ---------------------------------------------------------
-   PROGRESS
-   --------------------------------------------------------- */
-
-function startProgressTimer() {
-
-  stopProgressTimer();
-
-  playerTimer =
-    setInterval(
-      updateProgress,
-      500
-    );
-
-}
-
-
-function stopProgressTimer() {
-
-  if (playerTimer) {
-
-    clearInterval(playerTimer);
-
-    playerTimer = null;
-
-  }
-
-}
-
-
-function updateProgress() {
-
-  if (
-    !youtubeReady ||
-    !youtubePlayer ||
-    typeof youtubePlayer.getCurrentTime !== "function"
-  ) {
+  if (!playerReady || !player) {
     return;
   }
 
+  const duration = player.getDuration();
 
-  const current =
-    youtubePlayer.getCurrentTime();
-
-  const duration =
-    youtubePlayer.getDuration();
-
-
-  if (!duration || duration <= 0) {
+  if (!duration) {
     return;
   }
-
 
   const percentage =
-    Math.min(
-      100,
-      (current / duration) * 100
-    );
+    Number(event.target.value);
 
+  player.seekTo(
+    duration * percentage / 100,
+    true
+  );
 
   $("#fill").style.width =
     `${percentage}%`;
 
-  $("#seek").value =
-    percentage;
-
-  $("#current").textContent =
-    formatTime(current);
-
-  $("#total").textContent =
-    formatTime(duration);
-
-  $("#duration").textContent =
-    "YOUTUBE";
-
-}
+});
 
 
-/* ---------------------------------------------------------
-   SEEK
-   --------------------------------------------------------- */
+/* =========================================================
+   YOUTUBE PLAYER
+   ========================================================= */
 
-$("#seek").addEventListener(
-  "input",
-  event => {
+window.onYouTubeIframeAPIReady = function () {
 
-    const value =
-      Number(event.target.value);
+  player = new YT.Player("youtube-player", {
 
-    $("#fill").style.width =
-      `${value}%`;
+    width: "100%",
+    height: "1",
 
-    if (
-      youtubeReady &&
-      youtubePlayer
-    ) {
+    playerVars: {
+      autoplay: 0,
+      controls: 0,
+      disablekb: 1,
+      modestbranding: 1,
+      playsinline: 1,
+      rel: 0,
+      listType: "playlist",
+      list: YOUTUBE_PLAYLIST_ID
+    },
 
-      const duration =
-        youtubePlayer.getDuration();
+    events: {
 
-      if (duration) {
+      onReady: event => {
 
-        youtubePlayer.seekTo(
-          duration * value / 100,
-          true
+        playerReady = true;
+
+        $("#state").textContent =
+          "READY TO LISTEN";
+
+        $("#duration").textContent =
+          formatTime(event.target.getDuration());
+
+      },
+
+
+      onStateChange: event => {
+
+        if (
+          event.data ===
+          YT.PlayerState.PLAYING
+        ) {
+
+          $("#play").textContent = "Ⅱ";
+
+          $("#state").textContent =
+            "NOW LISTENING";
+
+          $(".player").classList.add("playing");
+
+          startProgress();
+
+        }
+
+
+        else if (
+          event.data ===
+          YT.PlayerState.PAUSED
+        ) {
+
+          $("#play").textContent = "▶";
+
+          $("#state").textContent =
+            "PAUSED";
+
+          $(".player").classList.remove("playing");
+
+          stopProgress();
+
+        }
+
+
+        else if (
+          event.data ===
+          YT.PlayerState.ENDED
+        ) {
+
+          $("#play").textContent = "▶";
+
+          $("#state").textContent =
+            "READY TO LISTEN";
+
+          $(".player").classList.remove("playing");
+
+          stopProgress();
+
+        }
+
+
+        else if (
+          event.data ===
+          YT.PlayerState.BUFFERING
+        ) {
+
+          $("#state").textContent =
+            "BUFFERING";
+
+        }
+
+      },
+
+
+      onError: event => {
+
+        console.warn(
+          "YouTube Player Error:",
+          event.data
         );
+
+        $("#state").textContent =
+          "UNAVAILABLE";
 
       }
 
     }
 
-  }
-);
+  });
 
+};
 
-/* ---------------------------------------------------------
-   TIME
-   --------------------------------------------------------- */
 
-function formatTime(seconds) {
+/* =========================================================
+   PROGRESS
+   ========================================================= */
 
-  if (
-    !Number.isFinite(seconds) ||
-    seconds < 0
-  ) {
-    return "00:00";
-  }
+function startProgress() {
 
-  const mins =
-    Math.floor(seconds / 60);
+  stopProgress();
 
-  const secs =
-    Math.floor(seconds % 60);
+  progressTimer = setInterval(() => {
 
-  return (
-    String(mins).padStart(2, "0") +
-    ":" +
-    String(secs).padStart(2, "0")
-  );
-
-}
-
-
-/* ---------------------------------------------------------
-   NEXT / PREVIOUS
-   --------------------------------------------------------- */
-
-function nextRaag() {
-
-  selectRaag(
-    (index + 1) % raags.length
-  );
-
-}
-
-
-function previousRaag() {
-
-  selectRaag(
-    (index - 1 + raags.length) %
-    raags.length
-  );
-
-}
-
-
-/* ---------------------------------------------------------
-   DRAWER
-   --------------------------------------------------------- */
-
-function closeDrawer() {
-
-  $("#drawer")
-    .classList.remove("open");
-
-  $("#veil")
-    .classList.remove("open");
-
-}
-
-
-function openDrawer() {
-
-  $("#drawer")
-    .classList.add("open");
-
-  $("#veil")
-    .classList.add("open");
-
-}
-
-
-$("#menu")
-  .addEventListener(
-    "click",
-    openDrawer
-  );
-
-
-$("#close")
-  .addEventListener(
-    "click",
-    closeDrawer
-  );
-
-
-$("#veil")
-  .addEventListener(
-    "click",
-    closeDrawer
-  );
-
-
-/* ---------------------------------------------------------
-   CONTROLS
-   --------------------------------------------------------- */
-
-$("#play")
-  .addEventListener(
-    "click",
-    toggleYouTubePlayback
-  );
-
-
-$("#next")
-  .addEventListener(
-    "click",
-    nextRaag
-  );
-
-
-$("#prev")
-  .addEventListener(
-    "click",
-    previousRaag
-  );
-
-
-/* ---------------------------------------------------------
-   SOURCE SWITCH
-   --------------------------------------------------------- */
-
-function showYouTube() {
-
-  spotifyVisible = false;
-
-  $("#youtubePlayerWrap")
-    .classList.remove("hidden");
-
-  $("#spotifyWrap")
-    .classList.remove("visible");
-
-  $("#youtubeSource")
-    .classList.add("active");
-
-  $("#spotifySource")
-    .classList.remove("active");
-
-}
-
-
-function showSpotify() {
-
-  spotifyVisible = true;
-
-  $("#spotifyWrap")
-    .classList.add("visible");
-
-  $("#youtubePlayerWrap")
-    .classList.add("hidden");
-
-  $("#spotifySource")
-    .classList.add("active");
-
-  $("#youtubeSource")
-    .classList.remove("active");
-
-}
-
-
-$("#youtubeSource")
-  .addEventListener(
-    "click",
-    showYouTube
-  );
-
-
-$("#spotifySource")
-  .addEventListener(
-    "click",
-    showSpotify
-  );
-
-
-$("#drawerYoutube")
-  .addEventListener(
-    "click",
-    () => {
-
-      showYouTube();
-
-      closeDrawer();
-
-    }
-  );
-
-
-$("#drawerSpotify")
-  .addEventListener(
-    "click",
-    () => {
-
-      showSpotify();
-
-      closeDrawer();
-
-    }
-  );
-
-
-/* ---------------------------------------------------------
-   KEYBOARD
-   --------------------------------------------------------- */
-
-document.addEventListener(
-  "keydown",
-  event => {
-
-    if (
-      event.key === "ArrowRight"
-    ) {
-
-      nextRaag();
-
+    if (!playerReady || !player) {
+      return;
     }
 
-    if (
-      event.key === "ArrowLeft"
-    ) {
+    const duration =
+      player.getDuration();
 
-      previousRaag();
+    const current =
+      player.getCurrentTime();
 
+    if (!duration) {
+      return;
     }
 
-    if (
-      event.code === "Space" &&
-      event.target.tagName !== "INPUT"
-    ) {
+    const percentage =
+      (current / duration) * 100;
 
-      event.preventDefault();
+    $("#seek").value = percentage;
+    $("#fill").style.width =
+      `${percentage}%`;
 
-      toggleYouTubePlayback();
+    $("#current").textContent =
+      formatTime(current);
 
-    }
+    $("#total").textContent =
+      formatTime(duration);
 
-    if (
-      event.key === "Escape"
-    ) {
+    $("#duration").textContent =
+      formatTime(duration);
 
-      closeDrawer();
+  }, 250);
 
-    }
+}
+
+
+function stopProgress() {
+
+  if (progressTimer) {
+
+    clearInterval(progressTimer);
+    progressTimer = null;
 
   }
-);
+
+}
 
 
-/* ---------------------------------------------------------
-   INITIAL RENDER
-   --------------------------------------------------------- */
+/* =========================================================
+   INITIAL STATE
+   ========================================================= */
 
-renderInfo();
-
-renderPlanets();
-
-renderRail();
-
-renderArchive();
-
-showYouTube();
+render();
