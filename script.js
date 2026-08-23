@@ -1,8 +1,10 @@
 /* =========================================================
    RAAGLYY
-   SOUND BEYOND SILENCE
+   Sound Beyond Silence
 
-   Application state + 27 Raag archive + audio engine
+   Playback:
+   - YouTube IFrame API = custom Raaglyy player
+   - Spotify Embed = native Spotify player
    ========================================================= */
 
 
@@ -10,439 +12,157 @@
    RAAG DATA
    ========================================================= */
 
-const RAAGS = [
+const raags = [
 
-  {
-    id: "yaman",
-    name: "Yaman",
-    hindi: "राग यमन",
-    prahar: "Evening",
-    time: "First Prahar",
-    description:
-      "A luminous evening raag built around tivra madhyam. Its character is expansive, serene and quietly devotional.",
-    tags: ["Evening", "Tivra Ma", "Shanta"],
-    audio: "audio/yaman.mp3"
-  },
+  [
+    'Yaman',
+    'राग यमन',
+    'Evening',
+    'A luminous evening raag built around the tivra madhyam. Its character is expansive, serene and quietly devotional.',
+    ['Evening', 'Tivra Ma', 'Shanta']
+  ],
 
-  {
-    id: "bhairav",
-    name: "Bhairav",
-    hindi: "राग भैरव",
-    prahar: "Dawn",
-    time: "First Prahar",
-    description:
-      "A grave morning raag whose oscillating komal Re and Dha create an austere and meditative atmosphere.",
-    tags: ["Dawn", "Gambhir", "Bhakti"],
-    audio: "audio/bhairav.mp3"
-  },
+  [
+    'Bhairav',
+    'राग भैरव',
+    'Dawn',
+    'A grave morning raag whose oscillating komal Re and Dha create an austere, meditative atmosphere.',
+    ['Dawn', 'Gambhir', 'Bhakti']
+  ],
 
-  {
-    id: "malkauns",
-    name: "Malkauns",
-    hindi: "राग मालकौंस",
-    prahar: "Late Night",
-    time: "Fourth Prahar",
-    description:
-      "A pentatonic night raag with a deep, inward and almost elemental character.",
-    tags: ["Night", "Pentatonic", "Gambhir"],
-    audio: "audio/malkauns.mp3"
-  },
+  [
+    'Malkauns',
+    'राग मालकौंस',
+    'Late Night',
+    'A pentatonic night raag with a deep, inward and almost elemental character.',
+    ['Night', 'Pentatonic', 'Gambhir']
+  ],
 
-  {
-    id: "darbari-kanada",
-    name: "Darbari Kanada",
-    hindi: "राग दरबारी कानड़ा",
-    prahar: "Late Night",
-    time: "Fourth Prahar",
-    description:
-      "A majestic late-night raag known for its weight, depth and slow, deliberate ornamentation.",
-    tags: ["Night", "Gambhir", "Royal"],
-    audio: "audio/darbari-kanada.mp3"
-  },
+  [
+    'Darbari Kanada',
+    'राग दरबारी कानड़ा',
+    'Late Night',
+    'A majestic late-night raag known for its weight, depth and slow, deliberate ornamentation.',
+    ['Night', 'Gambhir', 'Royal']
+  ],
 
-  {
-    id: "bageshri",
-    name: "Bageshri",
-    hindi: "राग बागेश्री",
-    prahar: "Night",
-    time: "Third Prahar",
-    description:
-      "An intimate night raag shaped by longing, tenderness and quiet introspection.",
-    tags: ["Night", "Shringara", "Komal"],
-    audio: "audio/bageshri.mp3"
-  },
+  [
+    'Bageshri',
+    'राग बागेश्री',
+    'Night',
+    'An intimate night raag shaped by longing, tenderness and quiet introspection.',
+    ['Night', 'Shringara', 'Komal']
+  ],
 
-  {
-    id: "todi",
-    name: "Todi",
-    hindi: "राग तोड़ी",
-    prahar: "Late Morning",
-    time: "Second Prahar",
-    description:
-      "A highly expressive morning raag with a distinctive microtonal and contemplative personality.",
-    tags: ["Morning", "Gambhir", "Viraha"],
-    audio: "audio/todi.mp3"
-  },
+  [
+    'Todi',
+    'राग तोड़ी',
+    'Late Morning',
+    'A highly expressive morning raag with a distinctive microtonal and contemplative personality.',
+    ['Morning', 'Gambhir', 'Viraha']
+  ],
 
-  {
-    id: "marwa",
-    name: "Marwa",
-    hindi: "राग मारवा",
-    prahar: "Sunset",
-    time: "Fourth Prahar",
-    description:
-      "A tense and austere sunset raag suspended between daylight and darkness.",
-    tags: ["Sunset", "Tension", "Dhyana"],
-    audio: "audio/marwa.mp3"
-  },
+  [
+    'Marwa',
+    'राग मारवा',
+    'Sunset',
+    'A tense, austere sunset raag suspended between daylight and darkness.',
+    ['Sunset', 'Tension', 'Dhyana']
+  ],
 
-  {
-    id: "desh",
-    name: "Desh",
-    hindi: "राग देश",
-    prahar: "Night",
-    time: "Second Prahar",
-    description:
-      "A graceful raag carrying warmth, nostalgia and a distinctly lyrical contour.",
-    tags: ["Night", "Lyrical", "Monsoon"],
-    audio: "audio/desh.mp3"
-  },
+  [
+    'Desh',
+    'राग देश',
+    'Night',
+    'A graceful raag carrying warmth, nostalgia and a distinctly lyrical contour.',
+    ['Night', 'Lyrical', 'Monsoon']
+  ],
 
-  {
-    id: "kafi",
-    name: "Kafi",
-    hindi: "राग काफी",
-    prahar: "Evening",
-    time: "Second Prahar",
-    description:
-      "Earthy and folk-inflected, Kafi balances sweetness with an understated naturalness.",
-    tags: ["Evening", "Folk", "Lyrical"],
-    audio: "audio/kafi.mp3"
-  },
-
-  {
-    id: "bhimpalasi",
-    name: "Bhimpalasi",
-    hindi: "राग भीमपलासी",
-    prahar: "Afternoon",
-    time: "Second Prahar",
-    description:
-      "A deeply expressive afternoon raag associated with yearning, repose and inward emotional colour.",
-    tags: ["Afternoon", "Viraha", "Komal"],
-    audio: "audio/bhimpalasi.mp3"
-  },
-
-  {
-    id: "multani",
-    name: "Multani",
-    hindi: "राग मुल्तानी",
-    prahar: "Late Afternoon",
-    time: "Fourth Prahar",
-    description:
-      "A contemplative afternoon raag with a highly distinctive tonal identity and restrained intensity.",
-    tags: ["Afternoon", "Todi Ang", "Dhyana"],
-    audio: "audio/multani.mp3"
-  },
-
-  {
-    id: "puriya",
-    name: "Puriya",
-    hindi: "राग पूरिया",
-    prahar: "Sunset",
-    time: "Fourth Prahar",
-    description:
-      "A serious twilight raag whose tension and refinement create an atmosphere of anticipation.",
-    tags: ["Twilight", "Gambhir", "Dhyana"],
-    audio: "audio/puriya.mp3"
-  },
-
-  {
-    id: "puriya-dhanashri",
-    name: "Puriya Dhanashri",
-    hindi: "राग पूरिया धनाश्री",
-    prahar: "Evening",
-    time: "First Prahar",
-    description:
-      "A graceful evening raag combining the introspective colour of Puriya with lyrical movement.",
-    tags: ["Evening", "Lyrical", "Gambhir"],
-    audio: "audio/puriya-dhanashri.mp3"
-  },
-
-  {
-    id: "shree",
-    name: "Shree",
-    hindi: "राग श्री",
-    prahar: "Sunset",
-    time: "Fourth Prahar",
-    description:
-      "A profound twilight raag marked by gravity, restraint and an unmistakably meditative presence.",
-    tags: ["Twilight", "Gambhir", "Dhyana"],
-    audio: "audio/shree.mp3"
-  },
-
-  {
-    id: "lalit",
-    name: "Lalit",
-    hindi: "राग ललित",
-    prahar: "Dawn",
-    time: "Last Prahar",
-    description:
-      "A subtle pre-dawn raag with a distinctive tonal architecture and an atmosphere of stillness.",
-    tags: ["Pre-Dawn", "Meditative", "Rare"],
-    audio: "audio/lalit.mp3"
-  },
-
-  {
-    id: "ahirbhairav",
-    name: "Ahir Bhairav",
-    hindi: "राग अहीर भैरव",
-    prahar: "Dawn",
-    time: "First Prahar",
-    description:
-      "A serene morning raag blending the gravity of Bhairav with a softer pastoral colour.",
-    tags: ["Dawn", "Devotional", "Serene"],
-    audio: "audio/ahir-bhairav.mp3"
-  },
-
-  {
-    id: "jaunpuri",
-    name: "Jaunpuri",
-    hindi: "राग जौनपुरी",
-    prahar: "Morning",
-    time: "Second Prahar",
-    description:
-      "A lyrical morning raag with a plaintive character and expressive treatment of its komal swaras.",
-    tags: ["Morning", "Viraha", "Lyrical"],
-    audio: "audio/jaunpuri.mp3"
-  },
-
-  {
-    id: "deshkar",
-    name: "Deshkar",
-    hindi: "राग देशकार",
-    prahar: "Morning",
-    time: "First Prahar",
-    description:
-      "A bright pentatonic morning raag carrying clarity, movement and an uplifting character.",
-    tags: ["Morning", "Pentatonic", "Bright"],
-    audio: "audio/deshkar.mp3"
-  },
-
-  {
-    id: "shankara",
-    name: "Shankara",
-    hindi: "राग शंकरा",
-    prahar: "Late Night",
-    time: "Fourth Prahar",
-    description:
-      "A majestic late-night raag with a bright, dignified and strongly classical character.",
-    tags: ["Night", "Majestic", "Bright"],
-    audio: "audio/shankara.mp3"
-  },
-
-  {
-    id: "hamir",
-    name: "Hamir",
-    hindi: "राग हमीर",
-    prahar: "Night",
-    time: "Second Prahar",
-    description:
-      "A rich and expansive evening raag with regal movement and a luminous upper register.",
-    tags: ["Night", "Royal", "Expansive"],
-    audio: "audio/hamir.mp3"
-  },
-
-  {
-    id: "kedar",
-    name: "Kedar",
-    hindi: "राग केदार",
-    prahar: "Night",
-    time: "First Prahar",
-    description:
-      "A devotional night raag known for its graceful oscillations and distinctive treatment of madhyam.",
-    tags: ["Night", "Devotional", "Graceful"],
-    audio: "audio/kedar.mp3"
-  },
-
-  {
-    id: "hameer-kalyani",
-    name: "Hameer Kalyani",
-    hindi: "राग हमीर कल्याणी",
-    prahar: "Evening",
-    time: "First Prahar",
-    description:
-      "A luminous evening colour combining the grandeur of Hamir with the radiance of Kalyan.",
-    tags: ["Evening", "Luminous", "Royal"],
-    audio: "audio/hameer-kalyani.mp3"
-  },
-
-  {
-    id: "shuddha-kalyan",
-    name: "Shuddha Kalyan",
-    hindi: "राग शुद्ध कल्याण",
-    prahar: "Evening",
-    time: "First Prahar",
-    description:
-      "A serene Kalyan-family raag with a balanced, spacious and devotional character.",
-    tags: ["Evening", "Kalyan", "Serene"],
-    audio: "audio/shuddha-kalyan.mp3"
-  },
-
-  {
-    id: "bihag",
-    name: "Bihag",
-    hindi: "राग बिहाग",
-    prahar: "Night",
-    time: "Second Prahar",
-    description:
-      "A graceful night raag celebrated for its romantic luminosity and elegant melodic movement.",
-    tags: ["Night", "Shringara", "Elegant"],
-    audio: "audio/bihag.mp3"
-  },
-
-  {
-    id: "khamaj",
-    name: "Khamaj",
-    hindi: "राग खमाज",
-    prahar: "Late Evening",
-    time: "Second Prahar",
-    description:
-      "A warm and sensuous evening raag with an intimate, lyrical and expressive personality.",
-    tags: ["Evening", "Shringara", "Lyrical"],
-    audio: "audio/khamaj.mp3"
-  },
-
-  {
-    id: "tilak-kamod",
-    name: "Tilak Kamod",
-    hindi: "राग तिलक कामोद",
-    prahar: "Night",
-    time: "Second Prahar",
-    description:
-      "A playful and graceful night raag with a lyrical contour and unmistakable romantic charm.",
-    tags: ["Night", "Lyrical", "Playful"],
-    audio: "audio/tilak-kamod.mp3"
-  },
-
-  {
-    id: "bhoopali",
-    name: "Bhoopali",
-    hindi: "राग भूपाली",
-    prahar: "Evening",
-    time: "First Prahar",
-    description:
-      "A clear pentatonic raag whose open intervals create a luminous, spacious and tranquil mood.",
-    tags: ["Evening", "Pentatonic", "Shanta"],
-    audio: "audio/bhoopali.mp3"
-  }
+  [
+    'Kafi',
+    'राग काफी',
+    'Evening',
+    'Earthy and folk-inflected, Kafi balances sweetness with an understated naturalness.',
+    ['Evening', 'Folk', 'Lyrical']
+  ]
 
 ];
 
 
 /* =========================================================
-   CONSTANTS
+   CONFIG
    ========================================================= */
 
-const TOTAL_RAAGS = RAAGS.length;
+const YOUTUBE_PLAYLIST_ID = 'PLJRipbfj__b0';
+
+const SPOTIFY_PLAYLIST_ID = '1uCwKa8NKlV4fywgZ2gnMp';
+
+
+/* =========================================================
+   DOM HELPERS
+   ========================================================= */
 
 const $ = selector => document.querySelector(selector);
 
-const elements = {
-  bg: $("#bg"),
-  menu: $("#menu"),
-  drawer: $("#drawer"),
-  close: $("#close"),
-  veil: $("#veil"),
-  archive: $("#archive"),
-  planets: $("#planets"),
-  rail: $("#rail"),
-  orbit: $("#orbit"),
 
-  num: $("#num"),
-  prahar: $("#prahar"),
-  title: $("#title"),
-  hindi: $("#hindi"),
-  desc: $("#desc"),
-  time: $("#time"),
-  coreName: $("#coreName"),
-  degree: $("#degree"),
-  count: $("#count"),
-  captionCount: $("#captionCount"),
-  tags: $("#tags"),
+/* =========================================================
+   STATE
+   ========================================================= */
 
-  player: $("#player"),
-  audio: $("#audio"),
-  play: $("#play"),
-  prev: $("#prev"),
-  next: $("#next"),
-  seek: $("#seek"),
-  fill: $("#fill"),
-  current: $("#current"),
-  total: $("#total"),
-  duration: $("#duration"),
-  state: $("#state")
-};
+let index = 0;
+
+let player = null;
+
+let youtubeReady = false;
+
+let playerReady = false;
+
+let updateTimer = null;
+
+let source = 'youtube';
+
+let isSeeking = false;
 
 
 /* =========================================================
-   APPLICATION STATE
+   AUDIO ART
    ========================================================= */
 
-const state = {
-  index: 0,
-  isPlaying: false,
-  loadedIndex: -1,
-  seeking: false
-};
+function art(i) {
 
-
-/* =========================================================
-   HELPERS
-   ========================================================= */
-
-function pad(value) {
-  return String(value).padStart(2, "0");
-}
-
-
-function formatTime(seconds) {
-  if (!Number.isFinite(seconds) || seconds < 0) {
-    return "00:00";
-  }
-
-  const minutes = Math.floor(seconds / 60);
-  const secs = Math.floor(seconds % 60);
-
-  return `${pad(minutes)}:${pad(secs)}`;
-}
-
-
-function slugHue(index) {
-  return (index * 41) % 360;
-}
-
-
-function art(index) {
-  const hue = slugHue(index);
-  const secondHue = (hue + 70) % 360;
+  const hue = (i * 41) % 360;
 
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 600 400"
     >
+
       <defs>
+
         <radialGradient id="g">
-          <stop stop-color="hsl(${hue} 38% 45%)"/>
-          <stop offset="1" stop-color="#09070b"/>
+
+          <stop
+            stop-color="hsl(${hue} 38% 45%)"
+          />
+
+          <stop
+            offset="1"
+            stop-color="#09070b"
+          />
+
         </radialGradient>
+
       </defs>
+
 
       <rect
         width="600"
         height="400"
         fill="#09070b"
       />
+
 
       <circle
         cx="300"
@@ -452,21 +172,45 @@ function art(index) {
         opacity=".8"
       />
 
+
       <circle
         cx="430"
         cy="110"
         r="80"
-        fill="hsl(${secondHue} 35% 38%)"
+        fill="hsl(${(hue + 70) % 360} 35% 38%)"
         opacity=".18"
       />
+
 
       <path
         d="M0 330 Q180 210 330 330 T600 300 V400H0Z"
         fill="#000"
         opacity=".35"
       />
+
     </svg>
+
   `)}`;
+
+}
+
+
+/* =========================================================
+   TIME FORMAT
+   ========================================================= */
+
+function formatTime(seconds) {
+
+  if (!Number.isFinite(seconds) || seconds < 0) {
+    return '00:00';
+  }
+
+  const minutes = Math.floor(seconds / 60);
+
+  const secs = Math.floor(seconds % 60);
+
+  return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+
 }
 
 
@@ -475,9 +219,10 @@ function art(index) {
    ========================================================= */
 
 function updateBackground() {
-  const hue = slugHue(state.index);
 
-  elements.bg.style.background = `
+  const hue = (index * 41) % 360;
+
+  $('#bg').style.background = `
     radial-gradient(
       circle at 68% 48%,
       hsl(${hue} 30% 28% / .28),
@@ -485,511 +230,985 @@ function updateBackground() {
     ),
     radial-gradient(
       circle at 30% 65%,
-      hsl(${(hue + 70) % 360} 25% 25% / .10),
-      transparent 26%
+      hsl(${(hue + 55) % 360} 30% 25% / .12),
+      transparent 25%
     ),
     #08070a
   `;
+
 }
 
 
 /* =========================================================
-   CORE INFORMATION
+   RENDER MAIN CONTENT
    ========================================================= */
 
-function renderInformation() {
-  const raag = RAAGS[state.index];
+function render() {
 
-  elements.num.textContent = pad(state.index + 1);
+  const r = raags[index];
 
-  elements.prahar.textContent =
-    raag.prahar.toUpperCase();
+  const number = String(index + 1).padStart(2, '0');
 
-  elements.title.textContent =
-    raag.name;
+  $('#num').textContent = number;
 
-  elements.hindi.textContent =
-    raag.hindi;
+  $('#prahar').textContent = r[2].toUpperCase();
 
-  elements.desc.textContent =
-    raag.description;
+  $('#title').textContent = r[0];
 
-  elements.time.textContent =
-    raag.time.toUpperCase();
+  $('#hindi').textContent = r[1];
 
-  elements.coreName.textContent =
-    raag.name.toUpperCase();
+  $('#desc').textContent = r[3];
 
-  elements.degree.textContent =
-    `${pad(state.index + 1)} / ${pad(TOTAL_RAAGS)}`;
+  $('#time').textContent = r[2].toUpperCase();
 
-  elements.count.textContent =
-    `${pad(state.index + 1)} / ${pad(TOTAL_RAAGS)}`;
+  $('#coreName').textContent = r[0].toUpperCase();
 
-  elements.captionCount.textContent =
-    `${pad(state.index + 1)} — ${pad(TOTAL_RAAGS)}`;
+  $('#count').textContent =
+    `${number} / 27`;
 
-  elements.tags.innerHTML =
-    raag.tags
-      .map(tag => `<span>${tag}</span>`)
-      .join("");
+  $('#degree').textContent =
+    `${number} / 27`;
+
+  $('#captionCount').textContent =
+    `${number} — 27`;
+
 
   updateBackground();
-}
 
 
-/* =========================================================
-   ORBIT
-   ========================================================= */
+  /* TAGS */
 
-function getOrbitRadius() {
-  const width =
-    elements.orbit.getBoundingClientRect().width;
-
-  /*
-    Keep the orbit responsive.
-
-    Desktop:
-      larger radius
-
-    Mobile:
-      smaller radius
-  */
-
-  const radiusX =
-    Math.min(
-      Math.max(width * 0.39, 105),
-      245
-    );
-
-  const radiusY =
-    Math.min(
-      Math.max(width * 0.205, 58),
-      125
-    );
-
-  return {
-    x: radiusX,
-    y: radiusY
-  };
-}
+  $('#tags').innerHTML = r[4]
+    .map(tag => `<span>${tag}</span>`)
+    .join('');
 
 
-function renderOrbit() {
-  const { x: radiusX, y: radiusY } =
-    getOrbitRadius();
+  /* =======================================================
+     ORBIT PLANETS
+     ======================================================= */
 
-  elements.planets.innerHTML = "";
+  $('#planets').innerHTML = '';
 
-  RAAGS.forEach((raag, index) => {
+  const visiblePlanets = Math.min(raags.length, 9);
 
-    /*
-      27 positions around the ellipse.
-
-      We rotate the entire sequence slightly so that
-      the active raag is visually prominent.
-    */
+  for (let i = 0; i < visiblePlanets; i++) {
 
     const angle =
-      (Math.PI * 2 * index / TOTAL_RAAGS)
-      - Math.PI / 2;
+      (Math.PI * 2 * i / visiblePlanets) -
+      Math.PI / 2;
 
     const x =
-      Math.cos(angle) * radiusX;
+      Math.cos(angle) * 245;
 
     const y =
-      Math.sin(angle) * radiusY;
+      Math.sin(angle) * 125;
 
 
     const planet =
-      document.createElement("button");
+      document.createElement('button');
 
-    planet.type = "button";
+
+    planet.type = 'button';
 
     planet.className =
-      `planet ${index === state.index ? "active" : ""}`;
+      'planet ' +
+      (i === index ? 'active' : '');
 
-    planet.dataset.index = index;
 
     planet.style.setProperty(
-      "--x",
+      '--x',
       `${x}px`
     );
 
     planet.style.setProperty(
-      "--y",
+      '--y',
       `${y}px`
     );
 
-    planet.setAttribute(
-      "aria-label",
-      `Select ${raag.name}`
-    );
 
-    planet.setAttribute(
-      "aria-pressed",
-      index === state.index
-        ? "true"
-        : "false"
-    );
+    planet.innerHTML = `
+      <img
+        src="${art(i)}"
+        alt="${raags[i][0]}"
+      >
 
-
-    const image =
-      document.createElement("img");
-
-    image.src =
-      art(index);
-
-    image.alt = "";
+      <label>
+        ${raags[i][0].toUpperCase()}
+      </label>
+    `;
 
 
-    const label =
-      document.createElement("label");
-
-    label.textContent =
-      raag.name.toUpperCase();
-
-
-    planet.appendChild(image);
-    planet.appendChild(label);
-
-    elements.planets.appendChild(planet);
-  });
-}
-
-
-/* =========================================================
-   ARCHIVE RAIL
-   ========================================================= */
-
-function renderRail() {
-  elements.rail.innerHTML = "";
-
-  RAAGS.forEach((raag, index) => {
-
-    const button =
-      document.createElement("button");
-
-    button.type = "button";
-
-    button.className =
-      `rail-item ${index === state.index ? "active" : ""}`;
-
-    button.dataset.index = index;
-
-    button.setAttribute(
-      "aria-label",
-      `Select ${raag.name}`
-    );
-
-    button.setAttribute(
-      "aria-current",
-      index === state.index
-        ? "true"
-        : "false"
+    planet.addEventListener(
+      'click',
+      () => selectRaag(i)
     );
 
 
-    const image =
-      document.createElement("img");
+    $('#planets').appendChild(planet);
 
-    image.src =
-      art(index);
-
-    image.alt = "";
-
-
-    const title =
-      document.createElement("span");
-
-    title.textContent =
-      raag.name;
-
-
-    button.appendChild(image);
-    button.appendChild(title);
-
-    elements.rail.appendChild(button);
-  });
-}
-
-
-/* =========================================================
-   DRAWER ARCHIVE
-   ========================================================= */
-
-function renderArchive() {
-  elements.archive.innerHTML = "";
-
-  RAAGS.forEach((raag, index) => {
-
-    const button =
-      document.createElement("button");
-
-    button.type = "button";
-
-    button.className =
-      index === state.index
-        ? "active"
-        : "";
-
-    button.dataset.index = index;
-
-    button.textContent =
-      `${pad(index + 1)} — ${raag.name}`;
-
-    button.setAttribute(
-      "aria-current",
-      index === state.index
-        ? "true"
-        : "false"
-    );
-
-    elements.archive.appendChild(button);
-  });
-}
-
-
-/* =========================================================
-   UI RENDER
-   ========================================================= */
-
-function render() {
-  renderInformation();
-  renderOrbit();
-  renderRail();
-  renderArchive();
-
-  syncPlayerUI();
-}
-
-
-/* =========================================================
-   AUDIO
-   ========================================================= */
-
-function loadTrack(index, autoplay = false) {
-  const raag = RAAGS[index];
-
-  state.loadedIndex = index;
-
-  state.isPlaying = false;
-
-  elements.audio.pause();
-
-  elements.audio.src =
-    raag.audio;
-
-  elements.audio.load();
-
-  resetProgress();
-
-  setPlayerState(
-    "LOADING",
-    false
-  );
-
-  if (autoplay) {
-    const playPromise =
-      elements.audio.play();
-
-    if (playPromise) {
-      playPromise.catch(() => {
-        /*
-          Browser may block autoplay.
-
-          The UI remains in a truthful state
-          instead of pretending playback started.
-        */
-        state.isPlaying = false;
-
-        setPlayerState(
-          "READY TO LISTEN",
-          false
-        );
-      });
-    }
-  }
-}
-
-
-function playCurrent() {
-  const raag =
-    RAAGS[state.index];
-
-  if (
-    state.loadedIndex !== state.index
-  ) {
-    loadTrack(
-      state.index,
-      true
-    );
-
-    return;
   }
 
-  if (!elements.audio.src) {
-    setPlayerState(
-      "AUDIO UNAVAILABLE",
-      false
-    );
 
-    return;
-  }
+  /* =======================================================
+     BOTTOM RAIL
+     ======================================================= */
 
-  elements.audio
-    .play()
-    .catch(() => {
-      setPlayerState(
-        "AUDIO UNAVAILABLE",
-        false
+  $('#rail').innerHTML = raags
+    .map((r, i) => `
+
+      <button
+        type="button"
+        class="rail-item ${i === index ? 'active' : ''}"
+        data-i="${i}"
+      >
+
+        <img
+          src="${art(i)}"
+          alt=""
+        >
+
+        <span>
+          ${r[0]}
+        </span>
+
+      </button>
+
+    `)
+    .join('');
+
+
+  document
+    .querySelectorAll('.rail-item')
+    .forEach(button => {
+
+      button.addEventListener(
+        'click',
+        () => {
+
+          selectRaag(
+            Number(button.dataset.i)
+          );
+
+        }
       );
+
     });
-}
 
 
-function pauseCurrent() {
-  elements.audio.pause();
-}
+  /* =======================================================
+     ARCHIVE
+     ======================================================= */
+
+  $('#archive').innerHTML = raags
+    .map((r, i) => `
+
+      <button
+        type="button"
+        class="${i === index ? 'active' : ''}"
+        data-i="${i}"
+      >
+
+        ${String(i + 1).padStart(2, '0')}
+        —
+        ${r[0]}
+
+      </button>
+
+    `)
+    .join('');
 
 
-function togglePlay() {
-  if (state.isPlaying) {
-    pauseCurrent();
-  } else {
-    playCurrent();
-  }
-}
+  document
+    .querySelectorAll('#archive button')
+    .forEach(button => {
+
+      button.addEventListener(
+        'click',
+        () => {
+
+          selectRaag(
+            Number(button.dataset.i)
+          );
+
+          closeDrawer();
+
+        }
+      );
+
+    });
 
 
-/* =========================================================
-   PLAYER STATE
-   ========================================================= */
+  updatePlayerUI();
 
-function setPlayerState(label, playing) {
-  state.isPlaying = playing;
-
-  elements.state.textContent =
-    label;
-
-  elements.player.classList.toggle(
-    "playing",
-    playing
-  );
-
-  elements.play.textContent =
-    playing
-      ? "Ⅱ"
-      : "▶";
-
-  elements.play.setAttribute(
-    "aria-pressed",
-    playing
-      ? "true"
-      : "false"
-  );
-
-  elements.play.setAttribute(
-    "aria-label",
-    playing
-      ? "Pause current raag"
-      : "Play current raag"
-  );
-}
-
-
-function syncPlayerUI() {
-  if (state.loadedIndex !== state.index) {
-    resetProgress();
-  }
-}
-
-
-function resetProgress() {
-  elements.seek.value = 0;
-
-  elements.fill.style.width =
-    "0%";
-
-  elements.current.textContent =
-    "00:00";
-
-  elements.total.textContent =
-    "00:00";
-
-  elements.duration.textContent =
-    "00:00";
 }
 
 
 /* =========================================================
-   NAVIGATION
+   SELECT RAAG
    ========================================================= */
 
-function selectRaag(
-  index,
-  autoplay = false
-) {
-  if (
-    index < 0 ||
-    index >= TOTAL_RAAGS
-  ) {
-    return;
-  }
+function selectRaag(newIndex) {
 
-  state.index = index;
+  index =
+    (newIndex + raags.length) %
+    raags.length;
+
 
   render();
 
-  loadTrack(
-    state.index,
-    autoplay
-  );
 
   /*
-    Keep selected rail item visible.
-  */
+   * Only automatically move YouTube.
+   * Spotify's normal Embed does not expose
+   * arbitrary track selection through the iframe.
+   */
 
-  requestAnimationFrame(() => {
+  if (
+    source === 'youtube' &&
+    playerReady &&
+    player
+  ) {
 
-    const activeRail =
-      elements.rail.querySelector(
-        ".rail-item.active"
-      );
-
-    activeRail?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center"
+    player.loadPlaylist({
+      list: YOUTUBE_PLAYLIST_ID,
+      listType: 'playlist',
+      index: index,
+      startSeconds: 0
     });
 
+  }
+
+}
+
+
+/* =========================================================
+   YOUTUBE API
+   ========================================================= */
+
+window.onYouTubeIframeAPIReady = function () {
+
+  youtubeReady = true;
+
+  createYouTubePlayer();
+
+};
+
+
+function createYouTubePlayer() {
+
+  if (!youtubeReady || player) {
+    return;
+  }
+
+
+  player =
+    new YT.Player(
+      'youtubeHost',
+      {
+
+        width: '1',
+
+        height: '1',
+
+        playerVars: {
+
+          autoplay: 0,
+
+          controls: 0,
+
+          disablekb: 1,
+
+          fs: 0,
+
+          modestbranding: 1,
+
+          playsinline: 1,
+
+          rel: 0,
+
+          listType: 'playlist',
+
+          list: YOUTUBE_PLAYLIST_ID
+
+        },
+
+
+        events: {
+
+          onReady: onYouTubeReady,
+
+          onStateChange: onYouTubeStateChange,
+
+          onError: onYouTubeError
+
+        }
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   YOUTUBE READY
+   ========================================================= */
+
+function onYouTubeReady(event) {
+
+  playerReady = true;
+
+  player =
+    event.target;
+
+
+  /*
+   * Load the playlist at the currently
+   * selected Raag.
+   */
+
+  player.cuePlaylist({
+
+    list: YOUTUBE_PLAYLIST_ID,
+
+    listType: 'playlist',
+
+    index: index
+
   });
+
+
+  updatePlayerUI();
+
 }
 
 
-function nextRaag(
-  autoplay = state.isPlaying
-) {
-  const next =
-    (state.index + 1)
-    % TOTAL_RAAGS;
+/* =========================================================
+   YOUTUBE STATE
+   ========================================================= */
 
-  selectRaag(
-    next,
-    autoplay
-  );
+function onYouTubeStateChange(event) {
+
+  if (!player) {
+    return;
+  }
+
+
+  if (
+    event.data === YT.PlayerState.PLAYING
+  ) {
+
+    setPlayingUI(true);
+
+    startProgressLoop();
+
+  }
+
+
+  else if (
+    event.data === YT.PlayerState.PAUSED
+  ) {
+
+    setPlayingUI(false);
+
+    stopProgressLoop();
+
+  }
+
+
+  else if (
+    event.data === YT.PlayerState.ENDED
+  ) {
+
+    stopProgressLoop();
+
+    /*
+     * YouTube playlist normally handles next.
+     * We update our selected index based on the
+     * playlist position.
+     */
+
+    const playlistIndex =
+      player.getPlaylistIndex();
+
+
+    if (
+      Number.isInteger(playlistIndex) &&
+      playlistIndex >= 0 &&
+      playlistIndex < raags.length
+    ) {
+
+      index = playlistIndex;
+
+      render();
+
+    }
+
+  }
+
+
+  else if (
+    event.data === YT.PlayerState.BUFFERING
+  ) {
+
+    $('#state').textContent =
+      'BUFFERING';
+
+  }
+
 }
 
+
+/* =========================================================
+   YOUTUBE ERROR
+   ========================================================= */
+
+function onYouTubeError() {
+
+  $('#state').textContent =
+    'PLAYBACK UNAVAILABLE';
+
+  setPlayingUI(false);
+
+}
+
+
+/* =========================================================
+   PLAY / PAUSE
+   ========================================================= */
+
+function togglePlay() {
+
+  if (
+    source !== 'youtube'
+  ) {
+
+    switchSource('youtube');
+
+    return;
+
+  }
+
+
+  if (
+    !playerReady ||
+    !player
+  ) {
+
+    $('#state').textContent =
+      'LOADING PLAYER…';
+
+    return;
+
+  }
+
+
+  const state =
+    player.getPlayerState();
+
+
+  if (
+    state === YT.PlayerState.PLAYING
+  ) {
+
+    player.pauseVideo();
+
+  }
+
+  else {
+
+    /*
+     * If playlist has not loaded correctly,
+     * explicitly load the current index.
+     */
+
+    if (
+      typeof player.getPlaylistIndex === 'function' &&
+      player.getPlaylistIndex() < 0
+    ) {
+
+      player.loadPlaylist({
+
+        list: YOUTUBE_PLAYLIST_ID,
+
+        listType: 'playlist',
+
+        index: index
+
+      });
+
+    }
+
+    else {
+
+      player.playVideo();
+
+    }
+
+  }
+
+}
+
+
+/* =========================================================
+   NEXT
+   ========================================================= */
+
+function nextRaag() {
+
+  if (
+    source === 'youtube' &&
+    playerReady &&
+    player
+  ) {
+
+    const playlist =
+      player.getPlaylist();
+
+
+    const current =
+      player.getPlaylistIndex();
+
+
+    if (
+      Array.isArray(playlist) &&
+      playlist.length > 0
+    ) {
+
+      player.nextVideo();
+
+      const next =
+        current + 1 >= playlist.length
+          ? 0
+          : current + 1;
+
+
+      if (next < raags.length) {
+
+        index = next;
+
+        render();
+
+      }
+
+      return;
+
+    }
+
+  }
+
+
+  index =
+    (index + 1) %
+    raags.length;
+
+  render();
+
+}
+
+
+/* =========================================================
+   PREVIOUS
+   ========================================================= */
 
 function previousRaag() {
-  const previous =
-    (state.index - 1 + TOTAL_RAAGS)
-    % TOTAL_RAAGS;
 
-  selectRaag(
-    previous,
-    state.isPlaying
-  );
+  if (
+    source === 'youtube' &&
+    playerReady &&
+    player
+  ) {
+
+    const playlist =
+      player.getPlaylist();
+
+
+    const current =
+      player.getPlaylistIndex();
+
+
+    if (
+      Array.isArray(playlist) &&
+      playlist.length > 0
+    ) {
+
+      player.previousVideo();
+
+      const previous =
+        current - 1 < 0
+          ? playlist.length - 1
+          : current - 1;
+
+
+      if (previous < raags.length) {
+
+        index = previous;
+
+        render();
+
+      }
+
+      return;
+
+    }
+
+  }
+
+
+  index =
+    (index - 1 + raags.length) %
+    raags.length;
+
+  render();
+
+}
+
+
+/* =========================================================
+   PROGRESS LOOP
+   ========================================================= */
+
+function startProgressLoop() {
+
+  stopProgressLoop();
+
+  updateTimer =
+    setInterval(
+      updateProgress,
+      250
+    );
+
+}
+
+
+function stopProgressLoop() {
+
+  if (updateTimer) {
+
+    clearInterval(updateTimer);
+
+    updateTimer = null;
+
+  }
+
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+function updateProgress() {
+
+  if (
+    source !== 'youtube' ||
+    !playerReady ||
+    !player ||
+    isSeeking
+  ) {
+
+    return;
+
+  }
+
+
+  const duration =
+    player.getDuration();
+
+
+  const current =
+    player.getCurrentTime();
+
+
+  if (
+    !Number.isFinite(duration) ||
+    duration <= 0
+  ) {
+
+    return;
+
+  }
+
+
+  const percentage =
+    Math.min(
+      100,
+      Math.max(
+        0,
+        (current / duration) * 100
+      )
+    );
+
+
+  $('#seek').value =
+    percentage;
+
+  $('#fill').style.width =
+    `${percentage}%`;
+
+
+  $('#current').textContent =
+    formatTime(current);
+
+
+  $('#total').textContent =
+    formatTime(duration);
+
+
+  $('#duration').textContent =
+    formatTime(duration);
+
+}
+
+
+/* =========================================================
+   SEEK
+   ========================================================= */
+
+$('#seek').addEventListener(
+  'input',
+  event => {
+
+    isSeeking = true;
+
+    const percentage =
+      Number(event.target.value);
+
+
+    $('#fill').style.width =
+      `${percentage}%`;
+
+
+    if (
+      playerReady &&
+      player
+    ) {
+
+      const duration =
+        player.getDuration();
+
+
+      if (
+        Number.isFinite(duration) &&
+        duration > 0
+      ) {
+
+        const target =
+          duration *
+          (percentage / 100);
+
+
+        $('#current').textContent =
+          formatTime(target);
+
+      }
+
+    }
+
+  }
+);
+
+
+$('#seek').addEventListener(
+  'change',
+  event => {
+
+    if (
+      playerReady &&
+      player
+    ) {
+
+      const duration =
+        player.getDuration();
+
+
+      if (
+        Number.isFinite(duration) &&
+        duration > 0
+      ) {
+
+        const target =
+          duration *
+          (Number(event.target.value) / 100);
+
+
+        player.seekTo(
+          target,
+          true
+        );
+
+      }
+
+    }
+
+
+    isSeeking = false;
+
+  }
+);
+
+
+/* =========================================================
+   PLAYING UI
+   ========================================================= */
+
+function setPlayingUI(active) {
+
+  playing = active;
+
+  $('#play').textContent =
+    active ? 'Ⅱ' : '▶';
+
+
+  $('#state').textContent =
+    active
+      ? 'NOW LISTENING'
+      : 'READY TO LISTEN';
+
+
+  $('#playerPanel')
+    .classList
+    .toggle(
+      'playing',
+      active
+    );
+
+}
+
+
+/* =========================================================
+   LEGACY STATE
+   ========================================================= */
+
+let playing = false;
+
+
+/* =========================================================
+   PLAYER UI
+   ========================================================= */
+
+function updatePlayerUI() {
+
+  $('#current').textContent =
+    '00:00';
+
+  $('#total').textContent =
+    '00:00';
+
+  $('#duration').textContent =
+    '—';
+
+  $('#seek').value =
+    0;
+
+  $('#fill').style.width =
+    '0%';
+
+
+  if (
+    source === 'spotify'
+  ) {
+
+    $('#state').textContent =
+      'SPOTIFY PLAYER';
+
+    return;
+
+  }
+
+
+  $('#state').textContent =
+    'READY TO LISTEN';
+
+}
+
+
+/* =========================================================
+   SOURCE SWITCHING
+   ========================================================= */
+
+function switchSource(nextSource) {
+
+  source =
+    nextSource;
+
+
+  const youtube =
+    source === 'youtube';
+
+  const spotify =
+    source === 'spotify';
+
+
+  $('#sourceYT')
+    .classList
+    .toggle(
+      'active',
+      youtube
+    );
+
+
+  $('#sourceSpotify')
+    .classList
+    .toggle(
+      'active',
+      spotify
+    );
+
+
+  $('#youtubeControls')
+    .classList
+    .toggle(
+      'hidden',
+      !youtube
+    );
+
+
+  $('#spotifyControls')
+    .classList
+    .toggle(
+      'visible',
+      spotify
+    );
+
+
+  if (youtube) {
+
+    if (
+      playerReady &&
+      player
+    ) {
+
+      player.unMute();
+
+    }
+
+    updatePlayerUI();
+
+  }
+
+  else {
+
+    /*
+     * Stop YouTube when moving to Spotify.
+     */
+
+    if (
+      playerReady &&
+      player
+    ) {
+
+      player.pauseVideo();
+
+    }
+
+
+    setPlayingUI(false);
+
+    $('#state').textContent =
+      'SPOTIFY PLAYER';
+
+  }
+
 }
 
 
@@ -997,439 +1216,141 @@ function previousRaag() {
    DRAWER
    ========================================================= */
 
-function openDrawer() {
-  elements.drawer.classList.add(
-    "open"
-  );
-
-  elements.veil.classList.add(
-    "open"
-  );
-
-  elements.drawer.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-
-  elements.menu.setAttribute(
-    "aria-expanded",
-    "true"
-  );
-}
-
-
 function closeDrawer() {
-  elements.drawer.classList.remove(
-    "open"
-  );
 
-  elements.veil.classList.remove(
-    "open"
-  );
+  $('#drawer')
+    .classList
+    .remove('open');
 
-  elements.drawer.setAttribute(
-    "aria-hidden",
-    "true"
-  );
+  $('#veil')
+    .classList
+    .remove('open');
 
-  elements.menu.setAttribute(
-    "aria-expanded",
-    "false"
-  );
 }
+
+
+$('#menu').addEventListener(
+  'click',
+  () => {
+
+    $('#drawer')
+      .classList
+      .add('open');
+
+    $('#veil')
+      .classList
+      .add('open');
+
+  }
+);
+
+
+$('#close').addEventListener(
+  'click',
+  closeDrawer
+);
+
+
+$('#veil').addEventListener(
+  'click',
+  closeDrawer
+);
 
 
 /* =========================================================
-   EVENTS
+   PLAYER BUTTONS
    ========================================================= */
 
-
-/* Drawer */
-
-elements.menu.addEventListener(
-  "click",
-  openDrawer
-);
-
-elements.close.addEventListener(
-  "click",
-  closeDrawer
-);
-
-elements.veil.addEventListener(
-  "click",
-  closeDrawer
-);
-
-
-/* Archive */
-
-elements.archive.addEventListener(
-  "click",
-  event => {
-
-    const button =
-      event.target.closest(
-        "button[data-index]"
-      );
-
-    if (!button) {
-      return;
-    }
-
-    selectRaag(
-      Number(button.dataset.index)
-    );
-
-    closeDrawer();
-  }
-);
-
-
-/* Orbit */
-
-elements.planets.addEventListener(
-  "click",
-  event => {
-
-    const button =
-      event.target.closest(
-        ".planet[data-index]"
-      );
-
-    if (!button) {
-      return;
-    }
-
-    selectRaag(
-      Number(button.dataset.index)
-    );
-  }
-);
-
-
-/* Rail */
-
-elements.rail.addEventListener(
-  "click",
-  event => {
-
-    const button =
-      event.target.closest(
-        ".rail-item[data-index]"
-      );
-
-    if (!button) {
-      return;
-    }
-
-    selectRaag(
-      Number(button.dataset.index)
-    );
-  }
-);
-
-
-/* Player */
-
-elements.play.addEventListener(
-  "click",
+$('#play').addEventListener(
+  'click',
   togglePlay
 );
 
-elements.next.addEventListener(
-  "click",
-  () => nextRaag(true)
+
+$('#next').addEventListener(
+  'click',
+  nextRaag
 );
 
-elements.prev.addEventListener(
-  "click",
+
+$('#prev').addEventListener(
+  'click',
   previousRaag
 );
 
 
-/* Audio events */
+/* =========================================================
+   SOURCE BUTTONS
+   ========================================================= */
 
-elements.audio.addEventListener(
-  "play",
-  () => {
-    setPlayerState(
-      "NOW LISTENING",
-      true
-    );
-  }
+$('#sourceYT').addEventListener(
+  'click',
+  () => switchSource('youtube')
 );
 
 
-elements.audio.addEventListener(
-  "pause",
-  () => {
-
-    /*
-      Don't overwrite LOADING state.
-    */
-
-    if (
-      elements.state.textContent !==
-      "LOADING"
-    ) {
-      setPlayerState(
-        "PAUSED",
-        false
-      );
-    }
-  }
+$('#sourceSpotify').addEventListener(
+  'click',
+  () => switchSource('spotify')
 );
 
 
-elements.audio.addEventListener(
-  "loadedmetadata",
-  () => {
-
-    const duration =
-      elements.audio.duration;
-
-    if (
-      Number.isFinite(duration)
-    ) {
-      elements.total.textContent =
-        formatTime(duration);
-
-      elements.duration.textContent =
-        formatTime(duration);
-    }
-  }
-);
-
-
-elements.audio.addEventListener(
-  "timeupdate",
-  () => {
-
-    if (
-      state.seeking
-    ) {
-      return;
-    }
-
-    const current =
-      elements.audio.currentTime;
-
-    const duration =
-      elements.audio.duration;
-
-    elements.current.textContent =
-      formatTime(current);
-
-    if (
-      Number.isFinite(duration) &&
-      duration > 0
-    ) {
-
-      const percentage =
-        (current / duration) * 100;
-
-      elements.seek.value =
-        percentage;
-
-      elements.fill.style.width =
-        `${percentage}%`;
-    }
-  }
-);
-
-
-elements.audio.addEventListener(
-  "ended",
-  () => {
-    nextRaag(true);
-  }
-);
-
-
-elements.audio.addEventListener(
-  "error",
-  () => {
-
-    state.isPlaying = false;
-
-    elements.player.classList.remove(
-      "playing"
-    );
-
-    elements.play.textContent =
-      "▶";
-
-    elements.play.setAttribute(
-      "aria-pressed",
-      "false"
-    );
-
-    elements.state.textContent =
-      "AUDIO UNAVAILABLE";
-  }
-);
-
-
-/* Seek */
-
-elements.seek.addEventListener(
-  "pointerdown",
-  () => {
-    state.seeking = true;
-  }
-);
-
-
-elements.seek.addEventListener(
-  "pointerup",
-  () => {
-
-    const duration =
-      elements.audio.duration;
-
-    if (
-      Number.isFinite(duration) &&
-      duration > 0
-    ) {
-
-      const percentage =
-        Number(elements.seek.value);
-
-      elements.audio.currentTime =
-        duration *
-        (percentage / 100);
-    }
-
-    state.seeking = false;
-  }
-);
-
-
-elements.seek.addEventListener(
-  "input",
-  event => {
-
-    const percentage =
-      Number(event.target.value);
-
-    elements.fill.style.width =
-      `${percentage}%`;
-
-    const duration =
-      elements.audio.duration;
-
-    if (
-      Number.isFinite(duration) &&
-      duration > 0
-    ) {
-
-      const preview =
-        duration *
-        (percentage / 100);
-
-      elements.current.textContent =
-        formatTime(preview);
-    }
-  }
-);
-
-
-/* Keyboard */
+/* =========================================================
+   KEYBOARD
+   ========================================================= */
 
 document.addEventListener(
-  "keydown",
+  'keydown',
   event => {
 
-    if (
-      event.key === "Escape"
-    ) {
-      closeDrawer();
-    }
+    /*
+     * Don't hijack typing.
+     */
+
+    const tag =
+      document.activeElement?.tagName;
+
 
     if (
-      event.key === "ArrowRight" &&
-      !isTypingTarget(event.target)
+      tag === 'INPUT' ||
+      tag === 'TEXTAREA'
     ) {
-      nextRaag(false);
+
+      return;
+
     }
 
-    if (
-      event.key === "ArrowLeft" &&
-      !isTypingTarget(event.target)
-    ) {
-      previousRaag();
-    }
 
-    if (
-      event.code === "Space" &&
-      !isTypingTarget(event.target)
-    ) {
+    if (event.code === 'Space') {
+
       event.preventDefault();
+
       togglePlay();
+
     }
-  }
-);
 
 
-function isTypingTarget(
-  target
-) {
-  return (
-    target instanceof
-      HTMLInputElement ||
-    target instanceof
-      HTMLTextAreaElement ||
-    target instanceof
-      HTMLSelectElement
-  );
-}
+    if (event.code === 'ArrowRight') {
+
+      nextRaag();
+
+    }
 
 
-/* =========================================================
-   RESPONSIVE ORBIT
-   ========================================================= */
+    if (event.code === 'ArrowLeft') {
 
-let resizeTimer;
+      previousRaag();
 
-window.addEventListener(
-  "resize",
-  () => {
+    }
 
-    clearTimeout(resizeTimer);
-
-    resizeTimer =
-      setTimeout(
-        () => renderOrbit(),
-        120
-      );
   }
 );
 
 
 /* =========================================================
-   INITIALIZATION
+   INITIAL RENDER
    ========================================================= */
 
-function init() {
+render();
 
-  render();
-
-  /*
-    Load the first track metadata without
-    automatically playing it.
-  */
-
-  loadTrack(
-    state.index,
-    false
-  );
-
-  setPlayerState(
-    "READY TO LISTEN",
-    false
-  );
-}
-
-
-init();
+switchSource('youtube');
