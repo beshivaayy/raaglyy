@@ -19,270 +19,238 @@
 
 <body>
 
-  <div id="bg"></div>
+<div id="bg"></div>
 
-  <!-- HEADER -->
-  <header>
-    <button id="menu" type="button">
-      <i></i>
-      <span>ARCHIVE</span>
+<header>
+  <button id="menu">
+    <i></i>
+    <span>ARCHIVE</span>
+  </button>
+
+  <div class="brand">RAAGLYY</div>
+
+  <div class="live">
+    <b></b>
+    SOUND BEYOND SILENCE
+  </div>
+</header>
+
+<aside id="drawer">
+
+  <div class="drawer-head">
+    <strong>RAAGLYY</strong>
+    <button id="close">×</button>
+  </div>
+
+  <div class="drawer-body">
+
+    <small>THE 27 RAAGS</small>
+
+    <nav id="archive"></nav>
+
+    <small class="sources">LISTEN</small>
+
+    <button class="source-link" id="drawerYoutube">
+      YouTube
     </button>
 
-    <div class="brand">RAAGLYY</div>
+    <button class="source-link" id="drawerSpotify">
+      Spotify
+    </button>
 
-    <div class="live">
-      <b></b>
-      SOUND BEYOND SILENCE
-    </div>
-  </header>
+    <small class="sources">KNOWLEDGE</small>
 
+    <a href="javascript:void(0)">Indian Classical Music</a>
+    <a href="javascript:void(0)">Raag &amp; Time</a>
+    <a href="javascript:void(0)">Sound &amp; Consciousness</a>
 
-  <!-- DRAWER -->
-  <aside id="drawer">
+  </div>
+</aside>
 
-    <div class="drawer-head">
-      <strong>RAAGLYY</strong>
+<div id="veil"></div>
 
-      <button id="close" type="button">×</button>
-    </div>
+<main>
 
-    <div class="drawer-body">
+  <section class="hero">
 
-      <small>THE RAAG ARCHIVE</small>
-
-      <nav id="archive"></nav>
-
-      <small class="sources">KNOWLEDGE</small>
-
-      <a href="#" onclick="return false;">Indian Classical Music</a>
-      <a href="#" onclick="return false;">Raag &amp; Time</a>
-      <a href="#" onclick="return false;">Sound &amp; Consciousness</a>
-
+    <div class="kicker">
+      <span id="num">01</span>
+      <em></em>
+      <span id="prahar">AFTERNOON</span>
     </div>
 
-  </aside>
+    <div class="orbit">
 
-  <div id="veil"></div>
+      <div class="orbit-ring"></div>
+      <div class="orbit-ring inner"></div>
 
+      <div id="planets"></div>
 
-  <!-- MAIN -->
-  <main>
-
-    <!-- HERO -->
-    <section class="hero">
-
-      <div class="kicker">
-        <span id="num">01</span>
-        <em></em>
-        <span id="prahar">EVENING</span>
+      <div class="core">
+        <span>RAAG</span>
+        <strong id="coreName">RAAG BHIMPALASI</strong>
+        <i></i>
       </div>
 
-
-      <div class="orbit">
-
-        <div class="orbit-ring"></div>
-        <div class="orbit-ring inner"></div>
-
-        <div id="planets"></div>
-
-
-        <div class="core">
-          <span>RAAG</span>
-          <strong id="coreName">YAMAN</strong>
-          <i></i>
-        </div>
-
-
-        <div class="orbit-note">
-          ORBITAL ARCHIVE · 27
-        </div>
-
-        <div class="degree" id="degree">
-          01 / 27
-        </div>
-
+      <div class="orbit-note">
+        ORBITAL ARCHIVE · 27
       </div>
 
-
-      <div class="caption">
-        <span>LISTEN · OBSERVE · FEEL</span>
-        <span id="captionCount">01 — 27</span>
-      </div>
-
-    </section>
-
-
-    <!-- INFO -->
-    <section class="info">
-
-      <div class="eyebrow">
-        THE RAAG OF
-        <span id="time">THE FIRST PRAHAR</span>
-      </div>
-
-
-      <h1 id="title">
-        Yaman
-      </h1>
-
-
-      <div class="hindi" id="hindi">
-        राग यमन
-      </div>
-
-
-      <p id="desc">
-        A luminous evening raag built around the tivra madhyam.
-        Its character is expansive, serene and quietly devotional.
-      </p>
-
-
-      <div class="tags" id="tags"></div>
-
-
-      <!-- PLAYER -->
-      <div class="player" id="playerPanel">
-
-        <div class="player-source">
-
-          <button
-            id="sourceYT"
-            class="source-btn active"
-            type="button"
-          >
-            YOUTUBE
-          </button>
-
-          <button
-            id="sourceSpotify"
-            class="source-btn"
-            type="button"
-          >
-            SPOTIFY
-          </button>
-
-        </div>
-
-
-        <!-- CUSTOM YOUTUBE PLAYER -->
-        <div id="youtubeControls">
-
-          <div class="player-top">
-
-            <span>
-              <b id="dot"></b>
-              <span id="state">READY TO LISTEN</span>
-            </span>
-
-            <span id="duration">—</span>
-
-          </div>
-
-
-          <div class="track">
-
-            <span id="fill"></span>
-
-            <input
-              id="seek"
-              type="range"
-              min="0"
-              max="100"
-              value="0"
-              step="0.1"
-              aria-label="Seek"
-            >
-
-          </div>
-
-
-          <div class="times">
-            <span id="current">00:00</span>
-            <span id="total">00:00</span>
-          </div>
-
-
-          <div class="controls">
-
-            <button
-              id="prev"
-              type="button"
-              aria-label="Previous"
-            >
-              ‹
-            </button>
-
-            <button
-              id="play"
-              type="button"
-              aria-label="Play"
-            >
-              ▶
-            </button>
-
-            <button
-              id="next"
-              type="button"
-              aria-label="Next"
-            >
-              ›
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <!-- SPOTIFY -->
-        <div id="spotifyControls" class="spotify-controls">
-
-          <iframe
-            id="spotifyFrame"
-            title="Raaglyy Spotify Playlist"
-            src="https://open.spotify.com/embed/playlist/1uCwKa8NKlV4fywgZ2gnMp?utm_source=generator&theme=0&si=20175826062f4d25"
-            width="100%"
-            height="352"
-            frameborder="0"
-            allowfullscreen
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy">
-          </iframe>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- YOUTUBE PLAYER HOST -->
-  <div id="youtubeHost" aria-hidden="true"></div>
-
-
-  <!-- FOOTER -->
-  <footer>
-
-    <div class="rail-label">
-      <span>RAAG ARCHIVE</span>
-
-      <span id="count">
+      <div class="degree" id="degree">
         01 / 27
-      </span>
+      </div>
+
+    </div>
+
+    <div class="caption">
+      <span>LISTEN · OBSERVE · FEEL</span>
+      <span>01 — 27</span>
+    </div>
+
+  </section>
+
+
+  <section class="info">
+
+    <div class="eyebrow">
+      THE RAAG OF
+      <span id="time">AFTERNOON</span>
+    </div>
+
+    <h1 id="title">Raag Bhimpalasi</h1>
+
+    <div class="hindi" id="hindi">
+      राग भिम्पलासी
+    </div>
+
+    <p id="desc">
+      A deeply expressive afternoon raag associated with longing,
+      tenderness, emotional depth, and introspection.
+    </p>
+
+    <div class="tags" id="tags"></div>
+
+
+    <div class="player">
+
+      <div class="player-top">
+
+        <span>
+          <b id="dot"></b>
+          <span id="state">READY TO LISTEN</span>
+        </span>
+
+        <span id="duration">YOUTUBE</span>
+
+      </div>
+
+
+      <div class="track">
+
+        <span id="fill"></span>
+
+        <input
+          id="seek"
+          type="range"
+          min="0"
+          max="100"
+          value="0"
+        >
+
+      </div>
+
+
+      <div class="times">
+        <span id="current">00:00</span>
+        <span id="total">00:00</span>
+      </div>
+
+
+      <div class="controls">
+
+        <button id="prev" aria-label="Previous Raag">
+          ‹
+        </button>
+
+        <button id="play" aria-label="Play">
+          ▶
+        </button>
+
+        <button id="next" aria-label="Next Raag">
+          ›
+        </button>
+
+      </div>
+
+
+      <div class="source-switch">
+
+        <button
+          id="youtubeSource"
+          class="source active"
+        >
+          YOUTUBE
+        </button>
+
+        <button
+          id="spotifySource"
+          class="source"
+        >
+          SPOTIFY
+        </button>
+
+      </div>
+
     </div>
 
 
-    <div class="rail" id="rail"></div>
+    <!-- Hidden/compact YouTube player -->
+    <div id="youtubePlayerWrap">
+      <div id="youtubePlayer"></div>
+    </div>
 
-  </footer>
+
+    <!-- Spotify playlist embed -->
+    <div id="spotifyWrap">
+
+      <div class="spotify-head">
+        <span>SPOTIFY ARCHIVE</span>
+        <span>27 RAAGS</span>
+      </div>
+
+      <iframe
+        id="spotifyFrame"
+        src="https://open.spotify.com/embed/playlist/1uCwKa8NKlV4fywgZ2gnMp?utm_source=generator&theme=0"
+        title="Raaglyy Spotify Playlist"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+
+    </div>
+
+  </section>
+
+</main>
 
 
-  <!-- YOUTUBE IFRAME API -->
-  <script src="https://www.youtube.com/iframe_api"></script>
+<footer>
 
-  <!-- APPLICATION -->
-  <script src="script.js"></script>
+  <div class="rail-label">
+    <span>RAAG ARCHIVE</span>
+    <span id="count">01 / 27</span>
+  </div>
+
+  <div class="rail" id="rail"></div>
+
+</footer>
+
+
+<!-- YouTube IFrame API -->
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script src="script.js"></script>
 
 </body>
 </html>
