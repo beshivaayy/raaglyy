@@ -1,17 +1,21 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <title>RAAGLYY — Sound Beyond Silence</title>
 
+  <meta
+    name="description"
+    content="Raaglyy — an immersive archive of Indian classical raags, time, rasa and sound."
+  >
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Rozha+One&display=swap"
     rel="stylesheet"
   >
 
@@ -20,194 +24,346 @@
 
 <body>
 
-<div id="bg"></div>
-
-<div class="bg-aura"></div>
-<div class="bg-mandala"></div>
-
-<header>
-
-  <button id="menu" aria-label="Open archive">
-    <i></i>
-    <span>ARCHIVE</span>
-  </button>
-
-  <div class="brand">
-    <span>RAAG</span><b>LYY</b>
-  </div>
-
-  <div class="live">
-    <b></b>
-    SOUND BEYOND SILENCE
-  </div>
-
-</header>
-
-
-<aside id="drawer">
-
-  <div class="drawer-head">
-
-    <strong>RAAGLYY</strong>
-
-    <button id="close" aria-label="Close archive">
-      ×
-    </button>
-
-  </div>
-
-  <div class="drawer-body">
-
-    <small>THE 27 RAAGS</small>
-
-    <nav id="archive"></nav>
-
-    <small class="sources">KNOWLEDGE</small>
-
-    <a href="#" onclick="return false">Indian Classical Music</a>
-    <a href="#" onclick="return false">Raag &amp; Time</a>
-    <a href="#" onclick="return false">Sound &amp; Consciousness</a>
-
-  </div>
-
-</aside>
-
-
-<div id="veil"></div>
-
-
-<main>
-
   <!-- =====================================================
-       HERO / SACRED ORBIT
+       GLOBAL ART BACKGROUND
        ===================================================== -->
 
-  <section class="hero">
+  <div id="bg">
 
-    <div class="kicker">
-      <span id="num">01</span>
-      <em></em>
-      <span id="prahar">AFTERNOON</span>
+    <div class="bg-art"></div>
+
+    <div class="bg-wash"></div>
+
+    <div class="bg-grain"></div>
+
+    <div class="bg-vignette"></div>
+
+  </div>
+
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header>
+
+    <button id="menu" aria-label="Open archive">
+      <i></i>
+      <span>ARCHIVE</span>
+    </button>
+
+    <div class="brand">
+
+      <span class="brand-main">RAAGLYY</span>
+
+      <span class="brand-sub">
+        भारतीय संगीत · २७ राग
+      </span>
+
+    </div>
+
+    <div class="live">
+
+      <b></b>
+
+      <span>SOUND BEYOND SILENCE</span>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       DRAWER
+       ===================================================== -->
+
+  <aside id="drawer">
+
+    <div class="drawer-head">
+
+      <div>
+
+        <small>THE ARCHIVE</small>
+
+        <strong>RAAGLYY</strong>
+
+      </div>
+
+      <button id="close" aria-label="Close archive">
+        ×
+      </button>
+
     </div>
 
 
-    <div class="orbit">
+    <div class="drawer-body">
 
-      <div class="orbit-glow"></div>
+      <div class="drawer-intro">
 
-      <div class="orbit-ring"></div>
-      <div class="orbit-ring inner"></div>
+        <span>२७</span>
 
-      <div class="mandala-ring ring-one"></div>
-      <div class="mandala-ring ring-two"></div>
+        <p>
+          A living archive of raag,
+          time, rasa and consciousness.
+        </p>
 
-      <div id="planets"></div>
+      </div>
 
 
-      <div class="core">
+      <small class="section-label">
+        THE 27 RAAGS
+      </small>
 
-        <div class="core-art" id="coreArt"></div>
+      <nav id="archive"></nav>
 
-        <div class="core-copy">
-          <span>RAAG</span>
-          <strong id="coreName">BHIMPALASI</strong>
-          <i></i>
+
+      <small class="section-label sources">
+        KNOWLEDGE
+      </small>
+
+      <a href="#" onclick="return false">
+        Indian Classical Music
+      </a>
+
+      <a href="#" onclick="return false">
+        Raag &amp; Prahar
+      </a>
+
+      <a href="#" onclick="return false">
+        Rasa &amp; Consciousness
+      </a>
+
+      <a href="#" onclick="return false">
+        Nada Brahma
+      </a>
+
+    </div>
+
+  </aside>
+
+
+  <div id="veil"></div>
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main>
+
+    <!-- ===================================================
+         HERO
+         =================================================== -->
+
+    <section class="hero">
+
+      <div class="kicker">
+
+        <span id="num">०१</span>
+
+        <em></em>
+
+        <span id="prahar">
+          AFTERNOON
+        </span>
+
+      </div>
+
+
+      <div class="hero-art-label">
+
+        <span>राग</span>
+
+        <i></i>
+
+        <span id="artTheme">
+          RASA · SMARANA
+        </span>
+
+      </div>
+
+
+      <!-- ORBIT -->
+
+      <div class="orbit">
+
+        <div class="orbit-glow"></div>
+
+        <div class="orbit-ring outer"></div>
+
+        <div class="orbit-ring inner"></div>
+
+        <div class="orbit-axis"></div>
+
+        <div id="planets"></div>
+
+
+        <!-- CENTRAL ART -->
+
+        <div class="core">
+
+          <div class="core-art"></div>
+
+          <div class="core-overlay"></div>
+
+          <div class="core-copy">
+
+            <span>RAAG</span>
+
+            <strong id="coreName">
+              BHIMPALASI
+            </strong>
+
+            <i></i>
+
+          </div>
+
+        </div>
+
+
+        <div class="orbit-note">
+          ORBITAL ARCHIVE · २७
+        </div>
+
+
+        <div class="degree" id="degree">
+          ०१ / २७
+        </div>
+
+
+        <div class="orbit-sanskrit">
+          नाद · रस · चेतना
         </div>
 
       </div>
 
 
-      <div class="orbit-note">
-        ॐ &nbsp; ORBITAL ARCHIVE · 27
+      <div class="caption">
+
+        <span>
+          LISTEN · OBSERVE · FEEL
+        </span>
+
+        <span>
+          NADA BRAHMA
+        </span>
+
       </div>
 
-      <div class="degree" id="degree">
-        01 / 27
-      </div>
-
-    </div>
-
-
-    <div class="caption">
-
-      <span>
-        LISTEN · OBSERVE · FEEL
-      </span>
-
-      <span>
-        श्रुति · स्वर · भाव
-      </span>
-
-      <span>
-        01 — 27
-      </span>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       INFORMATION
-       ===================================================== -->
-
-  <section class="info">
-
-    <div class="sacred-mark">
-      <span></span>
-      <b>ॐ</b>
-      <span></span>
-    </div>
-
-
-    <div class="eyebrow">
-      THE RAAG OF
-      <span id="time">AFTERNOON</span>
-    </div>
-
-
-    <h1 id="title">
-      Bhimpalasi
-    </h1>
-
-
-    <div class="hindi" id="hindi">
-      राग भीमपलासी
-    </div>
-
-
-    <div class="devotional-line" id="devotional">
-      स्वर में भाव · भाव में चेतना
-    </div>
-
-
-    <p id="desc"></p>
-
-
-    <div class="tags" id="tags"></div>
+    </section>
 
 
     <!-- ===================================================
-         PLAYER
+         INFORMATION
          =================================================== -->
 
-    <div class="player">
+    <section class="info">
 
-      <div class="player-art" id="playerArt"></div>
+      <div class="info-topline">
 
-      <div class="player-content">
+        <span>
+          THE RAAG OF
+        </span>
 
-        <div class="player-top">
+        <strong id="time">
+          AFTERNOON
+        </strong>
 
-          <span>
+      </div>
+
+
+      <div class="title-kicker">
+        भारतीय शास्त्रीय संगीत
+      </div>
+
+
+      <h1 id="title">
+        Bhimpalasi
+      </h1>
+
+
+      <div class="hindi" id="hindi">
+        राग भीमपलासी
+      </div>
+
+
+      <div class="ornament">
+
+        <span></span>
+
+        <b>✦</b>
+
+        <span></span>
+
+      </div>
+
+
+      <p id="desc"></p>
+
+
+      <div class="tags" id="tags"></div>
+
+
+      <!-- =================================================
+           PLAYER
+           ================================================= -->
+
+      <div class="player">
+
+        <div class="player-heading">
+
+          <div>
+
+            <span class="player-kicker">
+              NADA PLAYER
+            </span>
+
+            <strong>
+              Listen to the Raag
+            </strong>
+
+          </div>
+
+          <span class="player-status">
+
             <b id="dot"></b>
-            <span id="state">READY TO LISTEN</span>
-          </span>
 
-          <span id="duration">—</span>
+            <span id="state">
+              READY TO LISTEN
+            </span>
+
+          </span>
 
         </div>
 
+
+        <div class="player-art">
+
+          <div class="player-art-image"></div>
+
+          <div class="player-art-overlay"></div>
+
+          <div class="player-art-copy">
+
+            <span>श्रवण</span>
+
+            <strong id="playerRaag">
+              भीमपलासी
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <!-- Hidden YouTube API -->
+
+        <div class="youtube-wrapper">
+          <div id="youtube-player"></div>
+        </div>
+
+
+        <!-- Progress -->
 
         <div class="track">
 
@@ -231,6 +387,10 @@
             00:00
           </span>
 
+          <span id="duration">
+            —
+          </span>
+
           <span id="total">
             00:00
           </span>
@@ -238,55 +398,86 @@
         </div>
 
 
+        <!-- Controls -->
+
         <div class="controls">
 
-          <button id="prev" aria-label="Previous Raag">
-            ‹
+          <button
+            id="prev"
+            aria-label="Previous Raag"
+          >
+            <span>←</span>
           </button>
 
-          <button id="play" aria-label="Play">
+
+          <button
+            id="play"
+            aria-label="Play"
+          >
             ▶
           </button>
 
-          <button id="next" aria-label="Next Raag">
-            ›
+
+          <button
+            id="next"
+            aria-label="Next Raag"
+          >
+            <span>→</span>
           </button>
+
+        </div>
+
+
+        <div class="player-footer">
+
+          <span>
+            श्रवण · मनन · अनुभव
+          </span>
+
+          <span>
+            YOUTUBE ARCHIVE
+          </span>
 
         </div>
 
       </div>
 
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       ARCHIVE RAIL
+       ===================================================== -->
+
+  <footer>
+
+    <div class="rail-label">
+
+      <span>
+        RAAG ARCHIVE
+      </span>
+
+      <span id="count">
+        ०१ / २७
+      </span>
+
     </div>
 
-  </section>
 
-</main>
+    <div class="rail" id="rail"></div>
 
-
-<footer>
-
-  <div class="rail-label">
-
-    <span>
-      RAAG ARCHIVE · राग संग्रह
-    </span>
-
-    <span id="count">
-      01 / 27
-    </span>
-
-  </div>
+  </footer>
 
 
-  <div class="rail" id="rail"></div>
+  <!-- =====================================================
+       YOUTUBE
+       ===================================================== -->
 
-</footer>
+  <script src="https://www.youtube.com/iframe_api"></script>
 
-
-<!-- Hidden YouTube playback engine -->
-<script src="https://www.youtube.com/iframe_api"></script>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
