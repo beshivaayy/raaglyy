@@ -2,10 +2,11 @@
    RAAGLYY
    SOUND BEYOND SILENCE
 
-   VISUAL ARCHIVE ENGINE
+   SANATAN / INDIC ART DIRECTION
 
-   YouTube Playlist:
-   PLJRipbfj__b0
+   Playback:
+   YouTube Playlist
+   Playlist ID: PLJRipbfj__b0
 
    Spotify intentionally removed.
    ========================================================= */
@@ -15,27 +16,8 @@ const YOUTUBE_PLAYLIST_ID = "PLJRipbfj__b0";
 
 
 /* =========================================================
-   RAAG VISUAL SYSTEM
-   =========================================================
-
-   Every Raag has its own visual world.
-
-   art:
-   Main cover artwork.
-
-   background:
-   Full-screen atmospheric image.
-
-   direction:
-   Art-direction label shown below the artwork.
-
-   mood:
-   Used for visual styling.
-
-   Replace these URLs later with your final curated
-   photography / illustration assets.
+   27 RAAGS
    ========================================================= */
-
 
 const raags = [
 
@@ -43,674 +25,297 @@ const raags = [
     name: "Bhimpalasi",
     hindi: "राग भीमपलासी",
     time: "Afternoon",
-
     description:
       "A deeply expressive afternoon raag carrying longing, tenderness and introspection through its characteristic melodic movement.",
-
-    tags: [
-      "Afternoon",
-      "Shringara",
-      "Viraha"
-    ],
-
-    direction: "AFTERNOON LIGHT",
-    mood: "warm",
-
-    art:
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=85"
+    tags: ["Afternoon", "Shringara", "Viraha"],
+    deity: "Krishna",
+    art: "krishna"
   },
-
 
   {
     name: "Darbari Kanada",
     hindi: "राग दरबारी कानड़ा",
     time: "Late Night",
-
     description:
-      "A grave and majestic late-night raag carrying depth, dignity, introspection and the atmosphere of an ancient royal court.",
-
-    tags: [
-      "Late Night",
-      "Gambhir",
-      "Royal"
-    ],
-
-    direction: "THE ROYAL NIGHT",
-    mood: "dark",
-
-    art:
-      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=2200&q=85"
+      "A grave and majestic raag carrying depth, dignity and the atmosphere of an ancient royal court.",
+    tags: ["Late Night", "Gambhir", "Royal"],
+    deity: "Mahadev",
+    art: "shiva"
   },
-
 
   {
     name: "Shuddh Sarang",
     hindi: "राग शुद्ध सारंग",
     time: "Afternoon",
-
     description:
       "A luminous Sarang-family raag associated with clarity, balance and a bright, open melodic character.",
-
-    tags: [
-      "Afternoon",
-      "Sarang",
-      "Luminous"
-    ],
-
-    direction: "WHITE HEAT",
-    mood: "bright",
-
-    art:
-      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2200&q=85"
+    tags: ["Afternoon", "Sarang", "Luminous"],
+    deity: "Surya",
+    art: "surya"
   },
-
 
   {
     name: "Komal Rishabh Asavari",
     hindi: "राग कोमल ऋषभ आसावरी",
     time: "Morning",
-
     description:
-      "A serious morning atmosphere shaped by the introspective character of the Asavari family.",
-
-    tags: [
-      "Morning",
-      "Asavari",
-      "Gambhir"
-    ],
-
-    direction: "EARTH AFTER DAWN",
-    mood: "earth",
-
-    art:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=85"
+      "A contemplative morning raag carrying an earthy, inward and austere melodic character.",
+    tags: ["Morning", "Asavari", "Gambhir"],
+    deity: "Shiva",
+    art: "trishul"
   },
-
 
   {
     name: "Yaman",
     hindi: "राग यमन",
     time: "Evening",
-
     description:
-      "An expansive evening raag with a luminous melodic character, associated with serenity, openness and emotional refinement.",
-
-    tags: [
-      "Evening",
-      "Tivra Ma",
-      "Shanta"
-    ],
-
-    direction: "BLUE HOUR",
-    mood: "blue",
-
-    art:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2200&q=85"
+      "A luminous evening raag associated with serenity, devotion, expansion and refined emotional expression.",
+    tags: ["Evening", "Tivra Ma", "Shanta"],
+    deity: "Krishna",
+    art: "krishna"
   },
-
 
   {
     name: "Hamsadhwani",
     hindi: "राग हंसध्वनि",
     time: "Evening",
-
     description:
-      "A bright pentatonic raag carrying a graceful, auspicious and celebratory character.",
-
-    tags: [
-      "Evening",
-      "Pentatonic",
-      "Mangala"
-    ],
-
-    direction: "FIRST STAR",
-    mood: "silver",
-
-    art:
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
-
-    background:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2200&q=80"
+      "A bright pentatonic raag carrying auspiciousness, clarity and an uplifting melodic energy.",
+    tags: ["Evening", "Pentatonic", "Mangala"],
+    deity: "Ganesha",
+    art: "ganesha"
   },
-
 
   {
     name: "Bhairavi",
     hindi: "राग भैरवी",
     time: "Morning",
-
     description:
-      "A deeply emotional raag whose atmosphere can move between devotion, tenderness and introspection.",
-
-    tags: [
-      "Morning",
-      "Bhakti",
-      "Karuna"
-    ],
-
-    direction: "AFTER THE NIGHT",
-    mood: "red",
-
-    art:
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=82",
-
-    background:
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=82"
+      "A profound morning raag carrying devotion, compassion and the emotional gravity of surrender.",
+    tags: ["Morning", "Bhakti", "Karuna"],
+    deity: "Devi",
+    art: "devi"
   },
-
 
   {
     name: "Asavari",
     hindi: "राग आसावरी",
     time: "Late Morning",
-
     description:
-      "A serious and earthy morning raag with a characteristic sense of gravity and introspection.",
-
-    tags: [
-      "Morning",
-      "Asavari",
-      "Gambhir"
-    ],
-
-    direction: "DRY EARTH",
-    mood: "earth",
-
-    art:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=82",
-
-    background:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=82"
+      "A grave and earthy morning raag with a distinctly introspective melodic personality.",
+    tags: ["Morning", "Asavari", "Gambhir"],
+    deity: "Shiva",
+    art: "shiva"
   },
-
 
   {
     name: "Desi Todi",
     hindi: "राग देसी तोड़ी",
     time: "Late Morning",
-
     description:
-      "A contemplative late-morning atmosphere shaped by the distinctive tension and delicacy of the Todi family.",
-
-    tags: [
-      "Morning",
-      "Todi",
-      "Gambhir"
-    ],
-
-    direction: "PALE MORNING",
-    mood: "pale",
-
-    art:
-      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=2200&q=85"
+      "An introspective Todi-family raag carrying tension, depth and finely shaded emotional colour.",
+    tags: ["Morning", "Todi", "Gambhir"],
+    deity: "Devi",
+    art: "mandala"
   },
-
 
   {
     name: "Kalyan",
     hindi: "राग कल्याण",
     time: "Evening",
-
     description:
-      "An evening atmosphere associated with refinement, communication, learning and luminous melodic movement.",
-
-    tags: [
-      "Evening",
-      "Kalyan",
-      "Communication"
-    ],
-
-    direction: "GOLDEN BLUE",
-    mood: "gold",
-
-    art:
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
-
-    background:
-      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2200&q=80"
+      "An expansive evening raag associated with refinement, communication and luminous melodic movement.",
+    tags: ["Evening", "Kalyan", "Communication"],
+    deity: "Surya",
+    art: "temple"
   },
-
 
   {
     name: "Poorvi",
     hindi: "राग पूर्वी",
     time: "Sunset",
-
     description:
-      "A contemplative sunset raag carrying a serious and meditative colour as daylight withdraws.",
-
-    tags: [
-      "Sunset",
-      "Gambhir",
-      "Dhyana"
-    ],
-
-    direction: "THE LAST LIGHT",
-    mood: "sunset",
-
-    art:
-      "https://images.unsplash.com/photo-1472120435266-53107fd0c44a?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1472120435266-53107fd0c44a?auto=format&fit=crop&w=2200&q=85"
+      "A contemplative sunset raag carrying mystery, gravity and the stillness between day and night.",
+    tags: ["Sunset", "Gambhir", "Dhyana"],
+    deity: "Shiva",
+    art: "shiva"
   },
-
 
   {
     name: "Nat Bhairav",
     hindi: "राग नट भैरव",
     time: "Morning",
-
     description:
-      "A morning raag balancing dignity, movement and expressive melodic contours.",
-
-    tags: [
-      "Morning",
-      "Relationship",
-      "Finance"
-    ],
-
-    direction: "MORNING STONE",
-    mood: "stone",
-
-    art:
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=78",
-
-    background:
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=78"
+      "A morning raag balancing devotional gravity with a graceful melodic character.",
+    tags: ["Morning", "Relationship", "Finance"],
+    deity: "Surya",
+    art: "surya"
   },
-
 
   {
     name: "Brindavani Sarang",
     hindi: "राग वृन्दावनी सारंग",
     time: "Afternoon",
-
     description:
-      "An open and pastoral afternoon atmosphere carrying the freshness associated with the Sarang tradition.",
-
-    tags: [
-      "Afternoon",
-      "Relationship",
-      "Finance"
-    ],
-
-    direction: "VRINDAVAN AFTERNOON",
-    mood: "green",
-
-    art:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2200&q=85"
+      "A radiant afternoon raag carrying the pastoral and devotional atmosphere of Vrindavan.",
+    tags: ["Afternoon", "Relationship", "Finance"],
+    deity: "Krishna",
+    art: "vrindavan"
   },
-
 
   {
     name: "Shuddh Kalyan",
     hindi: "राग शुद्ध कल्याण",
     time: "Evening",
-
     description:
-      "A serene evening atmosphere built around clarity, emotional balance and luminous melodic space.",
-
-    tags: [
-      "Evening",
-      "Kalyan",
-      "Shanta"
-    ],
-
-    direction: "QUIET HORIZON",
-    mood: "blue",
-
-    art:
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=76",
-
-    background:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2200&q=76"
+      "A serene evening raag associated with inner peace, devotion and emotional balance.",
+    tags: ["Evening", "Kalyan", "Shanta"],
+    deity: "Krishna",
+    art: "temple"
   },
-
 
   {
     name: "Jaunpuri",
     hindi: "राग जौनपुरी",
     time: "Late Morning",
-
     description:
-      "A reflective late-morning raag carrying a serious and expressive melodic personality.",
-
-    tags: [
-      "Morning",
-      "Profession",
-      "Chronic"
-    ],
-
-    direction: "LATE MORNING",
-    mood: "earth",
-
-    art:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
-
-    background:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=80"
+      "A reflective morning raag with an elegant and melancholic melodic personality.",
+    tags: ["Morning", "Profession", "Chronic"],
+    deity: "Devi",
+    art: "devi"
   },
-
 
   {
     name: "Kirwani",
     hindi: "राग किरवानी",
     time: "Night",
-
     description:
-      "A nocturnal raag with a dramatic, lyrical and introspective character.",
-
-    tags: [
-      "Night",
-      "Profession",
-      "Chronic"
-    ],
-
-    direction: "AFTER DARK",
-    mood: "night",
-
-    art:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2200&q=85"
+      "A nocturnal raag with a dramatic, introspective and emotionally intense character.",
+    tags: ["Night", "Profession", "Chronic"],
+    deity: "Shiva",
+    art: "shiva"
   },
-
 
   {
     name: "Neelambari",
     hindi: "राग नीलाम्बरी",
     time: "Night",
-
     description:
-      "A quiet nocturnal world with a soft, inward and dreamlike character.",
-
-    tags: [
-      "Night",
-      "Profession",
-      "Chronic"
-    ],
-
-    direction: "BLUE SILENCE",
-    mood: "blue",
-
-    art:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=84",
-
-    background:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2200&q=84"
+      "A deeply tranquil night raag carrying softness, introspection and repose.",
+    tags: ["Night", "Profession", "Chronic"],
+    deity: "Vishnu",
+    art: "vishnu"
   },
-
 
   {
     name: "Malkauns",
     hindi: "राग मालकौंस",
     time: "Late Night",
-
     description:
-      "A powerful late-night pentatonic raag with an austere, mysterious and deeply inward atmosphere.",
-
-    tags: [
-      "Night",
-      "Pentatonic",
-      "Gambhir"
-    ],
-
-    direction: "MIDNIGHT EARTH",
-    mood: "dark",
-
-    art:
-      "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=2200&q=85"
+      "An ancient pentatonic raag of gravity, meditation and powerful inward resonance.",
+    tags: ["Night", "Pentatonic", "Gambhir"],
+    deity: "Shiva",
+    art: "mahakal"
   },
-
 
   {
     name: "Bhairav",
     hindi: "राग भैरव",
     time: "Dawn",
-
     description:
-      "A dawn raag carrying gravity, devotion and the feeling of a world slowly awakening.",
-
-    tags: [
-      "Dawn",
-      "Gambhir",
-      "Bhakti"
-    ],
-
-    direction: "BEFORE SUNRISE",
-    mood: "dawn",
-
-    art:
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=74",
-
-    background:
-      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2200&q=74"
+      "A dawn raag of profound gravity, devotion and spiritual awakening.",
+    tags: ["Dawn", "Gambhir", "Bhakti"],
+    deity: "Bhairav",
+    art: "bhairav"
   },
-
 
   {
     name: "Lalit",
     hindi: "राग ललित",
     time: "Pre-Dawn",
-
     description:
-      "A pre-dawn atmosphere existing between night and morning, contemplative and unusually intimate.",
-
-    tags: [
-      "Pre-Dawn",
-      "Dhyana",
-      "Gambhir"
-    ],
-
-    direction: "BETWEEN NIGHT & DAY",
-    mood: "mist",
-
-    art:
-      "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=2200&q=85"
+      "A mysterious pre-dawn raag inhabiting the silent transition between darkness and light.",
+    tags: ["Pre-Dawn", "Dhyana", "Gambhir"],
+    deity: "Shiva",
+    art: "mandala"
   },
-
 
   {
     name: "Bhoop",
     hindi: "राग भूप",
     time: "Evening",
-
     description:
-      "A spacious pentatonic evening raag with simplicity, openness and a clear melodic architecture.",
-
-    tags: [
-      "Evening",
-      "Pentatonic",
-      "Shanta"
-    ],
-
-    direction: "OPEN SKY",
-    mood: "open",
-
-    art:
-      "https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=2200&q=85"
+      "A pure pentatonic evening raag with a calm, spacious and uplifting character.",
+    tags: ["Evening", "Pentatonic", "Shanta"],
+    deity: "Surya",
+    art: "surya"
   },
-
 
   {
     name: "Madhuvanti",
     hindi: "राग मधुवंती",
     time: "Afternoon",
-
     description:
-      "A tender afternoon raag carrying sweetness, longing and inward contemplation.",
-
-    tags: [
-      "Afternoon",
-      "Viraha",
-      "Contemplative"
-    ],
-
-    direction: "SWEET AFTERNOON",
-    mood: "rose",
-
-    art:
-      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1200&q=78",
-
-    background:
-      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=2200&q=78"
+      "A lyrical afternoon raag carrying sweetness, yearning and contemplative emotional colour.",
+    tags: ["Afternoon", "Viraha", "Contemplative"],
+    deity: "Krishna",
+    art: "krishna"
   },
-
 
   {
     name: "Pilu",
     hindi: "राग पीलू",
     time: "Afternoon",
-
     description:
-      "A lyrical and flexible afternoon raag with an intimate, human and expressive quality.",
-
-    tags: [
-      "Afternoon",
-      "Lyrical",
-      "Light"
-    ],
-
-    direction: "SOFT SUN",
-    mood: "warm",
-
-    art:
-      "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=2200&q=85"
+      "A lyrical and flexible raag with a delicate, intimate and expressive personality.",
+    tags: ["Afternoon", "Lyrical", "Light"],
+    deity: "Radha",
+    art: "radha"
   },
-
 
   {
     name: "Shivranjani",
     hindi: "राग शिवरंजनी",
     time: "Night",
-
     description:
-      "A deeply introspective night raag often experienced through tenderness, memory and emotional distance.",
-
-    tags: [
-      "Night",
-      "Karuna",
-      "Introspective"
-    ],
-
-    direction: "MEMORY AT NIGHT",
-    mood: "night",
-
-    art:
-      "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=78",
-
-    background:
-      "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=2200&q=78"
+      "A haunting night raag carrying longing, introspection and profound emotional colour.",
+    tags: ["Night", "Karuna", "Introspective"],
+    deity: "Shiva",
+    art: "shiva"
   },
-
 
   {
     name: "Jaijaiwanti",
     hindi: "राग जयजयवंती",
     time: "Night",
-
     description:
-      "A refined nocturnal raag combining lyrical delicacy with expressive emotional movement.",
-
-    tags: [
-      "Night",
-      "Shringara",
-      "Lyrical"
-    ],
-
-    direction: "MIDNIGHT POETRY",
-    mood: "violet",
-
-    art:
-      "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=75",
-
-    background:
-      "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=2200&q=75"
+      "A refined nocturnal raag balancing romantic expression with subtle emotional tension.",
+    tags: ["Night", "Shringara", "Lyrical"],
+    deity: "Radha",
+    art: "radha"
   },
-
 
   {
     name: "Khamaj",
     hindi: "राग खमाज",
     time: "Night",
-
     description:
-      "A graceful nocturnal raag with a lyrical and expressive character.",
-
-    tags: [
-      "Night",
-      "Shringara",
-      "Lyrical"
-    ],
-
-    direction: "VELVET NIGHT",
-    mood: "wine",
-
-    art:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=72",
-
-    background:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2200&q=72"
+      "A graceful night raag associated with romantic expression and lyrical beauty.",
+    tags: ["Night", "Shringara", "Lyrical"],
+    deity: "Krishna",
+    art: "krishna"
   },
-
 
   {
     name: "Raag Tanpura",
     hindi: "राग तानपुरा",
     time: "All Prahar",
-
     description:
-      "The continuous drone of the tanpura — the quiet foundation beneath melody, time and listening.",
-
-    tags: [
-      "Tanpura",
-      "Drone",
-      "Foundation"
-    ],
-
-    direction: "THE FOUNDATION",
-    mood: "wood",
-
-    art:
-      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&q=85",
-
-    background:
-      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=2200&q=85"
+      "The eternal drone beneath melody — the sustained sonic foundation from which musical consciousness emerges.",
+    tags: ["Tanpura", "Drone", "Foundation"],
+    deity: "Nada Brahma",
+    art: "om"
   }
 
 ];
@@ -723,13 +328,9 @@ const raags = [
 const $ = selector => document.querySelector(selector);
 
 let index = 0;
-
 let player = null;
 let playerReady = false;
-
 let progressTimer = null;
-
-let wheelLocked = false;
 
 
 /* =========================================================
@@ -737,41 +338,466 @@ let wheelLocked = false;
    ========================================================= */
 
 function pad(number) {
-
   return String(number).padStart(2, "0");
-
 }
 
 
 function formatTime(seconds) {
 
-  if (
-    !Number.isFinite(seconds) ||
-    seconds < 0
-  ) {
-
+  if (!Number.isFinite(seconds) || seconds < 0) {
     return "00:00";
-
   }
 
-  const minutes =
-    Math.floor(seconds / 60);
-
-  const secs =
-    Math.floor(seconds % 60);
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
 
   return `${pad(minutes)}:${pad(secs)}`;
-
 }
 
 
-function wrapIndex(value) {
+/* =========================================================
+   SANATAN ILLUSTRATION ENGINE
+   ---------------------------------------------------------
+   These are intentionally stylised sacred illustrations,
+   not random nature photography.
+   ========================================================= */
 
-  return (
-    (value + raags.length) %
-    raags.length
-  );
+function art(type, i = 0) {
 
+  const palettes = [
+    ["#b7833d", "#5d291d", "#17100c"],
+    ["#d1a15a", "#59352a", "#110c0b"],
+    ["#d8b66a", "#6d4223", "#100d0b"],
+    ["#a86e3b", "#321c27", "#09080a"],
+    ["#c99b54", "#45232a", "#0b090b"]
+  ];
+
+  const p = palettes[i % palettes.length];
+
+  let central = "";
+
+  if (type === "krishna" || type === "vrindavan") {
+
+    central = `
+      <circle cx="300" cy="190" r="105"
+        fill="url(#halo)" opacity=".55"/>
+
+      <path
+        d="M270 155
+           Q300 125 330 155
+           Q342 178 329 207
+           Q314 229 300 240
+           Q286 229 271 207
+           Q258 178 270 155Z"
+        fill="#151016"
+        stroke="${p[0]}"
+        stroke-width="2"
+      />
+
+      <circle cx="286" cy="178" r="4" fill="${p[0]}"/>
+      <circle cx="314" cy="178" r="4" fill="${p[0]}"/>
+
+      <path
+        d="M274 164 Q300 138 326 164"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="5"
+      />
+
+      <path
+        d="M250 255 Q300 225 350 255
+           L378 350 H222Z"
+        fill="#120e12"
+        stroke="${p[0]}"
+        stroke-width="2"
+      />
+
+      <path
+        d="M327 125 Q375 100 397 120
+           Q363 127 342 153"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="8"
+      />
+
+      <path
+        d="M245 270 Q205 230 178 258"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="3"
+        opacity=".8"
+      />
+    `;
+
+  } else if (type === "shiva" || type === "mahakal" || type === "bhairav") {
+
+    central = `
+      <circle cx="300" cy="195" r="115"
+        fill="url(#halo)" opacity=".48"/>
+
+      <path
+        d="M250 170 Q300 125 350 170
+           Q365 205 345 245
+           Q325 275 300 285
+           Q275 275 255 245
+           Q235 205 250 170Z"
+        fill="#0d0b10"
+        stroke="${p[0]}"
+        stroke-width="2"
+      />
+
+      <path
+        d="M263 165 Q300 145 337 165"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="3"
+      />
+
+      <circle cx="282" cy="200" r="4" fill="${p[0]}"/>
+      <circle cx="318" cy="200" r="4" fill="${p[0]}"/>
+
+      <path
+        d="M285 235 Q300 245 315 235"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="2"
+      />
+
+      <path
+        d="M300 135 L300 75
+           M272 95 L300 75 L328 95"
+        stroke="${p[0]}"
+        stroke-width="7"
+        fill="none"
+      />
+
+      <path
+        d="M255 255 Q300 230 345 255
+           L380 350 H220Z"
+        fill="#100c11"
+        stroke="${p[0]}"
+        stroke-width="2"
+      />
+
+      <path
+        d="M300 255 L300 345"
+        stroke="${p[0]}"
+        stroke-width="2"
+      />
+    `;
+
+  } else if (type === "surya") {
+
+    central = `
+      <circle cx="300" cy="200" r="82"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="2"/>
+
+      <circle cx="300" cy="200" r="55"
+        fill="url(#halo)"
+        opacity=".65"/>
+
+      <circle cx="300" cy="200" r="30"
+        fill="${p[0]}"
+        opacity=".75"/>
+
+      ${Array.from({length:12}, (_,n) => {
+        const a = n * 30 * Math.PI / 180;
+        const x1 = 300 + Math.cos(a) * 90;
+        const y1 = 200 + Math.sin(a) * 90;
+        const x2 = 300 + Math.cos(a) * 125;
+        const y2 = 200 + Math.sin(a) * 125;
+        return `
+          <line
+            x1="${x1}" y1="${y1}"
+            x2="${x2}" y2="${y2}"
+            stroke="${p[0]}"
+            stroke-width="4"
+          />
+        `;
+      }).join("")}
+    `;
+
+  } else if (type === "ganesha") {
+
+    central = `
+      <circle cx="300" cy="200" r="105"
+        fill="url(#halo)"
+        opacity=".5"/>
+
+      <path
+        d="M250 170
+           Q260 130 300 135
+           Q340 130 350 170
+           L340 245
+           Q325 275 300 280
+           Q275 275 260 245Z"
+        fill="#100d11"
+        stroke="${p[0]}"
+        stroke-width="2"
+      />
+
+      <circle cx="282" cy="190" r="5" fill="${p[0]}"/>
+      <circle cx="318" cy="190" r="5" fill="${p[0]}"/>
+
+      <path
+        d="M300 205
+           Q320 220 315 250
+           Q310 270 295 262"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="6"
+      />
+
+      <path
+        d="M260 150 Q220 125 205 155
+           Q230 165 260 180"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="7"
+      />
+
+      <path
+        d="M340 150 Q380 125 395 155
+           Q370 165 340 180"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="7"
+      />
+    `;
+
+  } else if (type === "devi" || type === "radha") {
+
+    central = `
+      <circle cx="300" cy="195" r="105"
+        fill="url(#halo)"
+        opacity=".5"/>
+
+      <path
+        d="M300 130
+           Q350 145 355 205
+           Q350 260 300 285
+           Q250 260 245 205
+           Q250 145 300 130Z"
+        fill="#100c12"
+        stroke="${p[0]}"
+        stroke-width="2"
+      />
+
+      <circle cx="282" cy="188" r="4" fill="${p[0]}"/>
+      <circle cx="318" cy="188" r="4" fill="${p[0]}"/>
+
+      <path
+        d="M278 215 Q300 228 322 215"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="2"
+      />
+
+      <path
+        d="M300 120 L300 75
+           M275 95 L300 75 L325 95"
+        stroke="${p[0]}"
+        stroke-width="5"
+        fill="none"
+      />
+
+      <path
+        d="M250 270 L210 340
+           M350 270 L390 340"
+        stroke="${p[0]}"
+        stroke-width="3"
+      />
+    `;
+
+  } else if (type === "vishnu") {
+
+    central = `
+      <circle cx="300" cy="200" r="110"
+        fill="url(#halo)"
+        opacity=".5"/>
+
+      <circle cx="300" cy="185" r="65"
+        fill="#0d0b11"
+        stroke="${p[0]}"
+        stroke-width="2"/>
+
+      <circle cx="280" cy="180" r="4" fill="${p[0]}"/>
+      <circle cx="320" cy="180" r="4" fill="${p[0]}"/>
+
+      <path
+        d="M275 210 Q300 225 325 210"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="2"
+      />
+
+      <path
+        d="M245 240 Q300 220 355 240
+           L375 350 H225Z"
+        fill="#0d0a10"
+        stroke="${p[0]}"
+        stroke-width="2"
+      />
+    `;
+
+  } else if (type === "temple") {
+
+    central = `
+      <path
+        d="M180 350 L180 220
+           L300 90
+           L420 220
+           L420 350Z"
+        fill="#0c090c"
+        stroke="${p[0]}"
+        stroke-width="3"
+      />
+
+      <path
+        d="M300 55 L300 90"
+        stroke="${p[0]}"
+        stroke-width="4"
+      />
+
+      <path
+        d="M245 350 V245
+           Q300 190 355 245 V350"
+        fill="#050406"
+        stroke="${p[0]}"
+        stroke-width="3"
+      />
+
+      <path
+        d="M215 220 H385
+           M235 190 H365
+           M255 160 H345"
+        stroke="${p[0]}"
+        stroke-width="2"
+      />
+    `;
+
+  } else {
+
+    central = `
+      <circle cx="300" cy="200" r="95"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="2"/>
+
+      <circle cx="300" cy="200" r="55"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="1"/>
+
+      <path
+        d="M300 115
+           L320 180
+           L385 200
+           L320 220
+           L300 285
+           L280 220
+           L215 200
+           L280 180Z"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="2"
+      />
+
+      <text
+        x="300"
+        y="220"
+        text-anchor="middle"
+        font-size="48"
+        fill="${p[0]}"
+        font-family="serif">
+        ॐ
+      </text>
+    `;
+  }
+
+
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 600 400">
+
+      <defs>
+
+        <radialGradient id="background">
+          <stop offset="0" stop-color="${p[1]}"/>
+          <stop offset=".55" stop-color="${p[2]}"/>
+          <stop offset="1" stop-color="#050406"/>
+        </radialGradient>
+
+        <radialGradient id="halo">
+          <stop stop-color="${p[0]}" stop-opacity=".8"/>
+          <stop offset="1" stop-color="${p[0]}" stop-opacity="0"/>
+        </radialGradient>
+
+        <filter id="blur">
+          <feGaussianBlur stdDeviation="18"/>
+        </filter>
+
+      </defs>
+
+
+      <rect
+        width="600"
+        height="400"
+        fill="url(#background)"
+      />
+
+
+      <circle
+        cx="300"
+        cy="200"
+        r="150"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="1"
+        opacity=".2"
+      />
+
+      <circle
+        cx="300"
+        cy="200"
+        r="175"
+        fill="none"
+        stroke="${p[0]}"
+        stroke-width="1"
+        stroke-dasharray="2 12"
+        opacity=".3"
+      />
+
+
+      <path
+        d="M0 350 Q150 305 300 350 T600 350 V400 H0Z"
+        fill="#030304"
+        opacity=".75"
+      />
+
+
+      ${central}
+
+
+      <text
+        x="300"
+        y="375"
+        text-anchor="middle"
+        fill="${p[0]}"
+        opacity=".55"
+        font-size="10"
+        letter-spacing="5"
+        font-family="serif">
+        RAAGLYY
+      </text>
+
+    </svg>
+
+  `)}`;
 }
 
 
@@ -779,135 +805,55 @@ function wrapIndex(value) {
    BACKGROUND
    ========================================================= */
 
-function updateBackground(raag) {
+function updateBackground() {
 
-  const background =
-    $("#bg .bg-image");
+  const r = raags[index];
 
-  background.style.backgroundImage =
-    `url("${raag.background}")`;
+  const backgrounds = {
 
-  document.body.dataset.mood =
-    raag.mood || "dark";
+    krishna:
+      "radial-gradient(circle at 72% 45%, #7d442a45, transparent 30%), #080607",
 
-}
+    shiva:
+      "radial-gradient(circle at 72% 45%, #453b5340, transparent 30%), #070608",
 
+    surya:
+      "radial-gradient(circle at 72% 45%, #a66a2845, transparent 30%), #080706",
 
-/* =========================================================
-   COVERFLOW
-   ========================================================= */
+    ganesha:
+      "radial-gradient(circle at 72% 45%, #713a3040, transparent 30%), #090607",
 
-function buildCoverflow() {
+    devi:
+      "radial-gradient(circle at 72% 45%, #713c5145, transparent 30%), #090609",
 
-  const stage =
-    $("#coverflowStage");
+    radha:
+      "radial-gradient(circle at 72% 45%, #8c4a5540, transparent 30%), #090608",
 
-  stage.innerHTML = "";
+    vrindavan:
+      "radial-gradient(circle at 72% 45%, #51612e40, transparent 30%), #070806",
 
-  const total =
-    raags.length;
+    temple:
+      "radial-gradient(circle at 72% 45%, #76502e45, transparent 30%), #080706",
 
+    vishnu:
+      "radial-gradient(circle at 72% 45%, #304c6740, transparent 30%), #060709",
 
-  /*
-   * Render only nearby cards.
-   * The remaining cards are represented by the
-   * archive rail below.
-   */
+    mahakal:
+      "radial-gradient(circle at 72% 45%, #40334d48, transparent 30%), #060507",
 
-  for (
-    let offset = -3;
-    offset <= 3;
-    offset++
-  ) {
+    bhairav:
+      "radial-gradient(circle at 72% 45%, #59433245, transparent 30%), #080706",
 
-    const cardIndex =
-      wrapIndex(index + offset);
+    mandala:
+      "radial-gradient(circle at 72% 45%, #70452f40, transparent 30%), #080706",
 
-    const raag =
-      raags[cardIndex];
+    om:
+      "radial-gradient(circle at 72% 45%, #a4773d48, transparent 32%), #080706"
 
+  };
 
-    const card =
-      document.createElement("button");
-
-    card.className =
-      "cover-card";
-
-    card.dataset.offset =
-      offset;
-
-    card.dataset.index =
-      cardIndex;
-
-
-    const position =
-      Math.max(
-        -3,
-        Math.min(3, offset)
-      );
-
-
-    card.style.setProperty(
-      "--offset",
-      position
-    );
-
-
-    card.innerHTML = `
-
-      <div class="cover-art">
-
-        <img
-          src="${raag.art}"
-          alt="${raag.name}"
-          draggable="false"
-        >
-
-        <div class="cover-overlay"></div>
-
-        <div class="cover-number">
-          ${pad(cardIndex + 1)}
-        </div>
-
-        <div class="cover-label">
-          ${raag.name}
-        </div>
-
-      </div>
-
-    `;
-
-
-    card.addEventListener(
-      "click",
-      () => {
-
-        if (offset === 0) {
-          return;
-        }
-
-        selectRaag(
-          index + offset
-        );
-
-      }
-    );
-
-
-    stage.appendChild(card);
-
-  }
-
-
-  /*
-   * Accessibility / metadata
-   */
-
-  stage.setAttribute(
-    "aria-label",
-    `${raags[index].name}, ${index + 1} of ${total}`
-  );
-
+  $("#bg").style.background =
+    backgrounds[r.art] || backgrounds.om;
 }
 
 
@@ -917,133 +863,137 @@ function buildCoverflow() {
 
 function render() {
 
-  const raag =
-    raags[index];
+  const r = raags[index];
 
-  const number =
-    pad(index + 1);
+  const number = pad(index + 1);
+  const total = pad(raags.length);
 
-  const total =
-    pad(raags.length);
+  $("#num").textContent = number;
+  $("#prahar").textContent = r.time.toUpperCase();
 
+  $("#title").textContent = r.name;
+  $("#hindi").textContent = r.hindi;
+  $("#desc").textContent = r.description;
 
-  /* -----------------------------------------
-     Text
-     ----------------------------------------- */
+  $("#time").textContent = r.time.toUpperCase();
 
-  $("#num").textContent =
-    number;
-
-  $("#prahar").textContent =
-    raag.time.toUpperCase();
-
-  $("#category").textContent =
-    raag.name.toUpperCase();
-
-  $("#title").textContent =
-    raag.name;
-
-  $("#hindi").textContent =
-    raag.hindi;
-
-  $("#desc").textContent =
-    raag.description;
-
-  $("#time").textContent =
-    raag.time.toUpperCase();
-
-  $("#artDirection").textContent =
-    raag.direction;
+  $("#coreName").textContent =
+    r.name.toUpperCase();
 
   $("#count").textContent =
     `${number} / ${total}`;
 
-  $("#captionCount").textContent =
-    `${number} — ${total}`;
+  $("#degree").textContent =
+    `${number} / 27`;
 
-  $("#visualCurrent").textContent =
-    number;
-
-
-  /* -----------------------------------------
-     Tags
-     ----------------------------------------- */
-
-  $("#tags").innerHTML =
-    raag.tags
-      .map(
-        tag =>
-          `<span>${tag}</span>`
-      )
-      .join("");
+  updateBackground();
 
 
-  /* -----------------------------------------
-     Background
-     ----------------------------------------- */
+  /* =====================================================
+     CORE ART
+     ===================================================== */
 
-  updateBackground(
-    raag
-  );
-
-
-  /* -----------------------------------------
-     Coverflow
-     ----------------------------------------- */
-
-  buildCoverflow();
+  $("#coreArt").style.backgroundImage =
+    `url("${art(r.art, index)}")`;
 
 
-  /* -----------------------------------------
-     Archive rail
-     ----------------------------------------- */
+  /* =====================================================
+     PLAYER ART
+     ===================================================== */
 
-  buildRail();
-
-
-  /* -----------------------------------------
-     Drawer archive
-     ----------------------------------------- */
-
-  buildArchive();
-
-}
+  $("#playerArt").style.backgroundImage =
+    `url("${art(r.art, index)}")`;
 
 
-/* =========================================================
-   ARCHIVE RAIL
-   ========================================================= */
+  /* =====================================================
+     TAGS
+     ===================================================== */
 
-function buildRail() {
+  $("#tags").innerHTML = r.tags
+    .map(tag => `<span>${tag}</span>`)
+    .join("");
+
+
+  /* =====================================================
+     ORBIT
+     ===================================================== */
+
+  $("#planets").innerHTML = "";
+
+  const n = Math.min(raags.length, 9);
+
+  for (let i = 0; i < n; i++) {
+
+    const angle =
+      (Math.PI * 2 * i / n) - Math.PI / 2;
+
+    const x = Math.cos(angle) * 245;
+    const y = Math.sin(angle) * 125;
+
+    const planet =
+      document.createElement("button");
+
+    planet.className =
+      "planet " +
+      (i === index ? "active" : "");
+
+    planet.style.setProperty(
+      "--x",
+      `${x}px`
+    );
+
+    planet.style.setProperty(
+      "--y",
+      `${y}px`
+    );
+
+    planet.innerHTML = `
+
+      <img
+        src="${art(raags[i].art, i)}"
+        alt="${raags[i].name}"
+      >
+
+      <label>
+        ${raags[i].name.toUpperCase()}
+      </label>
+
+    `;
+
+    planet.addEventListener(
+      "click",
+      () => selectRaag(i)
+    );
+
+    $("#planets").appendChild(planet);
+  }
+
+
+  /* =====================================================
+     RAIL
+     ===================================================== */
 
   $("#rail").innerHTML =
     raags
-      .map(
-        (raag, i) => `
+      .map((r, i) => `
 
-          <button
-            class="
-              rail-item
-              ${i === index ? "active" : ""}
-            "
-            data-i="${i}"
-            aria-label="${raag.name}"
+        <button
+          class="rail-item ${i === index ? "active" : ""}"
+          data-i="${i}"
+        >
+
+          <img
+            src="${art(r.art, i)}"
+            alt="${r.name}"
           >
 
-            <img
-              src="${raag.art}"
-              alt=""
-              loading="lazy"
-            >
+          <span>
+            ${r.name}
+          </span>
 
-            <span>
-              ${raag.name}
-            </span>
+        </button>
 
-          </button>
-
-        `
-      )
+      `)
       .join("");
 
 
@@ -1054,71 +1004,42 @@ function buildRail() {
       button.addEventListener(
         "click",
         () => {
-
           selectRaag(
-            Number(
-              button.dataset.i
-            )
+            Number(button.dataset.i)
           );
-
         }
       );
 
     });
 
 
-  const active =
-    document.querySelector(
-      ".rail-item.active"
-    );
-
-
-  if (active) {
-
-    active.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center"
-    });
-
-  }
-
-}
-
-
-/* =========================================================
-   DRAWER ARCHIVE
-   ========================================================= */
-
-function buildArchive() {
+  /* =====================================================
+     ARCHIVE
+     ===================================================== */
 
   $("#archive").innerHTML =
     raags
-      .map(
-        (raag, i) => `
+      .map((r, i) => `
 
-          <button
-            class="${i === index ? "active" : ""}"
-            data-i="${i}"
-          >
+        <button
+          class="${i === index ? "active" : ""}"
+          data-i="${i}"
+        >
 
-            <span>
-              ${pad(i + 1)}
-            </span>
+          <span>
+            ${pad(i + 1)}
+          </span>
 
-            ${raag.name}
+          ${r.name}
 
-          </button>
+        </button>
 
-        `
-      )
+      `)
       .join("");
 
 
   document
-    .querySelectorAll(
-      "#archive button"
-    )
+    .querySelectorAll("#archive button")
     .forEach(button => {
 
       button.addEventListener(
@@ -1126,9 +1047,7 @@ function buildArchive() {
         () => {
 
           selectRaag(
-            Number(
-              button.dataset.i
-            )
+            Number(button.dataset.i)
           );
 
           closeDrawer();
@@ -1137,7 +1056,6 @@ function buildArchive() {
       );
 
     });
-
 }
 
 
@@ -1147,256 +1065,26 @@ function buildArchive() {
 
 function selectRaag(newIndex) {
 
-  const nextIndex =
-    wrapIndex(newIndex);
-
-
-  if (nextIndex === index) {
-    return;
-  }
-
-
   index =
-    nextIndex;
-
+    (newIndex + raags.length) %
+    raags.length;
 
   render();
 
+  if (playerReady && player) {
 
-  /*
-   * Load corresponding YouTube playlist item.
-   */
+    player.loadPlaylist({
 
-  if (
-    playerReady &&
-    player
-  ) {
+      list: YOUTUBE_PLAYLIST_ID,
 
-    try {
+      listType: "playlist",
 
-      player.loadPlaylist({
-        list:
-          YOUTUBE_PLAYLIST_ID,
+      index: index
 
-        listType:
-          "playlist",
-
-        index
-      });
-
-    } catch (error) {
-
-      console.warn(
-        "Playlist navigation error:",
-        error
-      );
-
-    }
+    });
 
   }
-
 }
-
-
-/* =========================================================
-   NEXT / PREVIOUS
-   ========================================================= */
-
-function nextRaag() {
-
-  selectRaag(
-    index + 1
-  );
-
-}
-
-
-function previousRaag() {
-
-  selectRaag(
-    index - 1
-  );
-
-}
-
-
-$("#next").addEventListener(
-  "click",
-  nextRaag
-);
-
-
-$("#prev").addEventListener(
-  "click",
-  previousRaag
-);
-
-
-$("#flowNext").addEventListener(
-  "click",
-  nextRaag
-);
-
-
-$("#flowPrev").addEventListener(
-  "click",
-  previousRaag
-);
-
-
-/* =========================================================
-   KEYBOARD NAVIGATION
-   ========================================================= */
-
-document.addEventListener(
-  "keydown",
-  event => {
-
-    if (
-      event.target.matches(
-        "input, textarea"
-      )
-    ) {
-
-      return;
-
-    }
-
-
-    if (
-      event.key ===
-      "ArrowRight"
-    ) {
-
-      nextRaag();
-
-    }
-
-
-    if (
-      event.key ===
-      "ArrowLeft"
-    ) {
-
-      previousRaag();
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   TOUCH / SWIPE
-   ========================================================= */
-
-let touchStartX = 0;
-let touchEndX = 0;
-
-
-$("#coverflow")
-  .addEventListener(
-    "touchstart",
-    event => {
-
-      touchStartX =
-        event.changedTouches[0].screenX;
-
-    },
-    { passive: true }
-  );
-
-
-$("#coverflow")
-  .addEventListener(
-    "touchend",
-    event => {
-
-      touchEndX =
-        event.changedTouches[0].screenX;
-
-      const distance =
-        touchEndX -
-        touchStartX;
-
-
-      if (
-        Math.abs(distance) <
-        45
-      ) {
-
-        return;
-
-      }
-
-
-      if (
-        distance < 0
-      ) {
-
-        nextRaag();
-
-      } else {
-
-        previousRaag();
-
-      }
-
-    },
-    { passive: true }
-  );
-
-
-/* =========================================================
-   MOUSE WHEEL
-   ========================================================= */
-
-$("#coverflow")
-  .addEventListener(
-    "wheel",
-    event => {
-
-      if (wheelLocked) {
-        return;
-      }
-
-
-      if (
-        Math.abs(event.deltaY) <
-        Math.abs(event.deltaX)
-      ) {
-
-        return;
-
-      }
-
-
-      wheelLocked = true;
-
-
-      if (
-        event.deltaY > 0
-      ) {
-
-        nextRaag();
-
-      } else {
-
-        previousRaag();
-
-      }
-
-
-      setTimeout(
-        () => {
-          wheelLocked = false;
-        },
-        550
-      );
-
-    },
-    { passive: true }
-  );
 
 
 /* =========================================================
@@ -1405,135 +1093,112 @@ $("#coverflow")
 
 function closeDrawer() {
 
-  $("#drawer")
-    .classList
-    .remove("open");
-
-  $("#veil")
-    .classList
-    .remove("open");
+  $("#drawer").classList.remove("open");
+  $("#veil").classList.remove("open");
 
 }
 
 
-$("#menu")
-  .addEventListener(
-    "click",
-    () => {
+$("#menu").addEventListener(
+  "click",
+  () => {
 
-      $("#drawer")
-        .classList
-        .add("open");
+    $("#drawer").classList.add("open");
+    $("#veil").classList.add("open");
 
-      $("#veil")
-        .classList
-        .add("open");
-
-    }
-  );
+  }
+);
 
 
-$("#close")
-  .addEventListener(
-    "click",
-    closeDrawer
-  );
+$("#close").addEventListener(
+  "click",
+  closeDrawer
+);
+
+$("#veil").addEventListener(
+  "click",
+  closeDrawer
+);
 
 
-$("#veil")
-  .addEventListener(
-    "click",
-    closeDrawer
-  );
+/* =========================================================
+   NEXT / PREVIOUS
+   ========================================================= */
+
+$("#next").addEventListener(
+  "click",
+  () => selectRaag(index + 1)
+);
+
+$("#prev").addEventListener(
+  "click",
+  () => selectRaag(index - 1)
+);
 
 
 /* =========================================================
    PLAY / PAUSE
    ========================================================= */
 
-$("#play")
-  .addEventListener(
-    "click",
-    () => {
+$("#play").addEventListener(
+  "click",
+  () => {
 
-      if (
-        !playerReady ||
-        !player
-      ) {
+    if (!playerReady || !player) {
+      return;
+    }
 
-        return;
+    const state =
+      player.getPlayerState();
 
-      }
+    if (
+      state === YT.PlayerState.PLAYING
+    ) {
 
+      player.pauseVideo();
 
-      const state =
-        player.getPlayerState();
+    } else {
 
-
-      if (
-        state ===
-        YT.PlayerState.PLAYING
-      ) {
-
-        player.pauseVideo();
-
-      } else {
-
-        player.playVideo();
-
-      }
+      player.playVideo();
 
     }
-  );
+
+  }
+);
 
 
 /* =========================================================
    SEEK
    ========================================================= */
 
-$("#seek")
-  .addEventListener(
-    "input",
-    event => {
+$("#seek").addEventListener(
+  "input",
+  event => {
 
-      if (
-        !playerReady ||
-        !player
-      ) {
-
-        return;
-
-      }
-
-
-      const duration =
-        player.getDuration();
-
-
-      if (!duration) {
-        return;
-      }
-
-
-      const percentage =
-        Number(
-          event.target.value
-        );
-
-
-      player.seekTo(
-        duration *
-        percentage /
-        100,
-        true
-      );
-
-
-      $("#fill").style.width =
-        `${percentage}%`;
-
+    if (!playerReady || !player) {
+      return;
     }
-  );
+
+    const duration =
+      player.getDuration();
+
+    if (!duration) {
+      return;
+    }
+
+    const percentage =
+      Number(event.target.value);
+
+    player.seekTo(
+      duration * percentage / 100,
+      true
+    );
+
+    $("#fill").style.width =
+      `${percentage}%`;
+
+  }
+);
 
 
 /* =========================================================
@@ -1541,172 +1206,139 @@ $("#seek")
    ========================================================= */
 
 window.onYouTubeIframeAPIReady =
-function () {
+  function () {
 
-  player =
-    new YT.Player(
-      "youtube-player",
-      {
+    player =
+      new YT.Player(
+        "youtube-player",
+        {
 
-        width: "1",
-        height: "1",
+          width: "1",
+          height: "1",
 
-        playerVars: {
+          playerVars: {
 
-          autoplay: 0,
-          controls: 0,
-          disablekb: 1,
-          modestbranding: 1,
-          playsinline: 1,
-          rel: 0,
+            autoplay: 0,
+            controls: 0,
+            disablekb: 1,
+            modestbranding: 1,
+            playsinline: 1,
+            rel: 0,
 
-          listType:
-            "playlist",
+            listType: "playlist",
 
-          list:
-            YOUTUBE_PLAYLIST_ID
-
-        },
-
-
-        events: {
-
-          onReady:
-          event => {
-
-            playerReady =
-              true;
-
-
-            $("#state")
-              .textContent =
-              "READY TO LISTEN";
-
-
-            $("#duration")
-              .textContent =
-              formatTime(
-                event
-                  .target
-                  .getDuration()
-              );
+            list:
+              YOUTUBE_PLAYLIST_ID
 
           },
 
+          events: {
 
-          onStateChange:
-          event => {
+            onReady: event => {
 
-            if (
-              event.data ===
-              YT.PlayerState.PLAYING
-            ) {
+              playerReady = true;
 
-              $("#play")
-                .textContent =
-                "Ⅱ";
-
-
-              $("#state")
-                .textContent =
-                "NOW LISTENING";
-
-
-              $(".player")
-                .classList
-                .add("playing");
-
-
-              startProgress();
-
-            }
-
-
-            else if (
-              event.data ===
-              YT.PlayerState.PAUSED
-            ) {
-
-              $("#play")
-                .textContent =
-                "▶";
-
-
-              $("#state")
-                .textContent =
-                "PAUSED";
-
-
-              $(".player")
-                .classList
-                .remove("playing");
-
-
-              stopProgress();
-
-            }
-
-
-            else if (
-              event.data ===
-              YT.PlayerState.ENDED
-            ) {
-
-              $("#play")
-                .textContent =
-                "▶";
-
-
-              $("#state")
-                .textContent =
+              $("#state").textContent =
                 "READY TO LISTEN";
 
+              $("#duration").textContent =
+                formatTime(
+                  event.target.getDuration()
+                );
 
-              $(".player")
-                .classList
-                .remove("playing");
+            },
 
 
-              stopProgress();
+            onStateChange: event => {
+
+              if (
+                event.data ===
+                YT.PlayerState.PLAYING
+              ) {
+
+                $("#play").textContent =
+                  "Ⅱ";
+
+                $("#state").textContent =
+                  "NOW LISTENING";
+
+                $(".player")
+                  .classList
+                  .add("playing");
+
+                startProgress();
+
+              }
+
+              else if (
+                event.data ===
+                YT.PlayerState.PAUSED
+              ) {
+
+                $("#play").textContent =
+                  "▶";
+
+                $("#state").textContent =
+                  "PAUSED";
+
+                $(".player")
+                  .classList
+                  .remove("playing");
+
+                stopProgress();
+
+              }
+
+              else if (
+                event.data ===
+                YT.PlayerState.ENDED
+              ) {
+
+                $("#play").textContent =
+                  "▶";
+
+                $("#state").textContent =
+                  "READY TO LISTEN";
+
+                $(".player")
+                  .classList
+                  .remove("playing");
+
+                stopProgress();
+
+              }
+
+              else if (
+                event.data ===
+                YT.PlayerState.BUFFERING
+              ) {
+
+                $("#state").textContent =
+                  "BUFFERING";
+
+              }
+
+            },
+
+
+            onError: event => {
+
+              console.warn(
+                "YouTube Player Error:",
+                event.data
+              );
+
+              $("#state").textContent =
+                "UNAVAILABLE";
 
             }
-
-
-            else if (
-              event.data ===
-              YT.PlayerState.BUFFERING
-            ) {
-
-              $("#state")
-                .textContent =
-                "BUFFERING";
-
-            }
-
-          },
-
-
-          onError:
-          event => {
-
-            console.warn(
-              "YouTube Player Error:",
-              event.data
-            );
-
-
-            $("#state")
-              .textContent =
-              "UNAVAILABLE";
 
           }
 
         }
+      );
 
-      }
-    );
-
-};
+  };
 
 
 /* =========================================================
@@ -1717,71 +1349,41 @@ function startProgress() {
 
   stopProgress();
 
-
   progressTimer =
     setInterval(
       () => {
 
-        if (
-          !playerReady ||
-          !player
-        ) {
-
+        if (!playerReady || !player) {
           return;
-
         }
-
 
         const duration =
           player.getDuration();
 
-
         const current =
           player.getCurrentTime();
-
 
         if (!duration) {
           return;
         }
 
-
         const percentage =
-          (
-            current /
-            duration
-          ) * 100;
+          (current / duration) * 100;
 
-
-        $("#seek")
-          .value =
+        $("#seek").value =
           percentage;
 
-
-        $("#fill")
-          .style
-          .width =
+        $("#fill").style.width =
           `${percentage}%`;
 
+        $("#current").textContent =
+          formatTime(current);
 
-        $("#current")
-          .textContent =
-          formatTime(
-            current
-          );
+        $("#total").textContent =
+          formatTime(duration);
 
-
-        $("#total")
-          .textContent =
-          formatTime(
-            duration
-          );
-
-
-        $("#duration")
-          .textContent =
-          formatTime(
-            duration
-          );
+        $("#duration").textContent =
+          formatTime(duration);
 
       },
       250
@@ -1792,16 +1394,11 @@ function startProgress() {
 
 function stopProgress() {
 
-  if (
-    progressTimer
-  ) {
+  if (progressTimer) {
 
-    clearInterval(
-      progressTimer
-    );
+    clearInterval(progressTimer);
 
-    progressTimer =
-      null;
+    progressTimer = null;
 
   }
 
@@ -1809,7 +1406,7 @@ function stopProgress() {
 
 
 /* =========================================================
-   INITIALISE
+   INITIAL STATE
    ========================================================= */
 
 render();
