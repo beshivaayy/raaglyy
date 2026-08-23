@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
   <title>RAAGLYY — Sound Beyond Silence</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +21,7 @@
 <div id="bg"></div>
 
 <header>
-  <button id="menu">
+  <button id="menu" aria-label="Open archive">
     <i></i>
     <span>ARCHIVE</span>
   </button>
@@ -36,34 +35,19 @@
 </header>
 
 <aside id="drawer">
-
   <div class="drawer-head">
     <strong>RAAGLYY</strong>
-    <button id="close">×</button>
+    <button id="close" aria-label="Close archive">×</button>
   </div>
 
   <div class="drawer-body">
-
     <small>THE 27 RAAGS</small>
-
     <nav id="archive"></nav>
 
-    <small class="sources">LISTEN</small>
-
-    <button class="source-link" id="drawerYoutube">
-      YouTube
-    </button>
-
-    <button class="source-link" id="drawerSpotify">
-      Spotify
-    </button>
-
     <small class="sources">KNOWLEDGE</small>
-
-    <a href="javascript:void(0)">Indian Classical Music</a>
-    <a href="javascript:void(0)">Raag &amp; Time</a>
-    <a href="javascript:void(0)">Sound &amp; Consciousness</a>
-
+    <a href="#" onclick="return false">Indian Classical Music</a>
+    <a href="#" onclick="return false">Raag &amp; Time</a>
+    <a href="#" onclick="return false">Sound &amp; Consciousness</a>
   </div>
 </aside>
 
@@ -76,7 +60,7 @@
     <div class="kicker">
       <span id="num">01</span>
       <em></em>
-      <span id="prahar">AFTERNOON</span>
+      <span id="prahar">EVENING</span>
     </div>
 
     <div class="orbit">
@@ -88,7 +72,7 @@
 
       <div class="core">
         <span>RAAG</span>
-        <strong id="coreName">RAAG BHIMPALASI</strong>
+        <strong id="coreName">BHIMPALASI</strong>
         <i></i>
       </div>
 
@@ -114,39 +98,40 @@
 
     <div class="eyebrow">
       THE RAAG OF
-      <span id="time">AFTERNOON</span>
+      <span id="time">EVENING</span>
     </div>
 
-    <h1 id="title">Raag Bhimpalasi</h1>
+    <h1 id="title">Bhimpalasi</h1>
 
     <div class="hindi" id="hindi">
-      राग भिम्पलासी
+      राग भीमपलासी
     </div>
 
-    <p id="desc">
-      A deeply expressive afternoon raag associated with longing,
-      tenderness, emotional depth, and introspection.
-    </p>
+    <p id="desc"></p>
 
     <div class="tags" id="tags"></div>
 
 
+    <!-- YOUTUBE PLAYER -->
+
     <div class="player">
 
       <div class="player-top">
-
         <span>
           <b id="dot"></b>
           <span id="state">READY TO LISTEN</span>
         </span>
 
-        <span id="duration">YOUTUBE</span>
+        <span id="duration">—</span>
+      </div>
 
+
+      <div class="youtube-wrapper">
+        <div id="youtube-player"></div>
       </div>
 
 
       <div class="track">
-
         <span id="fill"></span>
 
         <input
@@ -155,8 +140,8 @@
           min="0"
           max="100"
           value="0"
+          aria-label="Seek"
         >
-
       </div>
 
 
@@ -181,52 +166,6 @@
         </button>
 
       </div>
-
-
-      <div class="source-switch">
-
-        <button
-          id="youtubeSource"
-          class="source active"
-        >
-          YOUTUBE
-        </button>
-
-        <button
-          id="spotifySource"
-          class="source"
-        >
-          SPOTIFY
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <!-- Hidden/compact YouTube player -->
-    <div id="youtubePlayerWrap">
-      <div id="youtubePlayer"></div>
-    </div>
-
-
-    <!-- Spotify playlist embed -->
-    <div id="spotifyWrap">
-
-      <div class="spotify-head">
-        <span>SPOTIFY ARCHIVE</span>
-        <span>27 RAAGS</span>
-      </div>
-
-      <iframe
-        id="spotifyFrame"
-        src="https://open.spotify.com/embed/playlist/1uCwKa8NKlV4fywgZ2gnMp?utm_source=generator&theme=0"
-        title="Raaglyy Spotify Playlist"
-        frameborder="0"
-        allowfullscreen
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy">
-      </iframe>
 
     </div>
 
