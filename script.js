@@ -2,9 +2,10 @@
    RAAGLYY
    SOUND BEYOND SILENCE
 
-   PLAYBACK:
-   YouTube Playlist
-   Playlist ID: PLJRipbfj__b0
+   VISUAL ARCHIVE ENGINE
+
+   YouTube Playlist:
+   PLJRipbfj__b0
 
    Spotify intentionally removed.
    ========================================================= */
@@ -14,9 +15,27 @@ const YOUTUBE_PLAYLIST_ID = "PLJRipbfj__b0";
 
 
 /* =========================================================
-   27 RAAGS
-   EXACT YOUTUBE PLAYLIST ORDER
+   RAAG VISUAL SYSTEM
+   =========================================================
+
+   Every Raag has its own visual world.
+
+   art:
+   Main cover artwork.
+
+   background:
+   Full-screen atmospheric image.
+
+   direction:
+   Art-direction label shown below the artwork.
+
+   mood:
+   Used for visual styling.
+
+   Replace these URLs later with your final curated
+   photography / illustration assets.
    ========================================================= */
+
 
 const raags = [
 
@@ -24,243 +43,674 @@ const raags = [
     name: "Bhimpalasi",
     hindi: "राग भीमपलासी",
     time: "Afternoon",
+
     description:
       "A deeply expressive afternoon raag carrying longing, tenderness and introspection through its characteristic melodic movement.",
-    tags: ["Afternoon", "Shringara", "Viraha"]
+
+    tags: [
+      "Afternoon",
+      "Shringara",
+      "Viraha"
+    ],
+
+    direction: "AFTERNOON LIGHT",
+    mood: "warm",
+
+    art:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=85"
   },
+
 
   {
     name: "Darbari Kanada",
     hindi: "राग दरबारी कानड़ा",
     time: "Late Night",
+
     description:
-      "For heart disease, problems related to children, honour, getting a position in life, and relationships with father and government.",
-    tags: ["Late Night", "Gambhir", "Royal"]
+      "A grave and majestic late-night raag carrying depth, dignity, introspection and the atmosphere of an ancient royal court.",
+
+    tags: [
+      "Late Night",
+      "Gambhir",
+      "Royal"
+    ],
+
+    direction: "THE ROYAL NIGHT",
+    mood: "dark",
+
+    art:
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=2200&q=85"
   },
+
 
   {
     name: "Shuddh Sarang",
     hindi: "राग शुद्ध सारंग",
     time: "Afternoon",
+
     description:
       "A luminous Sarang-family raag associated with clarity, balance and a bright, open melodic character.",
-    tags: ["Afternoon", "Sarang", "Luminous"]
+
+    tags: [
+      "Afternoon",
+      "Sarang",
+      "Luminous"
+    ],
+
+    direction: "WHITE HEAT",
+    mood: "bright",
+
+    art:
+      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2200&q=85"
   },
+
 
   {
     name: "Komal Rishabh Asavari",
     hindi: "राग कोमल ऋषभ आसावरी",
     time: "Morning",
+
     description:
-      "For property-related issues, blood-related problems, violence, and accidents.",
-    tags: ["Morning", "Asavari", "Gambhir"]
+      "A serious morning atmosphere shaped by the introspective character of the Asavari family.",
+
+    tags: [
+      "Morning",
+      "Asavari",
+      "Gambhir"
+    ],
+
+    direction: "EARTH AFTER DAWN",
+    mood: "earth",
+
+    art:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=85"
   },
+
 
   {
     name: "Yaman",
     hindi: "राग यमन",
     time: "Evening",
+
     description:
-      "For mental peace, relations with mother, happiness, calmness, family atmosphere, emotional trauma, and pain.",
-    tags: ["Evening", "Tivra Ma", "Shanta"]
+      "An expansive evening raag with a luminous melodic character, associated with serenity, openness and emotional refinement.",
+
+    tags: [
+      "Evening",
+      "Tivra Ma",
+      "Shanta"
+    ],
+
+    direction: "BLUE HOUR",
+    mood: "blue",
+
+    art:
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2200&q=85"
   },
+
 
   {
     name: "Hamsadhwani",
     hindi: "राग हंसध्वनि",
     time: "Evening",
+
     description:
-      "For mental peace, relations with mother, happiness, calmness, family atmosphere, emotional trauma, and pain.",
-    tags: ["Evening", "Pentatonic", "Mangala"]
+      "A bright pentatonic raag carrying a graceful, auspicious and celebratory character.",
+
+    tags: [
+      "Evening",
+      "Pentatonic",
+      "Mangala"
+    ],
+
+    direction: "FIRST STAR",
+    mood: "silver",
+
+    art:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
+
+    background:
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2200&q=80"
   },
+
 
   {
     name: "Bhairavi",
     hindi: "राग भैरवी",
     time: "Morning",
+
     description:
-      "For insomnia, property-related issues, blood-related problems, violence, and accidents.",
-    tags: ["Morning", "Bhakti", "Karuna"]
+      "A deeply emotional raag whose atmosphere can move between devotion, tenderness and introspection.",
+
+    tags: [
+      "Morning",
+      "Bhakti",
+      "Karuna"
+    ],
+
+    direction: "AFTER THE NIGHT",
+    mood: "red",
+
+    art:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=82",
+
+    background:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=82"
   },
+
 
   {
     name: "Asavari",
     hindi: "राग आसावरी",
     time: "Late Morning",
+
     description:
-      "For property-related issues, blood-related problems, violence, and accidents.",
-    tags: ["Morning", "Asavari", "Gambhir"]
+      "A serious and earthy morning raag with a characteristic sense of gravity and introspection.",
+
+    tags: [
+      "Morning",
+      "Asavari",
+      "Gambhir"
+    ],
+
+    direction: "DRY EARTH",
+    mood: "earth",
+
+    art:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=82",
+
+    background:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=82"
   },
+
 
   {
     name: "Desi Todi",
     hindi: "राग देसी तोड़ी",
     time: "Late Morning",
+
     description:
-      "For property-related issues, blood-related problems, violence, and accidents.",
-    tags: ["Morning", "Todi", "Gambhir"]
+      "A contemplative late-morning atmosphere shaped by the distinctive tension and delicacy of the Todi family.",
+
+    tags: [
+      "Morning",
+      "Todi",
+      "Gambhir"
+    ],
+
+    direction: "PALE MORNING",
+    mood: "pale",
+
+    art:
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=2200&q=85"
   },
+
 
   {
     name: "Kalyan",
     hindi: "राग कल्याण",
     time: "Evening",
+
     description:
-      "For education-related troubles, fights with siblings, thyroid and hormonal imbalance, communication, business, and friends.",
-    tags: ["Evening", "Kalyan", "Communication"]
+      "An evening atmosphere associated with refinement, communication, learning and luminous melodic movement.",
+
+    tags: [
+      "Evening",
+      "Kalyan",
+      "Communication"
+    ],
+
+    direction: "GOLDEN BLUE",
+    mood: "gold",
+
+    art:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
+
+    background:
+      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2200&q=80"
   },
+
 
   {
     name: "Poorvi",
     hindi: "राग पूर्वी",
     time: "Sunset",
+
     description:
-      "For education-related troubles, fights with siblings, thyroid and hormonal imbalances, communication, business, and friends.",
-    tags: ["Sunset", "Gambhir", "Dhyana"]
+      "A contemplative sunset raag carrying a serious and meditative colour as daylight withdraws.",
+
+    tags: [
+      "Sunset",
+      "Gambhir",
+      "Dhyana"
+    ],
+
+    direction: "THE LAST LIGHT",
+    mood: "sunset",
+
+    art:
+      "https://images.unsplash.com/photo-1472120435266-53107fd0c44a?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1472120435266-53107fd0c44a?auto=format&fit=crop&w=2200&q=85"
   },
+
 
   {
     name: "Nat Bhairav",
     hindi: "राग नट भैरव",
     time: "Morning",
+
     description:
-      "For relationship issues and money-related troubles.",
-    tags: ["Morning", "Relationship", "Finance"]
+      "A morning raag balancing dignity, movement and expressive melodic contours.",
+
+    tags: [
+      "Morning",
+      "Relationship",
+      "Finance"
+    ],
+
+    direction: "MORNING STONE",
+    mood: "stone",
+
+    art:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=78",
+
+    background:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=78"
   },
+
 
   {
     name: "Brindavani Sarang",
     hindi: "राग वृन्दावनी सारंग",
     time: "Afternoon",
+
     description:
-      "For relationship issues and money-related financial troubles.",
-    tags: ["Afternoon", "Relationship", "Finance"]
+      "An open and pastoral afternoon atmosphere carrying the freshness associated with the Sarang tradition.",
+
+    tags: [
+      "Afternoon",
+      "Relationship",
+      "Finance"
+    ],
+
+    direction: "VRINDAVAN AFTERNOON",
+    mood: "green",
+
+    art:
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2200&q=85"
   },
+
 
   {
     name: "Shuddh Kalyan",
     hindi: "राग शुद्ध कल्याण",
     time: "Evening",
+
     description:
-      "For mental peace, relations with mother, family atmosphere, emotional trauma, pain, and missing motivation, purpose, or intangible happiness.",
-    tags: ["Evening", "Kalyan", "Shanta"]
+      "A serene evening atmosphere built around clarity, emotional balance and luminous melodic space.",
+
+    tags: [
+      "Evening",
+      "Kalyan",
+      "Shanta"
+    ],
+
+    direction: "QUIET HORIZON",
+    mood: "blue",
+
+    art:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=76",
+
+    background:
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2200&q=76"
   },
+
 
   {
     name: "Jaunpuri",
     hindi: "राग जौनपुरी",
     time: "Late Morning",
+
     description:
-      "For profession-related issues, long-term diseases, and chronic troubles.",
-    tags: ["Morning", "Profession", "Chronic"]
+      "A reflective late-morning raag carrying a serious and expressive melodic personality.",
+
+    tags: [
+      "Morning",
+      "Profession",
+      "Chronic"
+    ],
+
+    direction: "LATE MORNING",
+    mood: "earth",
+
+    art:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+
+    background:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=80"
   },
+
 
   {
     name: "Kirwani",
     hindi: "राग किरवानी",
     time: "Night",
+
     description:
-      "For profession-related issues, long-term diseases, and chronic troubles.",
-    tags: ["Night", "Profession", "Chronic"]
+      "A nocturnal raag with a dramatic, lyrical and introspective character.",
+
+    tags: [
+      "Night",
+      "Profession",
+      "Chronic"
+    ],
+
+    direction: "AFTER DARK",
+    mood: "night",
+
+    art:
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2200&q=85"
   },
+
 
   {
     name: "Neelambari",
     hindi: "राग नीलाम्बरी",
     time: "Night",
+
     description:
-      "For profession-related issues, long-term diseases, and chronic troubles.",
-    tags: ["Night", "Profession", "Chronic"]
+      "A quiet nocturnal world with a soft, inward and dreamlike character.",
+
+    tags: [
+      "Night",
+      "Profession",
+      "Chronic"
+    ],
+
+    direction: "BLUE SILENCE",
+    mood: "blue",
+
+    art:
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=84",
+
+    background:
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2200&q=84"
   },
+
 
   {
     name: "Malkauns",
     hindi: "राग मालकौंस",
     time: "Late Night",
+
     description:
-      "For asthma.",
-    tags: ["Night", "Pentatonic", "Gambhir"]
+      "A powerful late-night pentatonic raag with an austere, mysterious and deeply inward atmosphere.",
+
+    tags: [
+      "Night",
+      "Pentatonic",
+      "Gambhir"
+    ],
+
+    direction: "MIDNIGHT EARTH",
+    mood: "dark",
+
+    art:
+      "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=2200&q=85"
   },
+
 
   {
     name: "Bhairav",
     hindi: "राग भैरव",
     time: "Dawn",
+
     description:
-      "For headache.",
-    tags: ["Dawn", "Gambhir", "Bhakti"]
+      "A dawn raag carrying gravity, devotion and the feeling of a world slowly awakening.",
+
+    tags: [
+      "Dawn",
+      "Gambhir",
+      "Bhakti"
+    ],
+
+    direction: "BEFORE SUNRISE",
+    mood: "dawn",
+
+    art:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=74",
+
+    background:
+      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2200&q=74"
   },
+
 
   {
     name: "Lalit",
     hindi: "राग ललित",
     time: "Pre-Dawn",
+
     description:
-      "For asthma.",
-    tags: ["Pre-Dawn", "Dhyana", "Gambhir"]
+      "A pre-dawn atmosphere existing between night and morning, contemplative and unusually intimate.",
+
+    tags: [
+      "Pre-Dawn",
+      "Dhyana",
+      "Gambhir"
+    ],
+
+    direction: "BETWEEN NIGHT & DAY",
+    mood: "mist",
+
+    art:
+      "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=2200&q=85"
   },
+
 
   {
     name: "Bhoop",
     hindi: "राग भूप",
     time: "Evening",
+
     description:
-      "For blood pressure.",
-    tags: ["Evening", "Pentatonic", "Shanta"]
+      "A spacious pentatonic evening raag with simplicity, openness and a clear melodic architecture.",
+
+    tags: [
+      "Evening",
+      "Pentatonic",
+      "Shanta"
+    ],
+
+    direction: "OPEN SKY",
+    mood: "open",
+
+    art:
+      "https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=2200&q=85"
   },
+
 
   {
     name: "Madhuvanti",
     hindi: "राग मधुवंती",
     time: "Afternoon",
+
     description:
-      "For depression and mental stress.",
-    tags: ["Afternoon", "Viraha", "Contemplative"]
+      "A tender afternoon raag carrying sweetness, longing and inward contemplation.",
+
+    tags: [
+      "Afternoon",
+      "Viraha",
+      "Contemplative"
+    ],
+
+    direction: "SWEET AFTERNOON",
+    mood: "rose",
+
+    art:
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1200&q=78",
+
+    background:
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=2200&q=78"
   },
+
 
   {
     name: "Pilu",
     hindi: "राग पीलू",
     time: "Afternoon",
+
     description:
-      "For anemia.",
-    tags: ["Afternoon", "Lyrical", "Light"]
+      "A lyrical and flexible afternoon raag with an intimate, human and expressive quality.",
+
+    tags: [
+      "Afternoon",
+      "Lyrical",
+      "Light"
+    ],
+
+    direction: "SOFT SUN",
+    mood: "warm",
+
+    art:
+      "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=2200&q=85"
   },
+
 
   {
     name: "Shivranjani",
     hindi: "राग शिवरंजनी",
     time: "Night",
+
     description:
-      "For memory loss.",
-    tags: ["Night", "Karuna", "Introspective"]
+      "A deeply introspective night raag often experienced through tenderness, memory and emotional distance.",
+
+    tags: [
+      "Night",
+      "Karuna",
+      "Introspective"
+    ],
+
+    direction: "MEMORY AT NIGHT",
+    mood: "night",
+
+    art:
+      "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=78",
+
+    background:
+      "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=2200&q=78"
   },
+
 
   {
     name: "Jaijaiwanti",
     hindi: "राग जयजयवंती",
     time: "Night",
+
     description:
-      "For weakness.",
-    tags: ["Night", "Shringara", "Lyrical"]
+      "A refined nocturnal raag combining lyrical delicacy with expressive emotional movement.",
+
+    tags: [
+      "Night",
+      "Shringara",
+      "Lyrical"
+    ],
+
+    direction: "MIDNIGHT POETRY",
+    mood: "violet",
+
+    art:
+      "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=75",
+
+    background:
+      "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=2200&q=75"
   },
+
 
   {
     name: "Khamaj",
     hindi: "राग खमाज",
     time: "Night",
+
     description:
-      "For acidity.",
-    tags: ["Night", "Shringara", "Lyrical"]
+      "A graceful nocturnal raag with a lyrical and expressive character.",
+
+    tags: [
+      "Night",
+      "Shringara",
+      "Lyrical"
+    ],
+
+    direction: "VELVET NIGHT",
+    mood: "wine",
+
+    art:
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=72",
+
+    background:
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2200&q=72"
   },
+
 
   {
     name: "Raag Tanpura",
     hindi: "राग तानपुरा",
     time: "All Prahar",
+
     description:
-      "For problems related to children, honour, getting a position in life, and relationships with father and government.",
-    tags: ["Tanpura", "Drone", "Foundation"]
+      "The continuous drone of the tanpura — the quiet foundation beneath melody, time and listening.",
+
+    tags: [
+      "Tanpura",
+      "Drone",
+      "Foundation"
+    ],
+
+    direction: "THE FOUNDATION",
+    mood: "wood",
+
+    art:
+      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&q=85",
+
+    background:
+      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=2200&q=85"
   }
 
 ];
@@ -273,9 +723,13 @@ const raags = [
 const $ = selector => document.querySelector(selector);
 
 let index = 0;
+
 let player = null;
 let playerReady = false;
+
 let progressTimer = null;
+
+let wheelLocked = false;
 
 
 /* =========================================================
@@ -283,63 +737,41 @@ let progressTimer = null;
    ========================================================= */
 
 function pad(number) {
+
   return String(number).padStart(2, "0");
+
 }
 
 
 function formatTime(seconds) {
 
-  if (!Number.isFinite(seconds) || seconds < 0) {
+  if (
+    !Number.isFinite(seconds) ||
+    seconds < 0
+  ) {
+
     return "00:00";
+
   }
 
-  const minutes = Math.floor(seconds / 60);
-  const secs = Math.floor(seconds % 60);
+  const minutes =
+    Math.floor(seconds / 60);
+
+  const secs =
+    Math.floor(seconds % 60);
 
   return `${pad(minutes)}:${pad(secs)}`;
+
 }
 
 
-function art(i) {
+function wrapIndex(value) {
 
-  const hue = (i * 41) % 360;
+  return (
+    (value + raags.length) %
+    raags.length
+  );
 
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
-
-      <defs>
-        <radialGradient id="g">
-          <stop stop-color="hsl(${hue} 38% 45%)"/>
-          <stop offset="1" stop-color="#09070b"/>
-        </radialGradient>
-      </defs>
-
-      <rect width="600" height="400" fill="#09070b"/>
-
-      <circle
-        cx="300"
-        cy="205"
-        r="210"
-        fill="url(#g)"
-        opacity=".8"
-      />
-
-      <circle
-        cx="430"
-        cy="110"
-        r="80"
-        fill="hsl(${(hue + 70) % 360} 35% 38%)"
-        opacity=".18"
-      />
-
-      <path
-        d="M0 330 Q180 210 330 330 T600 300 V400H0Z"
-        fill="#000"
-        opacity=".35"
-      />
-
-    </svg>
-  `)}`;
 }
 
 
@@ -347,18 +779,135 @@ function art(i) {
    BACKGROUND
    ========================================================= */
 
-function updateBackground() {
+function updateBackground(raag) {
 
-  const hue = (index * 41) % 360;
+  const background =
+    $("#bg .bg-image");
 
-  $("#bg").style.background = `
-    radial-gradient(
-      circle at 68% 48%,
-      hsl(${hue} 30% 28% / .28),
-      transparent 30%
-    ),
-    #08070a
-  `;
+  background.style.backgroundImage =
+    `url("${raag.background}")`;
+
+  document.body.dataset.mood =
+    raag.mood || "dark";
+
+}
+
+
+/* =========================================================
+   COVERFLOW
+   ========================================================= */
+
+function buildCoverflow() {
+
+  const stage =
+    $("#coverflowStage");
+
+  stage.innerHTML = "";
+
+  const total =
+    raags.length;
+
+
+  /*
+   * Render only nearby cards.
+   * The remaining cards are represented by the
+   * archive rail below.
+   */
+
+  for (
+    let offset = -3;
+    offset <= 3;
+    offset++
+  ) {
+
+    const cardIndex =
+      wrapIndex(index + offset);
+
+    const raag =
+      raags[cardIndex];
+
+
+    const card =
+      document.createElement("button");
+
+    card.className =
+      "cover-card";
+
+    card.dataset.offset =
+      offset;
+
+    card.dataset.index =
+      cardIndex;
+
+
+    const position =
+      Math.max(
+        -3,
+        Math.min(3, offset)
+      );
+
+
+    card.style.setProperty(
+      "--offset",
+      position
+    );
+
+
+    card.innerHTML = `
+
+      <div class="cover-art">
+
+        <img
+          src="${raag.art}"
+          alt="${raag.name}"
+          draggable="false"
+        >
+
+        <div class="cover-overlay"></div>
+
+        <div class="cover-number">
+          ${pad(cardIndex + 1)}
+        </div>
+
+        <div class="cover-label">
+          ${raag.name}
+        </div>
+
+      </div>
+
+    `;
+
+
+    card.addEventListener(
+      "click",
+      () => {
+
+        if (offset === 0) {
+          return;
+        }
+
+        selectRaag(
+          index + offset
+        );
+
+      }
+    );
+
+
+    stage.appendChild(card);
+
+  }
+
+
+  /*
+   * Accessibility / metadata
+   */
+
+  stage.setAttribute(
+    "aria-label",
+    `${raags[index].name}, ${index + 1} of ${total}`
+  );
+
 }
 
 
@@ -368,121 +917,227 @@ function updateBackground() {
 
 function render() {
 
-  const r = raags[index];
+  const raag =
+    raags[index];
 
-  const number = pad(index + 1);
-  const total = pad(raags.length);
+  const number =
+    pad(index + 1);
 
-  $("#num").textContent = number;
-  $("#prahar").textContent = r.time.toUpperCase();
-
-  $("#title").textContent = r.name;
-  $("#hindi").textContent = r.hindi;
-  $("#desc").textContent = r.description;
-
-  $("#time").textContent = r.time.toUpperCase();
-  $("#coreName").textContent = r.name.toUpperCase();
-
-  $("#count").textContent = `${number} / ${total}`;
-  $("#degree").textContent = `${number} / 27`;
-
-  updateBackground();
+  const total =
+    pad(raags.length);
 
 
-  /* TAGS */
+  /* -----------------------------------------
+     Text
+     ----------------------------------------- */
 
-  $("#tags").innerHTML = r.tags
-    .map(tag => `<span>${tag}</span>`)
-    .join("");
+  $("#num").textContent =
+    number;
 
+  $("#prahar").textContent =
+    raag.time.toUpperCase();
 
-  /* ORBIT */
+  $("#category").textContent =
+    raag.name.toUpperCase();
 
-  $("#planets").innerHTML = "";
+  $("#title").textContent =
+    raag.name;
 
-  const n = Math.min(raags.length, 9);
+  $("#hindi").textContent =
+    raag.hindi;
 
-  for (let i = 0; i < n; i++) {
+  $("#desc").textContent =
+    raag.description;
 
-    const angle =
-      (Math.PI * 2 * i / n) - Math.PI / 2;
+  $("#time").textContent =
+    raag.time.toUpperCase();
 
-    const x = Math.cos(angle) * 245;
-    const y = Math.sin(angle) * 125;
+  $("#artDirection").textContent =
+    raag.direction;
 
-    const planet = document.createElement("button");
+  $("#count").textContent =
+    `${number} / ${total}`;
 
-    planet.className =
-      "planet " + (i === index ? "active" : "");
+  $("#captionCount").textContent =
+    `${number} — ${total}`;
 
-    planet.style.setProperty("--x", `${x}px`);
-    planet.style.setProperty("--y", `${y}px`);
-
-    planet.innerHTML = `
-      <img src="${art(i)}" alt="${raags[i].name}">
-      <label>${raags[i].name.toUpperCase()}</label>
-    `;
-
-    planet.addEventListener("click", () => {
-      selectRaag(i);
-    });
-
-    $("#planets").appendChild(planet);
-  }
+  $("#visualCurrent").textContent =
+    number;
 
 
-  /* RAIL */
+  /* -----------------------------------------
+     Tags
+     ----------------------------------------- */
 
-  $("#rail").innerHTML = raags
-    .map((r, i) => `
-      <button
-        class="rail-item ${i === index ? "active" : ""}"
-        data-i="${i}"
-      >
-        <img src="${art(i)}" alt="${r.name}">
-        <span>${r.name}</span>
-      </button>
-    `)
-    .join("");
+  $("#tags").innerHTML =
+    raag.tags
+      .map(
+        tag =>
+          `<span>${tag}</span>`
+      )
+      .join("");
+
+
+  /* -----------------------------------------
+     Background
+     ----------------------------------------- */
+
+  updateBackground(
+    raag
+  );
+
+
+  /* -----------------------------------------
+     Coverflow
+     ----------------------------------------- */
+
+  buildCoverflow();
+
+
+  /* -----------------------------------------
+     Archive rail
+     ----------------------------------------- */
+
+  buildRail();
+
+
+  /* -----------------------------------------
+     Drawer archive
+     ----------------------------------------- */
+
+  buildArchive();
+
+}
+
+
+/* =========================================================
+   ARCHIVE RAIL
+   ========================================================= */
+
+function buildRail() {
+
+  $("#rail").innerHTML =
+    raags
+      .map(
+        (raag, i) => `
+
+          <button
+            class="
+              rail-item
+              ${i === index ? "active" : ""}
+            "
+            data-i="${i}"
+            aria-label="${raag.name}"
+          >
+
+            <img
+              src="${raag.art}"
+              alt=""
+              loading="lazy"
+            >
+
+            <span>
+              ${raag.name}
+            </span>
+
+          </button>
+
+        `
+      )
+      .join("");
 
 
   document
     .querySelectorAll(".rail-item")
     .forEach(button => {
 
-      button.addEventListener("click", () => {
-        selectRaag(Number(button.dataset.i));
-      });
+      button.addEventListener(
+        "click",
+        () => {
+
+          selectRaag(
+            Number(
+              button.dataset.i
+            )
+          );
+
+        }
+      );
 
     });
 
 
-  /* ARCHIVE */
+  const active =
+    document.querySelector(
+      ".rail-item.active"
+    );
 
-  $("#archive").innerHTML = raags
-    .map((r, i) => `
-      <button
-        class="${i === index ? "active" : ""}"
-        data-i="${i}"
-      >
-        ${pad(i + 1)} — ${r.name}
-      </button>
-    `)
-    .join("");
+
+  if (active) {
+
+    active.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center"
+    });
+
+  }
+
+}
+
+
+/* =========================================================
+   DRAWER ARCHIVE
+   ========================================================= */
+
+function buildArchive() {
+
+  $("#archive").innerHTML =
+    raags
+      .map(
+        (raag, i) => `
+
+          <button
+            class="${i === index ? "active" : ""}"
+            data-i="${i}"
+          >
+
+            <span>
+              ${pad(i + 1)}
+            </span>
+
+            ${raag.name}
+
+          </button>
+
+        `
+      )
+      .join("");
 
 
   document
-    .querySelectorAll("#archive button")
+    .querySelectorAll(
+      "#archive button"
+    )
     .forEach(button => {
 
-      button.addEventListener("click", () => {
+      button.addEventListener(
+        "click",
+        () => {
 
-        selectRaag(Number(button.dataset.i));
-        closeDrawer();
+          selectRaag(
+            Number(
+              button.dataset.i
+            )
+          );
 
-      });
+          closeDrawer();
+
+        }
+      );
 
     });
+
 }
 
 
@@ -492,21 +1147,256 @@ function render() {
 
 function selectRaag(newIndex) {
 
+  const nextIndex =
+    wrapIndex(newIndex);
+
+
+  if (nextIndex === index) {
+    return;
+  }
+
+
   index =
-    (newIndex + raags.length) % raags.length;
+    nextIndex;
+
 
   render();
 
-  if (playerReady && player) {
 
-    player.loadPlaylist({
-      list: YOUTUBE_PLAYLIST_ID,
-      listType: "playlist",
-      index: index
-    });
+  /*
+   * Load corresponding YouTube playlist item.
+   */
+
+  if (
+    playerReady &&
+    player
+  ) {
+
+    try {
+
+      player.loadPlaylist({
+        list:
+          YOUTUBE_PLAYLIST_ID,
+
+        listType:
+          "playlist",
+
+        index
+      });
+
+    } catch (error) {
+
+      console.warn(
+        "Playlist navigation error:",
+        error
+      );
+
+    }
 
   }
+
 }
+
+
+/* =========================================================
+   NEXT / PREVIOUS
+   ========================================================= */
+
+function nextRaag() {
+
+  selectRaag(
+    index + 1
+  );
+
+}
+
+
+function previousRaag() {
+
+  selectRaag(
+    index - 1
+  );
+
+}
+
+
+$("#next").addEventListener(
+  "click",
+  nextRaag
+);
+
+
+$("#prev").addEventListener(
+  "click",
+  previousRaag
+);
+
+
+$("#flowNext").addEventListener(
+  "click",
+  nextRaag
+);
+
+
+$("#flowPrev").addEventListener(
+  "click",
+  previousRaag
+);
+
+
+/* =========================================================
+   KEYBOARD NAVIGATION
+   ========================================================= */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.target.matches(
+        "input, textarea"
+      )
+    ) {
+
+      return;
+
+    }
+
+
+    if (
+      event.key ===
+      "ArrowRight"
+    ) {
+
+      nextRaag();
+
+    }
+
+
+    if (
+      event.key ===
+      "ArrowLeft"
+    ) {
+
+      previousRaag();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   TOUCH / SWIPE
+   ========================================================= */
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+
+$("#coverflow")
+  .addEventListener(
+    "touchstart",
+    event => {
+
+      touchStartX =
+        event.changedTouches[0].screenX;
+
+    },
+    { passive: true }
+  );
+
+
+$("#coverflow")
+  .addEventListener(
+    "touchend",
+    event => {
+
+      touchEndX =
+        event.changedTouches[0].screenX;
+
+      const distance =
+        touchEndX -
+        touchStartX;
+
+
+      if (
+        Math.abs(distance) <
+        45
+      ) {
+
+        return;
+
+      }
+
+
+      if (
+        distance < 0
+      ) {
+
+        nextRaag();
+
+      } else {
+
+        previousRaag();
+
+      }
+
+    },
+    { passive: true }
+  );
+
+
+/* =========================================================
+   MOUSE WHEEL
+   ========================================================= */
+
+$("#coverflow")
+  .addEventListener(
+    "wheel",
+    event => {
+
+      if (wheelLocked) {
+        return;
+      }
+
+
+      if (
+        Math.abs(event.deltaY) <
+        Math.abs(event.deltaX)
+      ) {
+
+        return;
+
+      }
+
+
+      wheelLocked = true;
+
+
+      if (
+        event.deltaY > 0
+      ) {
+
+        nextRaag();
+
+      } else {
+
+        previousRaag();
+
+      }
+
+
+      setTimeout(
+        () => {
+          wheelLocked = false;
+        },
+        550
+      );
+
+    },
+    { passive: true }
+  );
 
 
 /* =========================================================
@@ -515,216 +1405,306 @@ function selectRaag(newIndex) {
 
 function closeDrawer() {
 
-  $("#drawer").classList.remove("open");
-  $("#veil").classList.remove("open");
+  $("#drawer")
+    .classList
+    .remove("open");
+
+  $("#veil")
+    .classList
+    .remove("open");
+
 }
 
 
-$("#menu").addEventListener("click", () => {
+$("#menu")
+  .addEventListener(
+    "click",
+    () => {
 
-  $("#drawer").classList.add("open");
-  $("#veil").classList.add("open");
+      $("#drawer")
+        .classList
+        .add("open");
 
-});
+      $("#veil")
+        .classList
+        .add("open");
 
-
-$("#close").addEventListener("click", closeDrawer);
-$("#veil").addEventListener("click", closeDrawer);
-
-
-/* =========================================================
-   NEXT / PREVIOUS
-   ========================================================= */
-
-$("#next").addEventListener("click", () => {
-
-  selectRaag(index + 1);
-
-});
+    }
+  );
 
 
-$("#prev").addEventListener("click", () => {
+$("#close")
+  .addEventListener(
+    "click",
+    closeDrawer
+  );
 
-  selectRaag(index - 1);
 
-});
+$("#veil")
+  .addEventListener(
+    "click",
+    closeDrawer
+  );
 
 
 /* =========================================================
    PLAY / PAUSE
    ========================================================= */
 
-$("#play").addEventListener("click", () => {
+$("#play")
+  .addEventListener(
+    "click",
+    () => {
 
-  if (!playerReady || !player) {
-    return;
-  }
+      if (
+        !playerReady ||
+        !player
+      ) {
 
-  const state = player.getPlayerState();
+        return;
 
-  if (
-    state === YT.PlayerState.PLAYING
-  ) {
+      }
 
-    player.pauseVideo();
 
-  } else {
+      const state =
+        player.getPlayerState();
 
-    player.playVideo();
 
-  }
+      if (
+        state ===
+        YT.PlayerState.PLAYING
+      ) {
 
-});
+        player.pauseVideo();
+
+      } else {
+
+        player.playVideo();
+
+      }
+
+    }
+  );
 
 
 /* =========================================================
    SEEK
    ========================================================= */
 
-$("#seek").addEventListener("input", event => {
+$("#seek")
+  .addEventListener(
+    "input",
+    event => {
 
-  if (!playerReady || !player) {
-    return;
-  }
+      if (
+        !playerReady ||
+        !player
+      ) {
 
-  const duration = player.getDuration();
+        return;
 
-  if (!duration) {
-    return;
-  }
+      }
 
-  const percentage =
-    Number(event.target.value);
 
-  player.seekTo(
-    duration * percentage / 100,
-    true
+      const duration =
+        player.getDuration();
+
+
+      if (!duration) {
+        return;
+      }
+
+
+      const percentage =
+        Number(
+          event.target.value
+        );
+
+
+      player.seekTo(
+        duration *
+        percentage /
+        100,
+        true
+      );
+
+
+      $("#fill").style.width =
+        `${percentage}%`;
+
+    }
   );
-
-  $("#fill").style.width =
-    `${percentage}%`;
-
-});
 
 
 /* =========================================================
    YOUTUBE PLAYER
    ========================================================= */
 
-window.onYouTubeIframeAPIReady = function () {
+window.onYouTubeIframeAPIReady =
+function () {
 
-  player = new YT.Player("youtube-player", {
+  player =
+    new YT.Player(
+      "youtube-player",
+      {
 
-    width: "100%",
-    height: "1",
+        width: "1",
+        height: "1",
 
-    playerVars: {
-      autoplay: 0,
-      controls: 0,
-      disablekb: 1,
-      modestbranding: 1,
-      playsinline: 1,
-      rel: 0,
-      listType: "playlist",
-      list: YOUTUBE_PLAYLIST_ID
-    },
+        playerVars: {
 
-    events: {
+          autoplay: 0,
+          controls: 0,
+          disablekb: 1,
+          modestbranding: 1,
+          playsinline: 1,
+          rel: 0,
 
-      onReady: event => {
+          listType:
+            "playlist",
 
-        playerReady = true;
+          list:
+            YOUTUBE_PLAYLIST_ID
 
-        $("#state").textContent =
-          "READY TO LISTEN";
-
-        $("#duration").textContent =
-          formatTime(event.target.getDuration());
-
-      },
+        },
 
 
-      onStateChange: event => {
+        events: {
 
-        if (
-          event.data ===
-          YT.PlayerState.PLAYING
-        ) {
+          onReady:
+          event => {
 
-          $("#play").textContent = "Ⅱ";
+            playerReady =
+              true;
 
-          $("#state").textContent =
-            "NOW LISTENING";
 
-          $(".player").classList.add("playing");
+            $("#state")
+              .textContent =
+              "READY TO LISTEN";
 
-          startProgress();
+
+            $("#duration")
+              .textContent =
+              formatTime(
+                event
+                  .target
+                  .getDuration()
+              );
+
+          },
+
+
+          onStateChange:
+          event => {
+
+            if (
+              event.data ===
+              YT.PlayerState.PLAYING
+            ) {
+
+              $("#play")
+                .textContent =
+                "Ⅱ";
+
+
+              $("#state")
+                .textContent =
+                "NOW LISTENING";
+
+
+              $(".player")
+                .classList
+                .add("playing");
+
+
+              startProgress();
+
+            }
+
+
+            else if (
+              event.data ===
+              YT.PlayerState.PAUSED
+            ) {
+
+              $("#play")
+                .textContent =
+                "▶";
+
+
+              $("#state")
+                .textContent =
+                "PAUSED";
+
+
+              $(".player")
+                .classList
+                .remove("playing");
+
+
+              stopProgress();
+
+            }
+
+
+            else if (
+              event.data ===
+              YT.PlayerState.ENDED
+            ) {
+
+              $("#play")
+                .textContent =
+                "▶";
+
+
+              $("#state")
+                .textContent =
+                "READY TO LISTEN";
+
+
+              $(".player")
+                .classList
+                .remove("playing");
+
+
+              stopProgress();
+
+            }
+
+
+            else if (
+              event.data ===
+              YT.PlayerState.BUFFERING
+            ) {
+
+              $("#state")
+                .textContent =
+                "BUFFERING";
+
+            }
+
+          },
+
+
+          onError:
+          event => {
+
+            console.warn(
+              "YouTube Player Error:",
+              event.data
+            );
+
+
+            $("#state")
+              .textContent =
+              "UNAVAILABLE";
+
+          }
 
         }
-
-
-        else if (
-          event.data ===
-          YT.PlayerState.PAUSED
-        ) {
-
-          $("#play").textContent = "▶";
-
-          $("#state").textContent =
-            "PAUSED";
-
-          $(".player").classList.remove("playing");
-
-          stopProgress();
-
-        }
-
-
-        else if (
-          event.data ===
-          YT.PlayerState.ENDED
-        ) {
-
-          $("#play").textContent = "▶";
-
-          $("#state").textContent =
-            "READY TO LISTEN";
-
-          $(".player").classList.remove("playing");
-
-          stopProgress();
-
-        }
-
-
-        else if (
-          event.data ===
-          YT.PlayerState.BUFFERING
-        ) {
-
-          $("#state").textContent =
-            "BUFFERING";
-
-        }
-
-      },
-
-
-      onError: event => {
-
-        console.warn(
-          "YouTube Player Error:",
-          event.data
-        );
-
-        $("#state").textContent =
-          "UNAVAILABLE";
 
       }
-
-    }
-
-  });
+    );
 
 };
 
@@ -737,49 +1717,91 @@ function startProgress() {
 
   stopProgress();
 
-  progressTimer = setInterval(() => {
 
-    if (!playerReady || !player) {
-      return;
-    }
+  progressTimer =
+    setInterval(
+      () => {
 
-    const duration =
-      player.getDuration();
+        if (
+          !playerReady ||
+          !player
+        ) {
 
-    const current =
-      player.getCurrentTime();
+          return;
 
-    if (!duration) {
-      return;
-    }
+        }
 
-    const percentage =
-      (current / duration) * 100;
 
-    $("#seek").value = percentage;
-    $("#fill").style.width =
-      `${percentage}%`;
+        const duration =
+          player.getDuration();
 
-    $("#current").textContent =
-      formatTime(current);
 
-    $("#total").textContent =
-      formatTime(duration);
+        const current =
+          player.getCurrentTime();
 
-    $("#duration").textContent =
-      formatTime(duration);
 
-  }, 250);
+        if (!duration) {
+          return;
+        }
+
+
+        const percentage =
+          (
+            current /
+            duration
+          ) * 100;
+
+
+        $("#seek")
+          .value =
+          percentage;
+
+
+        $("#fill")
+          .style
+          .width =
+          `${percentage}%`;
+
+
+        $("#current")
+          .textContent =
+          formatTime(
+            current
+          );
+
+
+        $("#total")
+          .textContent =
+          formatTime(
+            duration
+          );
+
+
+        $("#duration")
+          .textContent =
+          formatTime(
+            duration
+          );
+
+      },
+      250
+    );
 
 }
 
 
 function stopProgress() {
 
-  if (progressTimer) {
+  if (
+    progressTimer
+  ) {
 
-    clearInterval(progressTimer);
-    progressTimer = null;
+    clearInterval(
+      progressTimer
+    );
+
+    progressTimer =
+      null;
 
   }
 
@@ -787,7 +1809,7 @@ function stopProgress() {
 
 
 /* =========================================================
-   INITIAL STATE
+   INITIALISE
    ========================================================= */
 
 render();
