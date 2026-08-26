@@ -3,12 +3,14 @@
    SOUND BEYOND SILENCE
 
    SANATAN VISUAL ARCHIVE
-   YouTube Playlist:
-   PLJRipbfj__b0
+   YouTube Playlist: (IMPORTANT: Update ID below)
    ========================================================= */
 
-
-const YOUTUBE_PLAYLIST_ID = "PLJRipbfj__b0";
+// ============================================================
+// 🔴 IMPORTANT: Apni real YouTube Playlist ID yahan daalein.
+// Agar playlist nahi hai toh "videoId" use karein.
+// ============================================================
+const YOUTUBE_PLAYLIST_ID = "PLJRipbfj__b0"; 
 
 
 /* =========================================================
@@ -19,6 +21,11 @@ const YOUTUBE_PLAYLIST_ID = "PLJRipbfj__b0";
    The artwork layer is deliberately separated from the
    structural UI so real paintings / commissioned artwork
    can be swapped later without touching the application.
+   
+   🔴 FIX: Wikipedia Special:FilePath URLs hata kar 
+   reliable picsum.photos seeds lagaye hain taaki images 
+   turant load hon. Aap inhe apni real images se replace 
+   kar sakte hain.
    ========================================================= */
 
 const artwork = [
@@ -27,216 +34,189 @@ const artwork = [
     theme: "RAM DARBAR",
     palette: ["#6e241c", "#c69a54"],
     symbol: "श्रीराम",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Rama%20Darbar.jpg"
+    image: "https://picsum.photos/seed/ramdarbar/800/600"
   },
 
   {
     theme: "DARBAR · GAMBHIR",
     palette: ["#261817", "#9b7548"],
     symbol: "राज",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Rama%20and%20Sita.jpg"
+    image: "https://picsum.photos/seed/darbar/800/600"
   },
 
   {
     theme: "SARANG · PRAKASHA",
     palette: ["#254438", "#c4a15c"],
     symbol: "सूर्य",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Ravi%20Varma%20-%20Saraswati.jpg"
+    image: "https://picsum.photos/seed/sarang/800/600"
   },
 
   {
     theme: "ASAVARI · TAPAS",
     palette: ["#35251d", "#a86635"],
     symbol: "तप",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Shakuntala.jpg"
+    image: "https://picsum.photos/seed/asavari/800/600"
   },
 
   {
     theme: "KRISHNA · MADHURYA",
     palette: ["#152f49", "#c49b54"],
     symbol: "कृष्ण",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Ravi%20Varma%20-%20Krishna.jpg"
+    image: "https://picsum.photos/seed/krishna/800/600"
   },
 
   {
     theme: "HAMSADHWANI · MANGALA",
     palette: ["#173c36", "#c8a75f"],
     symbol: "ॐ",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Ganesha%20Raja%20Ravi%20Varma.jpg"
+    image: "https://picsum.photos/seed/hamsadhwani/800/600"
   },
 
   {
     theme: "BHAIRAVI · BHAKTI",
     palette: ["#4b1d23", "#d2a55d"],
     symbol: "देवी",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Lakshmi.jpg"
+    image: "https://picsum.photos/seed/bhairavi/800/600"
   },
 
   {
     theme: "ASAVARI · VAN",
     palette: ["#253326", "#a47b42"],
     symbol: "वन",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Shakuntala.jpg"
+    image: "https://picsum.photos/seed/asavarivan/800/600"
   },
 
   {
     theme: "TODI · VIRAH",
     palette: ["#3b281d", "#b17d45"],
     symbol: "विरह",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Damayanti.jpg"
+    image: "https://picsum.photos/seed/todi/800/600"
   },
 
   {
     theme: "KALYAN · JYOTI",
     palette: ["#202f4b", "#c7a461"],
     symbol: "ज्योति",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Saraswati.jpg"
+    image: "https://picsum.photos/seed/kalyan/800/600"
   },
 
   {
     theme: "POORVI · SANDHYA",
     palette: ["#34233b", "#b98255"],
     symbol: "संध्या",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Shakuntala.jpg"
+    image: "https://picsum.photos/seed/poorvi/800/600"
   },
 
   {
     theme: "NATARAJA · PRABHATA",
     palette: ["#35251b", "#bd914d"],
     symbol: "नृत्य",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Nataraja.jpg"
+    image: "https://picsum.photos/seed/nataraja/800/600"
   },
 
   {
     theme: "VRINDAVAN · SARANG",
     palette: ["#173c3c", "#c4a05b"],
     symbol: "वृन्दावन",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Krishna%20playing%20flute.jpg"
+    image: "https://picsum.photos/seed/vrindavan/800/600"
   },
 
   {
     theme: "SHUDDH KALYAN · SHANTI",
     palette: ["#263348", "#c5a76b"],
     symbol: "शान्ति",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Ravi%20Varma%20-%20Saraswati.jpg"
+    image: "https://picsum.photos/seed/shuddhkalyan/800/600"
   },
 
   {
     theme: "JAUNPURI · YATRA",
     palette: ["#34251d", "#ad7949"],
     symbol: "यात्रा",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Shakuntala.jpg"
+    image: "https://picsum.photos/seed/jaunpuri/800/600"
   },
 
   {
     theme: "KIRWANI · RAATRI",
     palette: ["#171b30", "#9c7b52"],
     symbol: "रात्रि",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Krishna%20playing%20flute.jpg"
+    image: "https://picsum.photos/seed/kirwani/800/600"
   },
 
   {
     theme: "NEELAMBARI · NIDRA",
     palette: ["#111d31", "#9c835a"],
     symbol: "निद्रा",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Krishna%20playing%20flute.jpg"
+    image: "https://picsum.photos/seed/neelambari/800/600"
   },
 
   {
     theme: "MALKAUNS · SHIVA",
     palette: ["#171819", "#9e7541"],
     symbol: "शिव",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Shiva%20Parvati.jpg"
+    image: "https://picsum.photos/seed/malkauns/800/600"
   },
 
   {
     theme: "BHAIRAV · RUDRA",
     palette: ["#2a211d", "#b1844c"],
     symbol: "रुद्र",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Shiva%20Parvati.jpg"
+    image: "https://picsum.photos/seed/bhairav/800/600"
   },
 
   {
     theme: "LALIT · BRAHMA MUHURTA",
     palette: ["#222d38", "#c5a76b"],
     symbol: "उषः",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Saraswati.jpg"
+    image: "https://picsum.photos/seed/lalit/800/600"
   },
 
   {
     theme: "BHOOP · AKASHA",
     palette: ["#243348", "#c9aa67"],
     symbol: "आकाश",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Ravi%20Varma%20-%20Saraswati.jpg"
+    image: "https://picsum.photos/seed/bhoop/800/600"
   },
 
   {
     theme: "MADHUVANTI · MADHU",
     palette: ["#3d202b", "#bd8a55"],
     symbol: "मधु",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Shakuntala.jpg"
+    image: "https://picsum.photos/seed/madhuvanti/800/600"
   },
 
   {
     theme: "PILU · SHRINGARA",
     palette: ["#49242b", "#c19a60"],
     symbol: "रस",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Damayanti.jpg"
+    image: "https://picsum.photos/seed/pilu/800/600"
   },
 
   {
     theme: "SHIVRANJANI · KARUNA",
     palette: ["#25233a", "#a27f56"],
     symbol: "करुणा",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Shiva%20Parvati.jpg"
+    image: "https://picsum.photos/seed/shivranjani/800/600"
   },
 
   {
     theme: "JAIJAIWANTI · PREMA",
     palette: ["#3c2028", "#c5a064"],
     symbol: "प्रेम",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Raja%20Ravi%20Varma%20-%20Damayanti.jpg"
+    image: "https://picsum.photos/seed/jaijaiwanti/800/600"
   },
 
   {
     theme: "KHAMAJ · MADHURYA",
     palette: ["#412027", "#c29658"],
     symbol: "माधुर्य",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Krishna%20playing%20flute.jpg"
+    image: "https://picsum.photos/seed/khamaj/800/600"
   },
 
   {
     theme: "TANPURA · NADA",
     palette: ["#241e19", "#c09a5c"],
     symbol: "नाद",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Tanpura.jpg"
+    image: "https://picsum.photos/seed/tanpura/800/600"
   }
 
 ];
