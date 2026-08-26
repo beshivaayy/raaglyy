@@ -108,21 +108,13 @@ button{
 
     radial-gradient(
       circle at 70% 42%,
-      color-mix(
-        in srgb,
-        var(--art-b) 22%,
-        transparent
-      ),
+      rgba(179, 138, 77, 0.22), /* Fixed: replaced color-mix */
       transparent 35%
     ),
 
     radial-gradient(
       circle at 18% 75%,
-      color-mix(
-        in srgb,
-        var(--art-a) 34%,
-        transparent
-      ),
+      rgba(50, 29, 27, 0.34), /* Fixed: replaced color-mix */
       transparent 38%
     ),
 
