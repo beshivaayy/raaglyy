@@ -108,13 +108,13 @@ button{
 
     radial-gradient(
       circle at 70% 42%,
-      rgba(179, 138, 77, 0.22), /* Fixed: replaced color-mix */
+      rgba(179, 138, 77, 0.22),
       transparent 35%
     ),
 
     radial-gradient(
       circle at 18% 75%,
-      rgba(50, 29, 27, 0.34), /* Fixed: replaced color-mix */
+      rgba(50, 29, 27, 0.34),
       transparent 38%
     ),
 
@@ -932,16 +932,13 @@ main{
     translate(-50%,-50%);
 
   background:
-
     radial-gradient(
       ellipse,
-      color-mix(
-        in srgb,
-        var(--art-b) 18%,
-        transparent
-      ),
+      var(--art-b),
       transparent 70%
     );
+
+  opacity:0.18;
 
   filter:
     blur(20px);
