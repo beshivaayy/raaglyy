@@ -2,21 +2,73 @@
    RAAGLYY - UPDATED WITH WORKING IMAGE URLS
    ========================================================= */
 
-const YOUTUBE_PLAYLIST_ID = "PLJRipbfj__b0"; // Apni real ID daalna
+const YOUTUBE_PLAYLIST_ID = "PLJRipbfj__b0";
+
+/* =========================================================
+   SVG DATA URI GENERATORS
+   ========================================================= */
+
+function svgToDataUri(svg) {
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+
+function createArtSvg(palette, symbol) {
+  const [c1, c2] = palette;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+    <defs>
+      <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="${c1}" />
+        <stop offset="100%" stop-color="${c2}" />
+      </linearGradient>
+      <radialGradient id="r" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1"/>
+        <stop offset="100%" stop-color="#000000" stop-opacity="0.3"/>
+      </radialGradient>
+    </defs>
+    <rect width="400" height="300" fill="url(#g)" />
+    <rect width="400" height="300" fill="url(#r)" />
+    <circle cx="200" cy="150" r="80" fill="none" stroke="${c2}" stroke-width="2" opacity="0.4" />
+    <circle cx="200" cy="150" r="60" fill="none" stroke="${c1}" stroke-width="1" opacity="0.3" />
+    <text x="200" y="165" font-family="'Noto Serif Devanagari', serif" font-size="48" text-anchor="middle" fill="#eee4d1" opacity="0.9" font-weight="bold">${symbol}</text>
+    <path d="M 50 250 Q 200 200 350 250" stroke="${c2}" fill="none" opacity="0.2" stroke-width="2"/>
+    <path d="M 50 260 Q 200 210 350 260" stroke="${c1}" fill="none" opacity="0.15" stroke-width="1"/>
+  </svg>`;
+  return svgToDataUri(svg);
+}
+
+function createBackgroundSvg(symbol, color1, color2) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="${color1}" />
+        <stop offset="100%" stop-color="${color2}" />
+      </linearGradient>
+      <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15"/>
+        <stop offset="100%" stop-color="#000000" stop-opacity="0.6"/>
+      </radialGradient>
+    </defs>
+    <rect width="1200" height="800" fill="url(#bg)" />
+    <rect width="1200" height="800" fill="url(#glow)" />
+    <circle cx="600" cy="400" r="300" fill="none" stroke="#c6a15a" stroke-width="2" opacity="0.2" />
+    <circle cx="600" cy="400" r="250" fill="none" stroke="#c6a15a" stroke-width="1" opacity="0.15" />
+    <text x="600" y="480" font-family="'Noto Serif Devanagari', serif" font-size="200" text-anchor="middle" fill="#eee4d1" opacity="0.08" font-weight="bold">${symbol}</text>
+  </svg>`;
+  return svgToDataUri(svg);
+}
 
 /* =========================================================
    BACKGROUND SLIDESHOW (7 MAJESTIC SANATAN IMAGES)
-   - Ab yeh URLs 100% working hain
    ========================================================= */
 
 const BACKGROUND_IMAGES = [
-  "https://i.imgur.com/3JYzK9R.jpg", // Ram Darbar (Illustrated)
-  "https://i.imgur.com/4mH5tWQ.jpg", // Krishna with Flute
-  "https://i.imgur.com/7qZxLpN.jpg", // Shiva (Nataraja)
-  "https://i.imgur.com/8pGdFwY.jpg", // Durga
-  "https://i.imgur.com/2vNcQbA.jpg", // Ganesha
-  "https://i.imgur.com/5nXjKcL.jpg", // Saraswati
-  "https://i.imgur.com/9wFmRcE.jpg"  // Lakshmi
+  createBackgroundSvg('ॐ', '#2a1e1a', '#5c3d2e'),
+  createBackgroundSvg('श्री', '#1e2a2a', '#3d5c4a'),
+  createBackgroundSvg('त्रिशूल', '#1e1a2a', '#4a3d5c'),
+  createBackgroundSvg('दुर्गा', '#2a1e2a', '#5c3d4a'),
+  createBackgroundSvg('गणेश', '#2a2a1e', '#5c5c3d'),
+  createBackgroundSvg('सरस्वती', '#1e2a3a', '#3d4a5c'),
+  createBackgroundSvg('लक्ष्मी', '#3a2a1e', '#5c4a3d')
 ];
 
 let bgIndex = 0;
@@ -32,52 +84,41 @@ cycleBackground();
 setInterval(cycleBackground, 12000);
 
 /* =========================================================
-   VISUAL ARTWORK SYSTEM (27 RAAGS - SAME WORKING URLS)
+   VISUAL ARTWORK SYSTEM (27 RAAGS)
    ========================================================= */
 
-// Sabhi raags ke liye images (ab yeh sab working hain)
-const IMG_RAMA = "https://i.imgur.com/3JYzK9R.jpg";
-const IMG_KRISHNA = "https://i.imgur.com/4mH5tWQ.jpg";
-const IMG_SHIVA = "https://i.imgur.com/7qZxLpN.jpg";
-const IMG_DURGA = "https://i.imgur.com/8pGdFwY.jpg";
-const IMG_GANESHA = "https://i.imgur.com/2vNcQbA.jpg";
-const IMG_SARASWATI = "https://i.imgur.com/5nXjKcL.jpg";
-const IMG_LAKSHMI = "https://i.imgur.com/9wFmRcE.jpg";
-const IMG_VISHNU = "https://i.imgur.com/1aBcDeF.jpg"; // Vishnu
-const IMG_NATARAJA = "https://i.imgur.com/6hKlMnP.jpg"; // Nataraja
-
 const artwork = [
-  { theme: "RAM DARBAR", palette: ["#6e241c", "#c69a54"], symbol: "श्रीराम", image: IMG_RAMA },
-  { theme: "DARBAR · GAMBHIR", palette: ["#261817", "#9b7548"], symbol: "राज", image: IMG_RAMA },
-  { theme: "SARANG · PRAKASHA", palette: ["#254438", "#c4a15c"], symbol: "सूर्य", image: IMG_SARASWATI },
-  { theme: "ASAVARI · TAPAS", palette: ["#35251d", "#a86635"], symbol: "तप", image: IMG_SHIVA },
-  { theme: "KRISHNA · MADHURYA", palette: ["#152f49", "#c49b54"], symbol: "कृष्ण", image: IMG_KRISHNA },
-  { theme: "HAMSADHWANI · MANGALA", palette: ["#173c36", "#c8a75f"], symbol: "ॐ", image: IMG_GANESHA },
-  { theme: "BHAIRAVI · BHAKTI", palette: ["#4b1d23", "#d2a55d"], symbol: "देवी", image: IMG_DURGA },
-  { theme: "ASAVARI · VAN", palette: ["#253326", "#a47b42"], symbol: "वन", image: IMG_VISHNU },
-  { theme: "TODI · VIRAH", palette: ["#3b281d", "#b17d45"], symbol: "विरह", image: IMG_SHIVA },
-  { theme: "KALYAN · JYOTI", palette: ["#202f4b", "#c7a461"], symbol: "ज्योति", image: IMG_LAKSHMI },
-  { theme: "POORVI · SANDHYA", palette: ["#34233b", "#b98255"], symbol: "संध्या", image: IMG_DURGA },
-  { theme: "NATARAJA · PRABHATA", palette: ["#35251b", "#bd914d"], symbol: "नृत्य", image: IMG_NATARAJA },
-  { theme: "VRINDAVAN · SARANG", palette: ["#173c3c", "#c4a05b"], symbol: "वृन्दावन", image: IMG_KRISHNA },
-  { theme: "SHUDDH KALYAN · SHANTI", palette: ["#263348", "#c5a76b"], symbol: "शान्ति", image: IMG_LAKSHMI },
-  { theme: "JAUNPURI · YATRA", palette: ["#34251d", "#ad7949"], symbol: "यात्रा", image: IMG_VISHNU },
-  { theme: "KIRWANI · RAATRI", palette: ["#171b30", "#9c7b52"], symbol: "रात्रि", image: IMG_SHIVA },
-  { theme: "NEELAMBARI · NIDRA", palette: ["#111d31", "#9c835a"], symbol: "निद्रा", image: IMG_KRISHNA },
-  { theme: "MALKAUNS · SHIVA", palette: ["#171819", "#9e7541"], symbol: "शिव", image: IMG_SHIVA },
-  { theme: "BHAIRAV · RUDRA", palette: ["#2a211d", "#b1844c"], symbol: "रुद्र", image: IMG_SHIVA },
-  { theme: "LALIT · BRAHMA MUHURTA", palette: ["#222d38", "#c5a76b"], symbol: "उषः", image: IMG_GANESHA },
-  { theme: "BHOOP · AKASHA", palette: ["#243348", "#c9aa67"], symbol: "आकाश", image: IMG_VISHNU },
-  { theme: "MADHUVANTI · MADHU", palette: ["#3d202b", "#bd8a55"], symbol: "मधु", image: IMG_KRISHNA },
-  { theme: "PILU · SHRINGARA", palette: ["#49242b", "#c19a60"], symbol: "रस", image: IMG_KRISHNA },
-  { theme: "SHIVRANJANI · KARUNA", palette: ["#25233a", "#a27f56"], symbol: "करुणा", image: IMG_SHIVA },
-  { theme: "JAIJAIWANTI · PREMA", palette: ["#3c2028", "#c5a064"], symbol: "प्रेम", image: IMG_VISHNU },
-  { theme: "KHAMAJ · MADHURYA", palette: ["#412027", "#c29658"], symbol: "माधुर्य", image: IMG_KRISHNA },
-  { theme: "TANPURA · NADA", palette: ["#241e19", "#c09a5c"], symbol: "नाद", image: IMG_SARASWATI }
-];
+  { theme: "RAM DARBAR", palette: ["#6e241c", "#c69a54"], symbol: "श्रीराम" },
+  { theme: "DARBAR · GAMBHIR", palette: ["#261817", "#9b7548"], symbol: "राज" },
+  { theme: "SARANG · PRAKASHA", palette: ["#254438", "#c4a15c"], symbol: "सूर्य" },
+  { theme: "ASAVARI · TAPAS", palette: ["#35251d", "#a86635"], symbol: "तप" },
+  { theme: "KRISHNA · MADHURYA", palette: ["#152f49", "#c49b54"], symbol: "कृष्ण" },
+  { theme: "HAMSADHWANI · MANGALA", palette: ["#173c36", "#c8a75f"], symbol: "ॐ" },
+  { theme: "BHAIRAVI · BHAKTI", palette: ["#4b1d23", "#d2a55d"], symbol: "देवी" },
+  { theme: "ASAVARI · VAN", palette: ["#253326", "#a47b42"], symbol: "वन" },
+  { theme: "TODI · VIRAH", palette: ["#3b281d", "#b17d45"], symbol: "विरह" },
+  { theme: "KALYAN · JYOTI", palette: ["#202f4b", "#c7a461"], symbol: "ज्योति" },
+  { theme: "POORVI · SANDHYA", palette: ["#34233b", "#b98255"], symbol: "संध्या" },
+  { theme: "NATARAJA · PRABHATA", palette: ["#35251b", "#bd914d"], symbol: "नृत्य" },
+  { theme: "VRINDAVAN · SARANG", palette: ["#173c3c", "#c4a05b"], symbol: "वृन्दावन" },
+  { theme: "SHUDDH KALYAN · SHANTI", palette: ["#263348", "#c5a76b"], symbol: "शान्ति" },
+  { theme: "JAUNPURI · YATRA", palette: ["#34251d", "#ad7949"], symbol: "यात्रा" },
+  { theme: "KIRWANI · RAATRI", palette: ["#171b30", "#9c7b52"], symbol: "रात्रि" },
+  { theme: "NEELAMBARI · NIDRA", palette: ["#111d31", "#9c835a"], symbol: "निद्रा" },
+  { theme: "MALKAUNS · SHIVA", palette: ["#171819", "#9e7541"], symbol: "शिव" },
+  { theme: "BHAIRAV · RUDRA", palette: ["#2a211d", "#b1844c"], symbol: "रुद्र" },
+  { theme: "LALIT · BRAHMA MUHURTA", palette: ["#222d38", "#c5a76b"], symbol: "उषः" },
+  { theme: "BHOOP · AKASHA", palette: ["#243348", "#c9aa67"], symbol: "आकाश" },
+  { theme: "MADHUVANTI · MADHU", palette: ["#3d202b", "#bd8a55"], symbol: "मधु" },
+  { theme: "PILU · SHRINGARA", palette: ["#49242b", "#c19a60"], symbol: "रस" },
+  { theme: "SHIVRANJANI · KARUNA", palette: ["#25233a", "#a27f56"], symbol: "करुणा" },
+  { theme: "JAIJAIWANTI · PREMA", palette: ["#3c2028", "#c5a064"], symbol: "प्रेम" },
+  { theme: "KHAMAJ · MADHURYA", palette: ["#412027", "#c29658"], symbol: "माधुर्य" },
+  { theme: "TANPURA · NADA", palette: ["#241e19", "#c09a5c"], symbol: "नाद" }
+].map(item => ({ ...item, image: createArtSvg(item.palette, item.symbol) }));
 
 /* =========================================================
-   BAQI KA SCRIPT (WESA HI HAI - YAHAN KOI CHANGE NAHI)
+   RAAG DATA
    ========================================================= */
 
 const raags = [
@@ -111,7 +152,7 @@ const raags = [
 ];
 
 /* =========================================================
-   DOM, RENDER, PLAYER ETC. (KOI CHANGE NAHI)
+   DOM, RENDER, PLAYER
    ========================================================= */
 
 const $ = selector => document.querySelector(selector);
@@ -157,8 +198,8 @@ function render() {
   $("#degree").textContent = `${devanagariIndex} / ${total}`;
   applyArtwork(index);
   $("#tags").innerHTML = r.tags.map(tag => `<span>${tag}</span>`).join("");
-  
-  // Planets, Rail, Archive (same as before)
+
+  // Planets
   $("#planets").innerHTML = "";
   const visibleCount = Math.min(raags.length, 9);
   for (let i = 0; i < visibleCount; i++) {
@@ -178,7 +219,8 @@ function render() {
     planet.addEventListener("click", () => selectRaag(actualIndex));
     $("#planets").appendChild(planet);
   }
-  
+
+  // Rail
   $("#rail").innerHTML = raags.map((r, i) => {
     const art = getArtwork(i);
     return `<button class="rail-item ${i === index ? "active" : ""}" data-i="${i}">
@@ -190,7 +232,8 @@ function render() {
   document.querySelectorAll(".rail-item").forEach(btn => {
     btn.addEventListener("click", () => selectRaag(Number(btn.dataset.i)));
   });
-  
+
+  // Archive drawer
   $("#archive").innerHTML = raags.map((r, i) => {
     return `<button class="${i === index ? "active" : ""}" data-i="${i}">
       <span>${devanagariNumber(i + 1)}</span> ${r.name}
